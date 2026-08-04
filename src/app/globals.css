@@ -1,26 +1,80 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+  --color-sunny-purple: #5a4187;
+  --color-sunny-purple-hover: #45326b;
+  --color-sunny-yellow: #ffd73c;
+  --color-sunny-black: #191f28;
+  --color-sunny-gray: #f2f4f6;
+  --color-sunny-border: #e5e8eb;
+  
+  --breakpoint-sm: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1200px;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #2e2050;
+  --foreground: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* Base styling for typography */
+h1, h2, h3, h4, h5, h6 {
+  /* color: var(--color-sunny-black); */
+}
+
+/* Utiltiy classes for layout and spacing */
+.container-pc {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@keyframes wave-orb-1 {
+  0%, 100% { transform: translate(-15%, 2%) scale(1); }
+  25% { transform: translate(10%, 5%) scale(1.05); }
+  50% { transform: translate(25%, 0%) scale(0.95); }
+  75% { transform: translate(5%, 8%) scale(1.02); }
+}
+@keyframes wave-orb-2 {
+  0%, 100% { transform: translate(20%, 0%) scale(1.1); }
+  33% { transform: translate(-10%, 5%) scale(0.95); }
+  66% { transform: translate(-25%, 2%) scale(1.05); }
+}
+@keyframes wave-orb-3 {
+  0%, 100% { transform: translate(-20%, 3%) scale(0.9); }
+  40% { transform: translate(15%, 8%) scale(1.1); }
+  70% { transform: translate(-5%, 0%) scale(0.95); }
+}
+@keyframes wave-purple-1 {
+  0%, 100% { transform: translate(-10%, 5%) scale(1); }
+  33% { transform: translate(5%, -5%) scale(1.05); }
+  66% { transform: translate(15%, 5%) scale(0.95); }
+}
+@keyframes wave-purple-2 {
+  0%, 100% { transform: translate(10%, 0%) scale(1.1); }
+  50% { transform: translate(-10%, -8%) scale(0.9); }
+}
+
+/* Gradient Mask Border utility for Glassmorphism Cards */
+.gradient-mask-border {
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
 }
