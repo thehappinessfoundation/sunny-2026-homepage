@@ -27,10 +27,22 @@ export default function ScholarPage() {
       <div className="w-full overflow-x-auto pb-4">
         <div className="min-w-[800px] grid grid-cols-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl overflow-hidden">
           {/* Headers */}
-          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/10">① 연구 준비</div>
-          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/10">② 연구 계획</div>
-          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/10">③ 연구 수행</div>
-          <div className="p-5 border-b border-white/10 font-bold text-white bg-white/10">④ 연구 아카이빙</div>
+          <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
+            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 01</span>
+            <span className="text-white font-bold text-base md:text-lg">연구 준비</span>
+          </div>
+          <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
+            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 02</span>
+            <span className="text-white font-bold text-base md:text-lg">연구 계획</span>
+          </div>
+          <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
+            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 03</span>
+            <span className="text-white font-bold text-base md:text-lg">연구 수행</span>
+          </div>
+          <div className="p-6 border-b border-white/10 bg-white/10 flex flex-col gap-1">
+            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 04</span>
+            <span className="text-white font-bold text-base md:text-lg">연구 아카이빙</span>
+          </div>
           
           {/* Content */}
           <div className="p-5 border-r border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
