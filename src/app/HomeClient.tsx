@@ -251,7 +251,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
       <section className="container-pc !max-w-[1000px]">
         <h2 className="text-3xl font-bold text-white mb-8">Sunny 함께하기</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 relative overflow-hidden h-[300px] flex flex-col justify-center group hover:bg-white/10 transition-colors shadow-lg">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 relative overflow-hidden transform-gpu h-[300px] flex flex-col justify-center group hover:bg-white/10 transition-colors shadow-lg">
             {/* Decorative gradient for glassmorphism */}
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-sunny-yellow rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
             
@@ -265,7 +265,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
             </Link>
           </div>
           
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 relative overflow-hidden h-[300px] flex flex-col justify-center group hover:bg-white/10 transition-colors shadow-lg">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 relative overflow-hidden transform-gpu h-[300px] flex flex-col justify-center group hover:bg-white/10 transition-colors shadow-lg">
             {/* Decorative gradient for glassmorphism */}
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-sunny-yellow rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
             
