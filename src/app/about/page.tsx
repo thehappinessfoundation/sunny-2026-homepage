@@ -55,13 +55,13 @@ export default function AboutPage() {
             desc: "팀원, 당사자, 이해관계자 등 낯설고 불편한 타인을 마주하며, 자신의 언어와 관점으로 설득하고 협업하는 경험을 합니다."
           }
         ].map((item, index) => (
-          <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-12 py-10 border-b border-white/10 group transition-all duration-500 hover:bg-white/[0.02] px-4 -mx-4 rounded-2xl">
-            <div className="md:w-1/3 flex flex-col gap-2 shrink-0">
-              <span className="text-sunny-yellow/90 text-sm font-bold">{item.num}</span>
-              <h3 className="text-xl font-bold text-white break-keep">{item.title}</h3>
+          <div key={index} className="flex flex-col md:flex-row gap-4 md:gap-12 pt-8 pb-12 border-b border-white/10 group transition-all duration-500 hover:bg-white/[0.02] px-4 -mx-4 rounded-2xl items-start">
+            <div className="md:w-1/3 flex flex-row items-start gap-4 shrink-0">
+              <span className="text-sunny-yellow/90 text-xl font-bold leading-tight">{item.num}</span>
+              <h3 className="text-xl font-bold text-white break-keep leading-tight">{item.title}</h3>
             </div>
             <div className="md:w-2/3 flex items-start">
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed break-keep mt-1">
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed break-keep mt-0.5">
                 {item.desc}
               </p>
             </div>
