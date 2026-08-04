@@ -7,40 +7,42 @@ export default function ScholarPage() {
         치열한 사회문제 정의와 철저한 현장 경험을 기반으로 소셜 섹터 내 현장 연구자로 성장할 수 있는 프로그램
       </p>
 
-      <div className="w-full aspect-video mb-20 rounded-2xl overflow-hidden bg-black/50 border border-white/5 shadow-xl">
-        <iframe 
-          width="100%" 
-          height="100%" 
-          src="https://www.youtube.com/embed/Fokp5z-W6LE" 
-          title="Sunny Scholar YouTube video player" 
-          frameBorder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerPolicy="strict-origin-when-cross-origin" 
-          allowFullScreen
-        ></iframe>
+      <div className="w-full aspect-video mb-20 rounded-3xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl p-2 md:p-4">
+        <div className="w-full h-full rounded-2xl overflow-hidden relative isolate transform-gpu">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            src="https://www.youtube.com/embed/Fokp5z-W6LE" 
+            title="Sunny Scholar YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerPolicy="strict-origin-when-cross-origin" 
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
 
       <h2 className="text-2xl font-bold text-white mb-6">커리큘럼</h2>
       
-      <div className="w-full overflow-x-auto">
-        <div className="min-w-[800px] grid grid-cols-4 border-l border-t border-white/10">
+      <div className="w-full overflow-x-auto pb-4">
+        <div className="min-w-[800px] grid grid-cols-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl overflow-hidden">
           {/* Headers */}
-          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/5">① 연구 준비</div>
-          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/5">② 연구 계획</div>
-          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/5">③ 연구 수행</div>
-          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/5">④ 연구 아카이빙</div>
+          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/10">① 연구 준비</div>
+          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/10">② 연구 계획</div>
+          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/10">③ 연구 수행</div>
+          <div className="p-5 border-b border-white/10 font-bold text-white bg-white/10">④ 연구 아카이빙</div>
           
           {/* Content */}
-          <div className="p-5 border-r border-b border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 border-r border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
             사회문제 원인 분석 교육(시스템 사고 등)과 현장 경험을 통해 연구 주제를 심층 탐색하고 해결할 문제를 정의
           </div>
-          <div className="p-5 border-r border-b border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 border-r border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
             문제 정의 자료를 바탕으로 가설을 설정하고 연구 수행 계획 수립
           </div>
-          <div className="p-5 border-r border-b border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 border-r border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
             현장에서 가설을 검증하고 수정하는 과정을 반복하며 해결 가능성을 높임
           </div>
-          <div className="p-5 border-r border-b border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
             연구 결과를 보고서로 정리하고 유사한 사회문제를 고민하는 대학생·기관과 공유
           </div>
         </div>
