@@ -67,10 +67,13 @@ export default function Header() {
               onMouseEnter={() => setActiveMenu(key)}
               onMouseLeave={() => setActiveMenu(null)}
             >
-              <button className="flex items-center gap-1 pl-3 pr-2 py-2 rounded-lg text-[15px] text-white/90 hover:text-white hover:bg-white/20 transition-all">
+              <Link 
+                href={submenus[0].href}
+                className="flex items-center gap-1 pl-3 pr-2 py-2 rounded-lg text-[15px] text-white/90 hover:text-white hover:bg-white/20 transition-all"
+              >
                 <span className="font-semibold">{key}</span>
                 <ChevronDown className="w-4 h-4 opacity-70" />
-              </button>
+              </Link>
               
               <AnimatePresence>
                 {activeMenu === key && (
@@ -137,7 +140,13 @@ export default function Header() {
               </div>
               {Object.entries(menus).map(([key, submenus]) => (
                 <div key={key} className="flex flex-col">
-                  <div className="font-bold text-white mb-2 px-2 text-lg">{key}</div>
+                  <Link 
+                    href={submenus[0].href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="font-bold text-white mb-2 px-2 text-lg block"
+                  >
+                    {key}
+                  </Link>
                   <div className="flex flex-col gap-1 pl-4">
                     {submenus.map((menu) => (
                       <Link 
