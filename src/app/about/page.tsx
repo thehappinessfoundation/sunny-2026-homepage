@@ -61,7 +61,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-bold text-white break-keep leading-tight">{item.title}</h3>
             </div>
             <div className="md:w-2/3 flex items-start">
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed break-keep mt-0.5">
+              <p className="text-gray-300 text-base md:text-lg leading-relaxed break-keep -mt-1 md:-mt-1.5">
                 {item.desc}
               </p>
             </div>
