@@ -17,7 +17,7 @@ export default function AboutPage() {
           <iframe 
             width="100%" 
             height="100%" 
-            src="https://www.youtube.com/embed/Fokp5z-W6LE" 
+            src="https://www.youtube.com/embed/d23NuJ3tZQE" 
             title="Sunny YouTube video player" 
             frameBorder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
