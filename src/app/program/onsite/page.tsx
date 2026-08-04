@@ -3,7 +3,7 @@ export default function OnsitePage() {
     <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col">
       <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">Sunny On-Site</h1>
       
-      <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-12">
+      <p className="text-base md:text-lg text-gray-300 leading-relaxed mb-12">
         직접 지역에 거주하며 긴 호흡으로 지역 문제를 관찰하고 탐색하는 현장기반 연구 프로그램
       </p>
 

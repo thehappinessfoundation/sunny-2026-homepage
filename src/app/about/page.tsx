@@ -4,11 +4,11 @@ export default function AboutPage() {
       <h1 className="text-4xl md:text-5xl font-bold text-white mb-10 text-left">About</h1>
       
       <div className="flex flex-col gap-6 mb-16">
-        <p className="text-lg md:text-xl text-gray-300 leading-relaxed break-keep">
+        <p className="text-base md:text-lg text-gray-300 leading-relaxed break-keep">
           2003년 시작된 SK 대학생 자원봉사단 Sunny는 급변하는 시대에 맞춰 대학생이 사회문제를 탐구하며<br />
           자신과 세상을 이해해 가는 경험을 설계하는 사업으로 탈바꿈했습니다.
         </p>
-        <p className="text-lg md:text-xl text-gray-300 leading-relaxed break-keep">
+        <p className="text-base md:text-lg text-gray-300 leading-relaxed break-keep">
           새롭게 변화한 Sunny는 대학과 사회에서 쉽게 만날 수 없는 '진짜 경험'을 통해 대학생의 성장을 이끌어갑니다.
         </p>
       </div>
