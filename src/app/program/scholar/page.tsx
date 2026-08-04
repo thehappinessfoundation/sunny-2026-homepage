@@ -1,7 +1,7 @@
 export default function ScholarPage() {
   return (
     <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col">
-      <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">Sunny Scholar</h1>
+      <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">Sunny Scholar</h1>
       
       <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-12">
         치열한 사회문제 정의와 철저한 현장 경험을 기반으로 소셜 섹터 내 현장 연구자로 성장할 수 있는 프로그램
