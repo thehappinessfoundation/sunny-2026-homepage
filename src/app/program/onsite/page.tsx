@@ -29,39 +29,39 @@ export default function OnsitePage() {
           {/* Headers */}
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
             <span className="text-sunny-yellow/90 text-xs font-bold">01</span>
-            <span className="text-white font-bold text-base md:text-lg">오리엔테이션</span>
+            <span className="text-white font-bold text-lg md:text-xl">오리엔테이션</span>
           </div>
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
             <span className="text-sunny-yellow/90 text-xs font-bold">02</span>
-            <span className="text-white font-bold text-base md:text-lg">Pre-field 온보딩</span>
+            <span className="text-white font-bold text-lg md:text-xl">Pre-field 온보딩</span>
           </div>
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
             <span className="text-sunny-yellow/90 text-xs font-bold">03</span>
-            <span className="text-white font-bold text-base md:text-lg break-keep">현장연구(직접 거주)</span>
+            <span className="text-white font-bold text-lg md:text-xl break-keep">현장연구(직접 거주)</span>
           </div>
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
             <span className="text-sunny-yellow/90 text-xs font-bold">04</span>
-            <span className="text-white font-bold text-base md:text-lg">문제정의 검증</span>
+            <span className="text-white font-bold text-lg md:text-xl">문제정의 검증</span>
           </div>
           <div className="p-6 border-b border-white/10 bg-white/10 flex flex-col gap-1">
             <span className="text-sunny-yellow/90 text-xs font-bold">05</span>
-            <span className="text-white font-bold text-base md:text-lg">연구 아카이빙</span>
+            <span className="text-white font-bold text-lg md:text-xl">연구 아카이빙</span>
           </div>
           
           {/* Content */}
-          <div className="p-5 border-r border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 border-r border-white/10 text-gray-300 text-xs md:text-sm leading-relaxed break-keep">
             팀빌딩 및 현장 예열
           </div>
-          <div className="p-5 border-r border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 border-r border-white/10 text-gray-300 text-xs md:text-sm leading-relaxed break-keep">
             지역 이해 및 문제 정의 훈련
           </div>
-          <div className="p-5 border-r border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 border-r border-white/10 text-gray-300 text-xs md:text-sm leading-relaxed break-keep">
             현장관찰·인터뷰·지역탐색
           </div>
-          <div className="p-5 border-r border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 border-r border-white/10 text-gray-300 text-xs md:text-sm leading-relaxed break-keep">
             데이터 분석 및 문제 검증
           </div>
-          <div className="p-5 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+          <div className="p-5 text-gray-300 text-xs md:text-sm leading-relaxed break-keep">
             연구결과 정리 및 공유
           </div>
         </div>
