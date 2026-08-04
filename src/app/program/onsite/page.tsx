@@ -49,19 +49,19 @@ export default function OnsitePage() {
           </div>
           
           {/* Content */}
-          <div className="p-6 border-r border-white/10 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
             팀빌딩 및 현장 예열
           </div>
-          <div className="p-6 border-r border-white/10 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
             지역 이해 및 문제 정의 훈련
           </div>
-          <div className="p-6 border-r border-white/10 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
             현장관찰·인터뷰·지역탐색
           </div>
-          <div className="p-6 border-r border-white/10 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
             데이터 분석 및 문제 검증
           </div>
-          <div className="p-6 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 text-gray-200 text-base leading-relaxed break-keep">
             연구결과 정리 및 공유
           </div>
         </div>

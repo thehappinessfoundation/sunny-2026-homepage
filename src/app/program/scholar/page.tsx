@@ -45,16 +45,16 @@ export default function ScholarPage() {
           </div>
           
           {/* Content */}
-          <div className="p-6 border-r border-white/10 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
             사회문제 원인 분석 교육(시스템 사고 등)과 현장 경험을 통해 연구 주제를 심층 탐색하고 해결할 문제를 정의
           </div>
-          <div className="p-6 border-r border-white/10 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
             문제 정의 자료를 바탕으로 가설을 설정하고 연구 수행 계획 수립
           </div>
-          <div className="p-6 border-r border-white/10 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
             현장에서 가설을 검증하고 수정하는 과정을 반복하며 해결 가능성을 높임
           </div>
-          <div className="p-6 text-gray-300 text-sm leading-relaxed break-keep">
+          <div className="p-6 text-gray-200 text-base leading-relaxed break-keep">
             연구 결과를 보고서로 정리하고 유사한 사회문제를 고민하는 대학생·기관과 공유
           </div>
         </div>
