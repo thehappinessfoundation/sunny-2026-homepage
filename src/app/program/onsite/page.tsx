@@ -28,23 +28,23 @@ export default function OnsitePage() {
         <div className="min-w-[800px] grid grid-cols-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl overflow-hidden">
           {/* Headers */}
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 01</span>
+            <span className="text-sunny-yellow/90 text-xs font-bold">01</span>
             <span className="text-white font-bold text-base md:text-lg">오리엔테이션</span>
           </div>
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 02</span>
+            <span className="text-sunny-yellow/90 text-xs font-bold">02</span>
             <span className="text-white font-bold text-base md:text-lg">Pre-field 온보딩</span>
           </div>
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 03</span>
+            <span className="text-sunny-yellow/90 text-xs font-bold">03</span>
             <span className="text-white font-bold text-base md:text-lg break-keep">현장연구(직접 거주)</span>
           </div>
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 04</span>
+            <span className="text-sunny-yellow/90 text-xs font-bold">04</span>
             <span className="text-white font-bold text-base md:text-lg">문제정의 검증</span>
           </div>
           <div className="p-6 border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold tracking-wider">STEP 05</span>
+            <span className="text-sunny-yellow/90 text-xs font-bold">05</span>
             <span className="text-white font-bold text-base md:text-lg">연구 아카이빙</span>
           </div>
           
