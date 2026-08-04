@@ -1,12 +1,50 @@
 export default function ScholarPage() {
   return (
-    <div className="w-full max-w-4xl mx-auto py-32 px-4 min-h-[70vh] flex flex-col items-center justify-center text-center">
+    <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col">
       <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">Sunny Scholar</h1>
-      <div className="w-20 h-1 bg-sunny-purple mb-8 rounded-full"></div>
-      <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl">
-        Sunny Scholar 프로그램에 대한 상세 안내 페이지를 준비 중입니다.<br/>
-        곧 찾아뵙겠습니다!
+      
+      <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-12">
+        치열한 사회문제 정의와 철저한 현장 경험을 기반으로 소셜 섹터 내 현장 연구자로 성장할 수 있는 프로그램
       </p>
+
+      <div className="w-full aspect-video mb-20 rounded-2xl overflow-hidden bg-black/50 border border-white/5 shadow-xl">
+        <iframe 
+          width="100%" 
+          height="100%" 
+          src="https://www.youtube.com/embed/Fokp5z-W6LE" 
+          title="Sunny Scholar YouTube video player" 
+          frameBorder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerPolicy="strict-origin-when-cross-origin" 
+          allowFullScreen
+        ></iframe>
+      </div>
+
+      <h2 className="text-2xl font-bold text-white mb-6">커리큘럼</h2>
+      
+      <div className="w-full overflow-x-auto">
+        <div className="min-w-[800px] grid grid-cols-4 border-l border-t border-white/10">
+          {/* Headers */}
+          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/5">① 연구 준비</div>
+          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/5">② 연구 계획</div>
+          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/5">③ 연구 수행</div>
+          <div className="p-5 border-r border-b border-white/10 font-bold text-white bg-white/5">④ 연구 아카이빙</div>
+          
+          {/* Content */}
+          <div className="p-5 border-r border-b border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+            사회문제 원인 분석 교육(시스템 사고 등)과 현장 경험을 통해 연구 주제를 심층 탐색하고 해결할 문제를 정의
+          </div>
+          <div className="p-5 border-r border-b border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+            문제 정의 자료를 바탕으로 가설을 설정하고 연구 수행 계획 수립
+          </div>
+          <div className="p-5 border-r border-b border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+            현장에서 가설을 검증하고 수정하는 과정을 반복하며 해결 가능성을 높임
+          </div>
+          <div className="p-5 border-r border-b border-white/10 text-gray-300 text-sm md:text-base leading-relaxed break-keep">
+            연구 결과를 보고서로 정리하고 유사한 사회문제를 고민하는 대학생·기관과 공유
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
