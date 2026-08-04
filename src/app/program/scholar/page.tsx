@@ -7,8 +7,8 @@ export default function ScholarPage() {
         치열한 사회문제 정의와 철저한 현장 경험을 기반으로 소셜 섹터 내 현장 연구자로 성장할 수 있는 프로그램
       </p>
 
-      <div className="w-full aspect-video mb-20 rounded-3xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl p-2 md:p-4">
-        <div className="w-full h-full rounded-2xl overflow-hidden relative isolate transform-gpu">
+      <div className="w-full aspect-video mb-20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/5 shadow-lg p-1.5 md:p-2">
+        <div className="w-full h-full rounded-xl overflow-hidden relative isolate transform-gpu">
           <iframe 
             width="100%" 
             height="100%" 
