@@ -25,7 +25,7 @@ export default function OnsitePage() {
       <h2 className="text-2xl font-bold text-white mb-6">커리큘럼</h2>
       
       <div className="w-full overflow-x-auto pb-4">
-        <div className="min-w-[800px] grid grid-cols-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl overflow-hidden">
+        <div className="min-w-[800px] grid grid-cols-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]">
           {/* Headers */}
           <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
             <span className="text-sunny-yellow/90 text-xs font-bold">01</span>
