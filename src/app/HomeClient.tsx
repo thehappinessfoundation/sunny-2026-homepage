@@ -77,12 +77,11 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
           </div>
           <div className="w-full md:w-auto md:absolute md:right-0 flex justify-end z-0 mt-16 md:mt-0 md:translate-y-12 pointer-events-none">
             <motion.img 
-              initial={{ opacity: 0, scale: 0.9, x: 30 }}
-              animate={{ opacity: 1, scale: 1.3, x: -30, y: 20 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               src="/main-illust.png" 
               alt="Sunny Illustration" 
-              className="w-[240px] md:w-[360px] lg:w-[440px] object-contain drop-shadow-2xl pointer-events-auto origin-right" 
+              className="w-[310px] md:w-[460px] lg:w-[570px] object-contain drop-shadow-2xl pointer-events-auto origin-right" 
             />
           </div>
         </div>
@@ -203,13 +202,15 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
       <section className="overflow-hidden py-20">
         <div className="container-pc !max-w-[1000px] mb-8 flex justify-between items-end">
           <div>
-            <img src="/alumni.png" alt="" className="w-48 md:w-64 h-auto mb-4 object-contain opacity-90 drop-shadow-lg" />
             <h2 className="text-3xl font-bold text-white mb-2">Sunny 알럼나이</h2>
             <p className="text-gray-200">세상의 변화를 이끄는 써니 크루들</p>
           </div>
-          <Link href="/impact/alumni" className="flex items-center text-sm font-semibold text-sunny-yellow hover:underline">
-            더 만나보기 <ChevronRight className="w-4 h-4 ml-1" />
-          </Link>
+          <div className="flex flex-col items-end">
+            <img src="/alumni.png" alt="" className="w-48 md:w-64 h-auto mb-4 object-contain opacity-90 drop-shadow-lg" />
+            <Link href="/impact/alumni" className="flex items-center text-sm font-semibold text-sunny-yellow hover:underline">
+              더 만나보기 <ChevronRight className="w-4 h-4 ml-1" />
+            </Link>
+          </div>
         </div>
         
         <div className="w-full max-w-[1400px] mx-auto relative overflow-hidden px-4 md:px-0">
