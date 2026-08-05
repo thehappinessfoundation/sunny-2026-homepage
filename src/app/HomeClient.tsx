@@ -80,7 +80,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
               initial={{ opacity: 0, scale: 0.9, x: 30 }}
               animate={{ opacity: 1, scale: 1.3, x: -30, y: 20 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              src="/illust/man1x.svg" 
+              src="/main-illust.png" 
               alt="Sunny Illustration" 
               className="w-[240px] md:w-[360px] lg:w-[440px] object-contain drop-shadow-2xl pointer-events-auto origin-right" 
             />
