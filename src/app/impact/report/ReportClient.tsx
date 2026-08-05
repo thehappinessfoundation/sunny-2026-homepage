@@ -121,8 +121,13 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
       {/* Featured Section (Apple-style horizontal scroll) */}
       {featuredProjects.length > 0 && (
         <div className="w-full mb-24 relative">
-          <div className="container-pc mb-8" ref={titleContainerRef}>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">주목할 만한 리포트</h1>
+          <div className="container-pc mb-8 relative" ref={titleContainerRef}>
+            <div className="relative z-10">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">주목할 만한 리포트</h1>
+            </div>
+            <div className="absolute right-4 md:right-8 top-0 -translate-y-[40%] hidden md:block z-0 pointer-events-none">
+              <img src="/report.png" alt="" className="h-[200px] lg:h-[250px] object-contain drop-shadow-xl opacity-90 mix-blend-lighten" />
+            </div>
           </div>
           
           <div 

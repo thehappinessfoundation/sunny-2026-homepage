@@ -29,7 +29,7 @@ export default async function NewsPage() {
             <p className="text-gray-300 text-lg">Sunny의 다양한 활동과 임팩트를 전해드립니다.</p>
           </div>
           <div className="absolute right-0 top-0 -translate-y-[40%] hidden md:block z-0 pointer-events-none">
-            <img src="/newsroom.png" alt="See the new" className="h-[250px] object-contain drop-shadow-xl opacity-90 mix-blend-lighten" />
+            <img src="/newsroom.png" alt="See the new" className="h-[500px] object-contain drop-shadow-xl opacity-90 mix-blend-lighten" />
           </div>
         </div>
         <NewsListClient articles={articles} />
