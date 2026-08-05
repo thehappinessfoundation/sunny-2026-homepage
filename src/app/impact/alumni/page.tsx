@@ -31,7 +31,7 @@ export default function AlumniPage() {
 
   return (
     <div className="container-pc py-12">
-      <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between">
+      <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between relative">
         <div className="text-center md:text-left">
           <div className="inline-flex items-center justify-center w-12 h-12 bg-sunny-yellow rounded-xl mb-4">
             <span className="text-2xl">👥</span>
@@ -39,8 +39,8 @@ export default function AlumniPage() {
           <h1 className="text-4xl font-bold text-sunny-black mb-4">함께하는 사람들</h1>
           <p className="text-lg text-gray-500">돕는 기술을 만드는 다양한 전문가들</p>
         </div>
-        <div className="hidden md:block">
-          <img src="/alumni_internal.png" alt="" className="h-32 lg:h-40 object-contain drop-shadow-xl opacity-90" />
+        <div className="absolute right-0 bottom-0 pointer-events-none opacity-80 md:opacity-100">
+          <img src="/alumni_internal.png" alt="" className="h-24 md:h-32 lg:h-40 object-contain drop-shadow-xl opacity-90" />
         </div>
       </div>
 

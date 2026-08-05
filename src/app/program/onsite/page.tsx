@@ -1,11 +1,17 @@
 export default function OnsitePage() {
   return (
     <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col">
-      <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">Sunny On-Site</h1>
-      
-      <p className="text-base md:text-lg text-gray-300 leading-relaxed mb-12">
-        직접 지역에 거주하며 긴 호흡으로 지역 문제를 관찰하고 탐색하는 현장기반 연구 프로그램
-      </p>
+      <div className="relative z-10 w-full mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">Sunny On-Site</h1>
+        
+        <p className="text-base md:text-lg text-gray-300 leading-relaxed md:w-2/3 break-keep">
+          직접 지역에 거주하며 긴 호흡으로 지역 문제를 관찰하고 탐색하는 현장기반 연구 프로그램
+        </p>
+
+        <div className="absolute right-0 top-0 -translate-y-[20%] z-0 pointer-events-none opacity-80">
+          <img src="/on-site.png" alt="" className="h-[120px] md:h-[180px] lg:h-[220px] object-contain drop-shadow-xl opacity-90" />
+        </div>
+      </div>
 
       <div className="w-full aspect-video mb-20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/5 shadow-lg p-1.5 md:p-2">
         <div className="w-full h-full rounded-xl overflow-hidden relative isolate transform-gpu">

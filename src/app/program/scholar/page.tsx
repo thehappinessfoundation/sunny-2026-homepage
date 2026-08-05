@@ -1,11 +1,17 @@
 export default function ScholarPage() {
   return (
     <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col">
-      <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">Sunny Scholar</h1>
-      
-      <p className="text-base md:text-lg text-gray-300 leading-relaxed mb-12">
-        치열한 사회문제 정의와 철저한 현장 경험을 기반으로 소셜 섹터 내 현장 연구자로 성장할 수 있는 프로그램
-      </p>
+      <div className="relative z-10 w-full mb-12">
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">Sunny Scholar</h1>
+        
+        <p className="text-base md:text-lg text-gray-300 leading-relaxed md:w-2/3 break-keep">
+          치열한 사회문제 정의와 철저한 현장 경험을 기반으로 소셜 섹터 내 현장 연구자로 성장할 수 있는 프로그램
+        </p>
+
+        <div className="absolute right-0 top-0 -translate-y-[20%] z-0 pointer-events-none opacity-80">
+          <img src="/scholar.png" alt="" className="h-[120px] md:h-[180px] lg:h-[220px] object-contain drop-shadow-xl opacity-90" />
+        </div>
+      </div>
 
       <div className="w-full aspect-video mb-20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/5 shadow-lg p-1.5 md:p-2">
         <div className="w-full h-full rounded-xl overflow-hidden relative isolate transform-gpu">
