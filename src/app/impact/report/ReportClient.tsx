@@ -121,7 +121,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
       {/* Featured Section (Apple-style horizontal scroll) */}
       {featuredProjects.length > 0 && (
         <div className="w-full mb-24 relative">
-          <div className="container-pc !max-w-[1000px] mb-8" ref={titleContainerRef}>
+          <div className="container-pc mb-8" ref={titleContainerRef}>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">주목할 만한 리포트</h1>
           </div>
           
@@ -175,7 +175,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
           </div>
 
           {/* Carousel Controls */}
-          <div className="container-pc !max-w-[1000px] mt-4 flex items-center justify-between">
+          <div className="container-pc mt-4 flex items-center justify-between">
             <button 
               onClick={() => setIsPlaying(!isPlaying)} 
               className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/5 flex items-center justify-center text-white transition-colors"
@@ -196,7 +196,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
       )}
 
       {/* All Reports Section */}
-      <div className="container-pc !max-w-[1000px]">
+      <div className="container-pc">
         <div className="flex flex-col md:flex-row md:items-center mb-12 gap-6">
           <h2 className="text-3xl font-bold text-white">전체 리포트</h2>
           
