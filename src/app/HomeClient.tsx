@@ -203,7 +203,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
       <section className="overflow-hidden py-20">
         <div className="container-pc !max-w-[1000px] mb-8 flex justify-between items-end">
           <div>
-            <img src="/alumni.png" alt="" className="w-24 md:w-32 h-auto mb-4 object-contain opacity-90 drop-shadow-lg" />
+            <img src="/alumni.png" alt="" className="w-48 md:w-64 h-auto mb-4 object-contain opacity-90 drop-shadow-lg" />
             <h2 className="text-3xl font-bold text-white mb-2">Sunny 알럼나이</h2>
             <p className="text-gray-200">세상의 변화를 이끄는 써니 크루들</p>
           </div>
