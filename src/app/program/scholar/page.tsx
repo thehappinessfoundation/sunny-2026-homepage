@@ -9,7 +9,7 @@ export default function ScholarPage() {
         </p>
 
         <div className="absolute right-0 top-0 -translate-y-[40%] md:-translate-y-[50%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
-          <img src="/scholar.png" alt="" className="h-[300px] md:h-[450px] lg:h-[550px] object-contain drop-shadow-xl opacity-90" />
+          <img src="/on-site.png" alt="" className="h-[300px] md:h-[450px] lg:h-[550px] object-contain drop-shadow-xl opacity-90" />
         </div>
       </div>
 
