@@ -120,13 +120,10 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
     <div className="py-12">
       {/* Featured Section (Apple-style horizontal scroll) */}
       {featuredProjects.length > 0 && (
-        <div className="w-full mb-24 relative">
+        <div className="w-full mb-[120px] md:mb-[240px] relative">
           <div className="container-pc mb-8 relative" ref={titleContainerRef}>
             <div className="relative z-10">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">주목할 만한 리포트</h1>
-            </div>
-            <div className="absolute right-4 md:right-8 top-0 -translate-y-[40%] md:-translate-y-[50%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
-              <img src="/report.png" alt="" className="h-[300px] md:h-[500px] lg:h-[600px] object-contain drop-shadow-xl opacity-90" />
             </div>
           </div>
           
@@ -201,8 +198,12 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
       )}
 
       {/* All Reports Section */}
-      <div className="container-pc">
-        <div className="flex flex-col md:flex-row md:items-center mb-12 gap-6">
+      <div className="container-pc relative">
+        <div className="absolute right-0 md:right-8 bottom-full translate-y-[20%] md:translate-y-[30%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
+          <img src="/report.png" alt="" className="h-[270px] md:h-[450px] lg:h-[540px] object-contain drop-shadow-xl opacity-90" />
+        </div>
+        
+        <div className="flex flex-col md:flex-row md:items-center mb-12 gap-6 relative z-10">
           <h2 className="text-3xl font-bold text-white">전체 리포트</h2>
           
           {/* Program Toggle */}
