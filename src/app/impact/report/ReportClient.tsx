@@ -125,7 +125,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
             <div className="relative z-10">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">주목할 만한 리포트</h1>
             </div>
-            <div className="absolute right-4 md:right-8 top-0 -translate-y-[20%] md:-translate-y-[40%] z-0 pointer-events-none opacity-80">
+            <div className="absolute right-4 md:right-8 top-0 -translate-y-[20%] md:-translate-y-[40%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
               <img src="/report.png" alt="" className="h-[120px] md:h-[200px] lg:h-[250px] object-contain drop-shadow-xl opacity-90" />
             </div>
           </div>
