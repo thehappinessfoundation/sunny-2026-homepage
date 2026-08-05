@@ -8,8 +8,8 @@ export default function ScholarPage() {
           치열한 사회문제 정의와 철저한 현장 경험을 기반으로 소셜 섹터 내 현장 연구자로 성장할 수 있는 프로그램
         </p>
 
-        <div className="absolute right-0 top-0 -translate-y-[20%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
-          <img src="/scholar.png" alt="" className="h-[120px] md:h-[180px] lg:h-[220px] object-contain drop-shadow-xl opacity-90" />
+        <div className="absolute right-0 top-0 -translate-y-[40%] md:-translate-y-[50%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
+          <img src="/scholar.png" alt="" className="h-[300px] md:h-[450px] lg:h-[550px] object-contain drop-shadow-xl opacity-90" />
         </div>
       </div>
 
