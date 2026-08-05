@@ -200,7 +200,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
       {/* All Reports Section */}
       <div className="container-pc relative">
         <div className="absolute right-0 md:right-8 bottom-full translate-y-[20%] md:translate-y-[30%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
-          <img src="/report.png" alt="" className="h-[270px] md:h-[450px] lg:h-[540px] object-contain drop-shadow-xl opacity-90" />
+          <img src="/report.png" alt="" className="h-[220px] md:h-[360px] lg:h-[440px] object-contain drop-shadow-xl opacity-90" />
         </div>
         
         <div className="flex flex-col md:flex-row md:items-center mb-12 gap-6 relative z-10">
