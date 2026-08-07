@@ -13,10 +13,7 @@ export default function Footer() {
         </div>
         <div className="flex space-x-12">
           <div>
-            <h3 className="font-semibold text-black mb-4">소개</h3>
-            <ul className="space-y-2 text-sm text-black/70">
-              <li><Link href="/about" className="hover:text-black transition-colors">소개</Link></li>
-            </ul>
+            <Link href="/about" className="font-semibold text-black mb-4 block hover:opacity-70 transition-opacity">소개</Link>
           </div>
           <div>
             <h3 className="font-semibold text-black mb-4">프로그램</h3>
@@ -27,17 +24,10 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-black mb-4">임팩트</h3>
-            <ul className="space-y-2 text-sm text-black/70">
-              <li><Link href="/impact/report" className="hover:text-black transition-colors">리포트</Link></li>
-              <li><Link href="/impact/alumni" className="hover:text-black transition-colors">알럼나이</Link></li>
-            </ul>
+            <Link href="/impact/report" className="font-semibold text-black mb-4 block hover:opacity-70 transition-opacity">리포트</Link>
           </div>
           <div>
-            <h3 className="font-semibold text-black mb-4">뉴스룸</h3>
-            <ul className="space-y-2 text-sm text-black/70">
-              <li><Link href="/news" className="hover:text-black transition-colors">뉴스룸</Link></li>
-            </ul>
+            <Link href="/news" className="font-semibold text-black mb-4 block hover:opacity-70 transition-opacity">뉴스룸</Link>
           </div>
         </div>
       </div>

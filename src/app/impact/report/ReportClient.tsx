@@ -68,7 +68,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
     return matchCategory && matchCohort && matchProgram && matchSearch;
   });
 
-  const [paddingOffset, setPaddingOffset] = useState<string>('calc(max(20px, (100vw - 1200px) / 2 + 20px))');
+  const [paddingOffset, setPaddingOffset] = useState<string>('calc(max(20px, (100vw - 1000px) / 2 + 20px))');
   const titleContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -121,7 +121,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
       {/* Featured Section (Apple-style horizontal scroll) */}
       {featuredProjects.length > 0 && (
         <div className="w-full mb-[120px] md:mb-[240px] relative">
-          <div className="container-pc mb-8 relative" ref={titleContainerRef}>
+          <div className="container-pc !max-w-[1000px] mb-8 relative" ref={titleContainerRef}>
             <div className="relative z-10">
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">주목할 만한 리포트</h1>
             </div>
@@ -141,7 +141,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
               <div 
                 key={p._id} 
                 onClick={() => setSelectedProject(p)}
-                className="shrink-0 w-[85vw] md:w-[568px] h-[350px] md:h-[360px] snap-start relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg"
+                className="shrink-0 w-[85vw] md:w-[460px] lg:w-[480px] h-[350px] md:h-[360px] snap-start relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg"
               >
                 {/* Gradient Border Mask (Glassmorphism tone) */}
                 <div className="absolute inset-0 rounded-3xl p-[1.5px] bg-gradient-to-br from-white/20 via-white/5 to-transparent gradient-mask-border pointer-events-none z-20" />
@@ -177,7 +177,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
           </div>
 
           {/* Carousel Controls */}
-          <div className="container-pc mt-4 flex items-center justify-between">
+          <div className="container-pc !max-w-[1000px] mt-4 flex items-center justify-between">
             <button 
               onClick={() => setIsPlaying(!isPlaying)} 
               className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/5 flex items-center justify-center text-white transition-colors"
@@ -198,9 +198,9 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
       )}
 
       {/* All Reports Section */}
-      <div className="container-pc relative">
-        <div className="absolute right-0 md:right-8 bottom-full translate-y-[20%] md:translate-y-[30%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
-          <img src="/report.png" alt="" className="h-[220px] md:h-[360px] lg:h-[440px] object-contain drop-shadow-xl opacity-90" />
+      <div className="container-pc !max-w-[1000px] relative">
+        <div className="absolute left-full ml-4 md:ml-12 top-[120px] md:top-[180px] lg:top-[200px] z-0 pointer-events-none w-[280px] md:w-[460px] lg:w-[560px]">
+          <img src="/report.svg" alt="" className="w-full h-full object-contain drop-shadow-2xl max-w-none" />
         </div>
         
         <div className="flex flex-col md:flex-row md:items-center mb-12 gap-6 relative z-10">

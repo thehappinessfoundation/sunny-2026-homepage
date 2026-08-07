@@ -46,29 +46,34 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 20px;
 }
 @keyframes wave-orb-1 {
-  0%, 100% { transform: translate(-15%, 2%) scale(1); }
-  25% { transform: translate(10%, 5%) scale(1.05); }
-  50% { transform: translate(25%, 0%) scale(0.95); }
-  75% { transform: translate(5%, 8%) scale(1.02); }
+  0% { transform: translate(-5%, 2%) scale(1) rotate(0deg); }
+  33% { transform: translate(5%, 10%) scale(1.05) rotate(5deg); }
+  66% { transform: translate(10%, -6%) scale(0.95) rotate(2deg); }
+  100% { transform: translate(-5%, 2%) scale(1) rotate(0deg); }
 }
 @keyframes wave-orb-2 {
-  0%, 100% { transform: translate(20%, 0%) scale(1.1); }
-  33% { transform: translate(-10%, 5%) scale(0.95); }
-  66% { transform: translate(-25%, 2%) scale(1.05); }
+  0% { transform: translate(10%, 6%) scale(1) rotate(0deg); }
+  33% { transform: translate(-5%, -7%) scale(1.02) rotate(-5deg); }
+  66% { transform: translate(-15%, 12%) scale(0.98) rotate(-10deg); }
+  100% { transform: translate(10%, 6%) scale(1) rotate(0deg); }
 }
 @keyframes wave-orb-3 {
-  0%, 100% { transform: translate(-20%, 3%) scale(0.9); }
-  40% { transform: translate(15%, 8%) scale(1.1); }
-  70% { transform: translate(-5%, 0%) scale(0.95); }
+  0% { transform: translate(-10%, 4%) scale(1) rotate(0deg); }
+  33% { transform: translate(5%, 12%) scale(1.05) rotate(8deg); }
+  66% { transform: translate(15%, -6%) scale(0.95) rotate(-2deg); }
+  100% { transform: translate(-10%, 4%) scale(1) rotate(0deg); }
 }
 @keyframes wave-purple-1 {
-  0%, 100% { transform: translate(-10%, 5%) scale(1); }
-  33% { transform: translate(5%, -5%) scale(1.05); }
-  66% { transform: translate(15%, 5%) scale(0.95); }
+  0% { transform: translate(-2%, 2%) scale(1) rotate(0deg); }
+  33% { transform: translate(5%, -2%) scale(1.02) rotate(3deg); }
+  66% { transform: translate(8%, 3%) scale(0.98) rotate(5.5deg); }
+  100% { transform: translate(-2%, 2%) scale(1) rotate(0deg); }
 }
 @keyframes wave-purple-2 {
-  0%, 100% { transform: translate(10%, 0%) scale(1.1); }
-  50% { transform: translate(-10%, -8%) scale(0.9); }
+  0% { transform: translate(2%, -1%) scale(1) rotate(0deg); }
+  33% { transform: translate(-5%, 2%) scale(1.02) rotate(-5.5deg); }
+  66% { transform: translate(-8%, -2%) scale(0.98) rotate(-3deg); }
+  100% { transform: translate(2%, -1%) scale(1) rotate(0deg); }
 }
 
 /* Gradient Mask Border utility for Glassmorphism Cards */

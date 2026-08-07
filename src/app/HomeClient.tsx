@@ -79,7 +79,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
             <motion.img 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              src="/main-illust.png" 
+              src="/main-illust.svg" 
               alt="Sunny Illustration" 
               className="w-[310px] md:w-[460px] lg:w-[570px] object-contain drop-shadow-2xl pointer-events-auto origin-right" 
             />
@@ -194,57 +194,6 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* [섹션 3] Sunny 알럼나이 (Marquee) */}
-      <section className="overflow-hidden py-20">
-        <div className="container-pc !max-w-[1000px] mb-8 flex justify-between items-end">
-          <div>
-            <h2 className="text-3xl font-bold text-white mb-2">Sunny 알럼나이</h2>
-            <p className="text-gray-200">세상의 변화를 이끄는 써니 크루들</p>
-          </div>
-          <div className="flex flex-col items-end">
-            <img src="/alumni.png" alt="" className="w-48 md:w-64 h-auto mb-4 object-contain opacity-90 drop-shadow-lg" />
-            <Link href="/impact/alumni" className="flex items-center text-sm font-semibold text-sunny-yellow hover:underline">
-              더 만나보기 <ChevronRight className="w-4 h-4 ml-1" />
-            </Link>
-          </div>
-        </div>
-        
-        <div className="w-full max-w-[1400px] mx-auto relative overflow-hidden px-4 md:px-0">
-          {/* Left Gradient Overlay */}
-          <div className="absolute top-0 left-0 bottom-0 w-[150px] md:w-[350px] bg-gradient-to-r from-[#2e2050] via-[#2e2050]/80 to-transparent z-10 pointer-events-none" />
-          
-          {/* Right Gradient Overlay */}
-          <div className="absolute top-0 right-0 bottom-0 w-[150px] md:w-[350px] bg-gradient-to-l from-[#2e2050] via-[#2e2050]/80 to-transparent z-10 pointer-events-none" />
-          
-          <div className="flex relative">
-            <motion.div 
-              className="flex gap-6 cursor-pointer"
-              animate={marqueeControls}
-              onViewportEnter={startMarquee}
-              onMouseEnter={stopMarquee}
-              onMouseLeave={startMarquee}
-            >
-              {/* Duplicated for infinite effect */}
-              {[...Array(10)].map((_, i) => (
-                <div key={i} className="relative min-w-[300px] h-[400px] rounded-2xl p-6 flex flex-col justify-between overflow-hidden group backdrop-blur-md bg-white/5 shadow-sm transition-colors hover:bg-white/10">
-                  {/* Subtle Gradient Border Mask */}
-                  <div className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-br from-white/20 via-white/5 to-transparent gradient-mask-border pointer-events-none z-0" />
-                  
-                  <div className="relative z-10">
-                    <div className="w-20 h-20 bg-sunny-yellow/20 rounded-full mb-4 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-sunny-yellow rounded-full shadow-inner" />
-                    </div>
-                    <h4 className="font-bold text-lg text-white mb-1">홍길동 {i}</h4>
-                    <p className="text-sunny-yellow text-sm font-medium mb-4">사회혁신가</p>
-                    <p className="text-gray-300 text-sm leading-relaxed">"디지털 기술 개발에 관심을 가지고 자폐장애를 가진 사람을 위한 디지털 기술을 연구합니다."</p>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
           </div>
         </div>
       </section>

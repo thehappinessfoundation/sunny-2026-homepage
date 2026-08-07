@@ -7,24 +7,20 @@ export default function OnsitePage() {
         <p className="text-base md:text-lg text-gray-300 leading-relaxed md:w-2/3 break-keep">
           직접 지역에 거주하며 긴 호흡으로 지역 문제를 관찰하고 탐색하는 현장기반 연구 프로그램
         </p>
-
-        <div className="absolute right-0 top-0 -translate-y-[40%] md:-translate-y-[50%] z-0 pointer-events-none opacity-80 mix-blend-lighten">
-          <img src="/scholar.png" alt="" className="h-[300px] md:h-[450px] lg:h-[550px] object-contain drop-shadow-xl opacity-90" />
-        </div>
       </div>
 
-      <div className="w-full aspect-video mb-20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/5 shadow-lg p-1.5 md:p-2">
-        <div className="w-full h-full rounded-xl overflow-hidden relative isolate transform-gpu">
-          <iframe 
-            width="100%" 
-            height="100%" 
-            src="https://www.youtube.com/embed/HcE8KsFfryw" 
-            title="Sunny On-Site YouTube video player" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerPolicy="strict-origin-when-cross-origin" 
-            allowFullScreen
-          ></iframe>
+      <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
+        <div className="w-full md:w-1/2 flex flex-col gap-6 relative z-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-white">Sunny On-Site란?</h2>
+          <p className="text-gray-300 leading-relaxed break-keep">
+            Sunny On-Site는 청년들이 직접 지역 사회에 거주하며 그들의 삶 속으로 깊이 들어가 실질적인 문제를 발굴하고 해결책을 연구하는 실천형 프로그램입니다. 지역 주민과의 긴밀한 소통을 통해 단편적인 지원을 넘어 지역의 근본적인 변화를 이끌어내는 데 중점을 둡니다.
+          </p>
+          <p className="text-gray-300 leading-relaxed break-keep">
+            단기적인 프로젝트가 아닌 긴 호흡으로 현장 중심의 연구를 진행하며, 참가자 스스로 주도적인 역할을 수행함으로써 현장의 진정한 혁신가로 성장하는 특별한 여정이 될 것입니다.
+          </p>
+        </div>
+        <div className="w-full md:w-1/2 flex justify-center md:justify-end z-0 pointer-events-none">
+          <img src="/on-site.svg" alt="Sunny On-Site Illustration" className="h-[330px] md:h-[440px] lg:h-[550px] object-contain drop-shadow-xl" />
         </div>
       </div>
 
@@ -70,6 +66,22 @@ export default function OnsitePage() {
           <div className="p-6 text-gray-200 text-base leading-relaxed break-keep">
             연구결과 정리 및 공유
           </div>
+        </div>
+      </div>
+
+      <h2 className="text-2xl font-bold text-white mt-20 mb-6">프로그램 영상</h2>
+      <div className="w-full aspect-video mb-20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/5 shadow-lg p-1.5 md:p-2">
+        <div className="w-full h-full rounded-xl overflow-hidden relative isolate transform-gpu">
+          <iframe 
+            width="100%" 
+            height="100%" 
+            src="https://www.youtube.com/embed/HcE8KsFfryw" 
+            title="Sunny On-Site YouTube video player" 
+            frameBorder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerPolicy="strict-origin-when-cross-origin" 
+            allowFullScreen
+          ></iframe>
         </div>
       </div>
     </div>

@@ -25,10 +25,6 @@ export default function Header() {
       { name: 'On-site', href: '/program/onsite' },
       { name: '자주 묻는 질문', href: '/faq' },
     ],
-    '임팩트': [
-      { name: '리포트', href: '/impact/report' },
-      { name: '알럼나이', href: '/impact/alumni' },
-    ],
   };
 
   const showBg = scrolled || isHovered;
@@ -99,6 +95,11 @@ export default function Header() {
             </div>
           ))}
           <div className="flex items-center h-[58px]">
+            <Link href="/impact/report" className="flex items-center px-3 py-2 rounded-lg font-semibold text-[15px] text-white/90 hover:text-white hover:bg-white/20 transition-all">
+              리포트
+            </Link>
+          </div>
+          <div className="flex items-center h-[58px]">
             <Link href="/news" className="flex items-center px-3 py-2 rounded-lg font-semibold text-[15px] text-white/90 hover:text-white hover:bg-white/20 transition-all">
               뉴스룸
             </Link>
@@ -162,6 +163,13 @@ export default function Header() {
                 </div>
               ))}
               <div className="pt-4 border-t border-white/10">
+                <Link 
+                  href="/impact/report" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-bold text-white px-2 py-2 text-lg block"
+                >
+                  리포트
+                </Link>
                 <Link 
                   href="/news" 
                   onClick={() => setMobileMenuOpen(false)}

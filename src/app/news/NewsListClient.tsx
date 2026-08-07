@@ -15,7 +15,7 @@ export default function NewsListClient({ articles }: { articles: any[] }) {
   return (
     <div>
       {/* Category Tabs */}
-      <div className="flex flex-wrap gap-6 mb-16 border-b border-white/10 pb-4">
+      <div className="relative flex flex-wrap gap-6 mb-16 border-b border-white/10 pb-4">
         {CATEGORIES.map(category => (
           <button
             key={category}
@@ -27,6 +27,11 @@ export default function NewsListClient({ articles }: { articles: any[] }) {
             {category}
           </button>
         ))}
+
+        {/* 일러스트레이션: 크기 80% (h-[320px]), 선 위로 살짝 여백(bottom-2) */}
+        <div className="absolute right-4 md:right-12 lg:right-20 bottom-2 z-0 pointer-events-none">
+          <img src="/newsroom.svg" alt="See the new" className="h-[160px] md:h-[320px] object-contain drop-shadow-xl" />
+        </div>
       </div>
 
       {/* Article List */}

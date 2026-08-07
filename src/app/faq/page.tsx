@@ -20,7 +20,7 @@ export default async function FAQPage() {
   return (
     <div className="min-h-screen pt-16 relative overflow-hidden">
       <div className="absolute right-0 top-[20%] md:top-[30%] z-0 pointer-events-none opacity-80 mix-blend-lighten translate-x-[10%]">
-        <img src="/faq.png" alt="" className="h-[400px] md:h-[600px] lg:h-[800px] object-contain drop-shadow-2xl" />
+        <img src="/faq.svg" alt="" className="h-[400px] md:h-[600px] lg:h-[800px] object-contain drop-shadow-2xl" />
       </div>
       <div className="relative z-10">
         <FaqClient initialFaqs={faqs} />
