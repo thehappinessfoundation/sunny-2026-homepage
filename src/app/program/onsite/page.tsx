@@ -21,7 +21,7 @@ export default function OnsitePage() {
           </p>
         </div>
         <div className="w-full md:w-1/2 flex justify-center md:justify-end z-0 pointer-events-none">
-          <img src="/on-site.svg" alt="Sunny On-Site Illustration" className="h-[330px] md:h-[440px] lg:h-[550px] object-contain drop-shadow-xl" />
+          <img src="/on-site.svg" alt="Sunny On-Site Illustration" className="h-[330px] md:h-[440px] lg:h-[550px] object-contain drop-shadow-xl translate-y-4 md:translate-y-8" />
         </div>
       </div>
 
