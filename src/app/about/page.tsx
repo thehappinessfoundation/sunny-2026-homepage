@@ -61,7 +61,7 @@ export default function AboutPage() {
                 <span className="text-sunny-yellow/90 text-xl font-bold leading-tight">{item.num}</span>
                 <h3 className="text-xl font-bold text-white break-keep leading-tight">{item.title}</h3>
               </div>
-              <div className="md:w-2/3 flex items-start">
+              <div className="md:w-2/3 flex items-start md:pr-32 lg:pr-64 xl:pr-80">
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed break-keep -mt-1 md:-mt-1.5">
                   {item.desc}
                 </p>

@@ -115,7 +115,7 @@ export default function FaqClient({ initialFaqs }: { initialFaqs: Faq[] }) {
               )}
               <div className="flex flex-col gap-8">
                 {group.faqs.map(faq => (
-                  <div key={faq._id} className="flex flex-col gap-3 pb-8 border-b border-white/10 last:border-0 last:pb-0">
+                  <div key={faq._id} className="flex flex-col gap-3 pb-8 border-b border-white/10 last:border-0 last:pb-0 md:pr-40 lg:pr-72 relative z-20">
                     <h3 className="text-lg md:text-xl font-bold text-white flex items-start gap-2">
                       <span className="text-sunny-yellow shrink-0">Q.</span> 
                       <span>{faq.question}</span>
