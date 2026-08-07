@@ -15,6 +15,17 @@ type Project = {
   slug?: string;
   thumbnailUrl?: string;
   isMainFeatured?: boolean;
+  teamMembers?: string;
+  problemDetail?: string;
+  researchTarget?: string;
+  researchTopic?: string;
+  problemCauses?: string[];
+  solution?: string;
+  vision?: string;
+  visionSlideshow?: string[];
+  additionalImages?: string[];
+  reportLink?: string;
+  reportPdfUrl?: string;
 };
 
 const categoryMap: Record<string, string> = {
@@ -52,7 +63,13 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  const featuredProjects = initialProjects.filter(p => p.isMainFeatured);
+  let featuredProjects = initialProjects.filter(p => p.isMainFeatured);
+  if (featuredProjects.length < 5) {
+    const remaining = initialProjects.filter(p => !p.isMainFeatured);
+    featuredProjects = [...featuredProjects, ...remaining].slice(0, 5);
+  } else {
+    featuredProjects = featuredProjects.slice(0, 5);
+  }
   
   const filteredProjects = initialProjects.filter(p => {
     const matchCategory = activeCategory === 'all' || p.category === activeCategory;
@@ -199,8 +216,8 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
 
       {/* All Reports Section */}
       <div className="container-pc !max-w-[1000px] relative">
-        <div className="absolute left-full ml-4 md:ml-12 top-[120px] md:top-[180px] lg:top-[200px] z-0 pointer-events-none w-[280px] md:w-[460px] lg:w-[560px]">
-          <img src="/report.svg" alt="" className="w-full h-full object-contain drop-shadow-2xl max-w-none" />
+        <div className="absolute right-full mr-4 md:mr-12 top-[-20px] md:top-[0px] lg:top-[20px] z-0 pointer-events-none w-[280px] md:w-[460px] lg:w-[560px]">
+          <img src="/report.svg" alt="" className="w-full h-full object-contain drop-shadow-2xl max-w-none scale-x-[-1]" />
         </div>
         
         <div className="flex flex-col md:flex-row md:items-center mb-12 gap-6 relative z-10">
@@ -374,7 +391,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                     {selectedProject.team} 팀
                   </p>
                   <p className="text-sm md:text-base text-gray-500">
-                    팀원 | 홍길동, 김철수, 이영희 (추후 데이터 연동)
+                    팀원 | {selectedProject.teamMembers || "홍길동, 김철수, 이영희 (데이터 연동 필요)"}
                   </p>
                 </div>
 
@@ -386,9 +403,9 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                   </h3>
                   
                   {/* Text */}
-                  <div className="text-gray-400 text-base md:text-lg leading-relaxed space-y-4 mb-10">
+                  <div className="text-gray-400 text-base md:text-lg leading-relaxed space-y-4 mb-10 whitespace-pre-wrap">
                     <p>{selectedProject.shortDescription}</p>
-                    <p>본 프로젝트는 해당 문제의 핵심 원인을 분석하고, 실제 현장과 유사한 조건에서 반복적으로 적용할 수 있는 실질적인 솔루션을 개발하는 데 집중했습니다.</p>
+                    <p>{selectedProject.problemDetail || "본 프로젝트는 해당 문제의 핵심 원인을 분석하고, 실제 현장과 유사한 조건에서 반복적으로 적용할 수 있는 실질적인 솔루션을 개발하는 데 집중했습니다."}</p>
                   </div>
 
                   {/* Grid / Table Section */}
@@ -396,69 +413,129 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                     {/* Row 1 */}
                     <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-b border-white/5 pb-6">
                       <div className="text-gray-500 font-semibold min-w-[120px]">연구 대상</div>
-                      <div className="text-gray-200">해당 사회 문제의 직접적인 이해관계자 및 당사자</div>
+                      <div className="text-gray-200">{selectedProject.researchTarget || "해당 사회 문제의 직접적인 이해관계자 및 당사자"}</div>
                     </div>
                     {/* Row 2 */}
                     <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-b border-white/5 pb-6">
                       <div className="text-gray-500 font-semibold min-w-[120px]">연구 주제</div>
-                      <div className="text-gray-200">현장에 적용되지 않는 기존 교육 및 솔루션의 한계 극복</div>
+                      <div className="text-gray-200">{selectedProject.researchTopic || "현장에 적용되지 않는 기존 교육 및 솔루션의 한계 극복"}</div>
                     </div>
                     {/* Row 3 */}
                     <div className="flex flex-col md:flex-row gap-2 md:gap-8 border-b border-white/5 pb-6">
                       <div className="text-gray-500 font-semibold min-w-[120px] pt-1">문제 원인</div>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-200">
-                        <div>대상자의 특성을 반영하지 않은 획일적인 접근</div>
-                        <div>이론 중심이라 실제 현장으로 전이되지 않는 내용</div>
-                        <div>환경 변화 시 재적응을 돕는 변수 대응 훈련의 부재</div>
+                        {selectedProject.problemCauses && selectedProject.problemCauses.length > 0 ? (
+                          selectedProject.problemCauses.map((cause, idx) => (
+                            <div key={idx}>{cause}</div>
+                          ))
+                        ) : (
+                          <>
+                            <div>대상자의 특성을 반영하지 않은 획일적인 접근</div>
+                            <div>이론 중심이라 실제 현장으로 전이되지 않는 내용</div>
+                            <div>환경 변화 시 재적응을 돕는 변수 대응 훈련의 부재</div>
+                          </>
+                        )}
                       </div>
                     </div>
                     {/* Row 4 */}
                     <div className="flex flex-col md:flex-row gap-2 md:gap-8 border-b border-white/5 pb-6">
                       <div className="text-gray-500 font-semibold min-w-[120px] pt-1 mt-3">해결책</div>
-                      <div className="bg-sunny-yellow/10 border border-sunny-yellow/20 text-sunny-yellow p-4 rounded-xl flex-1 font-medium leading-relaxed">
-                        흐름 이해 → 직접 실습 → 피드백 → 변수 상황 대응으로 이어지는 단계별 맞춤형 프로그램
+                      <div className="bg-sunny-yellow/10 border border-sunny-yellow/20 text-sunny-yellow p-4 rounded-xl flex-1 font-medium leading-relaxed whitespace-pre-wrap">
+                        {selectedProject.solution || "흐름 이해 → 직접 실습 → 피드백 → 변수 상황 대응으로 이어지는 단계별 맞춤형 프로그램"}
                       </div>
                     </div>
                     {/* Row 5 */}
                     <div className="flex flex-col md:flex-row gap-2 md:gap-8">
                       <div className="text-gray-500 font-semibold min-w-[120px] pt-1 mt-3">비전</div>
-                      <div className="bg-sunny-yellow text-sunny-black p-4 rounded-xl flex-1 font-bold leading-relaxed">
-                        대상자가 반복 훈련을 통해 실제 현장에 안정적으로 적응하고, 지속가능한 자립을 유지할 수 있도록 한다.
+                      <div className="bg-sunny-yellow text-sunny-black p-4 rounded-xl flex-1 font-bold leading-relaxed whitespace-pre-wrap">
+                        {selectedProject.vision || "대상자가 반복 훈련을 통해 실제 현장에 안정적으로 적응하고, 지속가능한 자립을 유지할 수 있도록 한다."}
                       </div>
                     </div>
                   </div>
                 </div>
                 
-                {/* 3. Placeholder for additional photos */}
-                <div className="mb-12 space-y-4">
-                  {selectedProject.thumbnailUrl && (
-                    <div className="w-full aspect-video rounded-3xl overflow-hidden relative shadow-sm border border-white/10">
-                      <img 
-                        src={selectedProject.thumbnailUrl} 
-                        alt={selectedProject.title}
-                        className="w-full h-full object-cover"
-                      />
+                {/* 3. Photos & Slideshows */}
+                <div className="mb-12 flex flex-col gap-8">
+                  {/* Vision Slideshow (if exists) */}
+                  {selectedProject.visionSlideshow && selectedProject.visionSlideshow.length > 0 && (
+                    <div className="w-full">
+                      {selectedProject.visionSlideshow.length === 1 ? (
+                        <div className="w-full rounded-3xl overflow-hidden relative shadow-sm border border-white/10">
+                          <img src={selectedProject.visionSlideshow[0]} alt="Vision" className="w-full h-auto object-cover" />
+                        </div>
+                      ) : (
+                        <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                          {selectedProject.visionSlideshow.map((imgUrl, idx) => (
+                            <div key={idx} className="shrink-0 w-[85vw] md:w-[600px] snap-start rounded-3xl overflow-hidden border border-white/10">
+                              <img src={imgUrl} alt={`Vision ${idx + 1}`} className="w-full h-auto object-cover" />
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
-                  <div className="w-full h-64 bg-white/5 rounded-3xl border-2 border-dashed border-white/20 flex items-center justify-center">
-                    <p className="text-gray-500 text-center font-medium">
-                      + 추가 사진 및 이미지 영역
-                    </p>
-                  </div>
+
+                  {/* Additional Images (if exists) */}
+                  {selectedProject.additionalImages && selectedProject.additionalImages.length > 0 ? (
+                    <div className="w-full">
+                      {selectedProject.additionalImages.length === 1 ? (
+                        <div className="w-full rounded-3xl overflow-hidden relative shadow-sm border border-white/10">
+                          <img src={selectedProject.additionalImages[0]} alt="Additional" className="w-full h-auto object-cover" />
+                        </div>
+                      ) : (
+                        <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                          {selectedProject.additionalImages.map((imgUrl, idx) => (
+                            <div key={idx} className="shrink-0 w-[85vw] md:w-[600px] snap-start rounded-3xl overflow-hidden border border-white/10">
+                              <img src={imgUrl} alt={`Additional ${idx + 1}`} className="w-full h-auto object-cover" />
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    !selectedProject.visionSlideshow && selectedProject.thumbnailUrl && (
+                      <div className="w-full aspect-video rounded-3xl overflow-hidden relative shadow-sm border border-white/10">
+                        <img 
+                          src={selectedProject.thumbnailUrl} 
+                          alt={selectedProject.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    )
+                  )}
                 </div>
 
                 {/* 4. Buttons */}
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mt-12 mb-8">
-                  <Link 
-                    href={`/impact/report/${selectedProject.slug}`} 
-                    className="w-full sm:w-auto px-8 py-4 bg-sunny-yellow text-sunny-black rounded-full font-bold text-center hover:bg-yellow-400 transition-colors shadow-lg"
-                  >
-                    프로젝트 리포트 보러가기
-                  </Link>
-                  <button className="w-full sm:w-auto px-8 py-4 bg-white/10 border border-white/20 text-white rounded-full font-bold text-center hover:bg-white/20 transition-colors shadow-sm flex items-center justify-center gap-2">
-                    PDF 다운로드
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                  </button>
+                  {selectedProject.reportLink ? (
+                    <a 
+                      href={selectedProject.reportLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-8 py-4 bg-sunny-yellow text-sunny-black rounded-full font-bold text-center hover:bg-yellow-400 transition-colors shadow-lg"
+                    >
+                      프로젝트 리포트 보러가기
+                    </a>
+                  ) : (
+                    <Link 
+                      href={`/impact/report/${selectedProject.slug}`} 
+                      className="w-full sm:w-auto px-8 py-4 bg-sunny-yellow text-sunny-black rounded-full font-bold text-center hover:bg-yellow-400 transition-colors shadow-lg"
+                    >
+                      프로젝트 리포트 보러가기
+                    </Link>
+                  )}
+                  
+                  {selectedProject.reportPdfUrl && (
+                    <a 
+                      href={selectedProject.reportPdfUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-8 py-4 bg-white/10 border border-white/20 text-white rounded-full font-bold text-center hover:bg-white/20 transition-colors shadow-sm flex items-center justify-center gap-2"
+                    >
+                      PDF 다운로드
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    </a>
+                  )}
                 </div>
 
                 <div className="h-24"></div> {/* Padding at bottom for scroll */}

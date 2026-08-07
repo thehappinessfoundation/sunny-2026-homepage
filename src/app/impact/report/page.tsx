@@ -13,7 +13,18 @@ export default async function ReportPage() {
     shortDescription,
     isMainFeatured,
     "slug": coalesce(slug.current, _id),
-    "thumbnailUrl": thumbnail.asset->url
+    "thumbnailUrl": thumbnail.asset->url,
+    teamMembers,
+    problemDetail,
+    researchTarget,
+    researchTopic,
+    problemCauses,
+    solution,
+    vision,
+    "visionSlideshow": visionSlideshow[].asset->url,
+    "additionalImages": additionalImages[].asset->url,
+    reportLink,
+    "reportPdfUrl": reportPdf.asset->url
   }`;
   
   const projects = await client.fetch(query);

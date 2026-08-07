@@ -52,6 +52,17 @@ export const project = {
       type: 'slug', 
       options: { source: 'title', maxLength: 96 }
     },
+    { name: 'teamMembers', title: 'Team Members (팀원)', type: 'string', description: 'e.g., 홍길동, 김철수, 이영희' },
+    { name: 'problemDetail', title: 'Problem Detail (왜 이 문제가 중요하며...)', type: 'text' },
+    { name: 'researchTarget', title: 'Research Target (연구 대상)', type: 'string' },
+    { name: 'researchTopic', title: 'Research Topic (연구 주제)', type: 'string' },
+    { name: 'problemCauses', title: 'Problem Causes (문제 원인)', type: 'array', of: [{ type: 'string' }] },
+    { name: 'solution', title: 'Solution (해결책)', type: 'text' },
+    { name: 'vision', title: 'Vision (비전)', type: 'text' },
+    { name: 'visionSlideshow', title: 'Vision Slideshow Images (비전 항목 아래 이미지들)', type: 'array', of: [{ type: 'image', options: { hotspot: true } }] },
+    { name: 'additionalImages', title: 'Additional Photos (추가 사진 및 이미지 영역)', type: 'array', of: [{ type: 'image', options: { hotspot: true } }] },
+    { name: 'reportLink', title: 'Report Link (프로젝트 리포트 외부 링크)', type: 'url' },
+    { name: 'reportPdf', title: 'Report PDF Upload (PDF 다운로드용 파일)', type: 'file', options: { accept: 'application/pdf' } },
     {
       name: 'publishedAt',
       title: 'Published at',

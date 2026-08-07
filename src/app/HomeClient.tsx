@@ -6,6 +6,11 @@ import Link from 'next/link';
 
 export default function HomeClient({ featuredNews = [], featuredProjects = [] }: { featuredNews: any[], featuredProjects: any[] }) {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const [heroImage, setHeroImage] = useState('/main-illust.svg');
+
+  useEffect(() => {
+    setHeroImage(Math.random() > 0.5 ? '/main-illust_1.svg' : '/main-illust.svg');
+  }, []);
 
   const dummyProjects = [
     { _id: 'mock-1', title: 'AI 기반 인공와우 재활 훈련 도구', team: '온소리 LAB', innovator: '에이유디 박원진 대표', period: '2025.07-2026.01', slug: 'mock-1', thumbnailUrl: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80', shortDescription: '인공 와우 수술 후 재활이 필요한 사용자들을 위해 접근성이 높고, 재미있는 청각 재활 훈련을 어떻게 만들 수 있을까요?' },
@@ -57,7 +62,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
   return (
     <div className="flex flex-col gap-32 pb-32">
       {/* [섹션 1] 메인 히어로 배너 */}
-      <section className="relative w-full min-h-[600px] md:h-[700px] flex items-center overflow-hidden -mt-16 pt-16">
+      <section className="relative w-full min-h-[600px] md:h-[700px] flex items-center -mt-16 pt-16">
         <div className="container-pc !max-w-[1000px] relative z-10 flex flex-col md:flex-row items-center w-full">
           <div className="text-left flex flex-col items-start w-full md:w-auto shrink-0 z-20">
             <motion.span
@@ -75,11 +80,11 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
               Deep dive into<br/>Social problems
             </motion.h1>
           </div>
-          <div className="w-full md:w-auto md:absolute md:right-0 flex justify-end z-0 mt-16 md:mt-0 md:translate-y-12 pointer-events-none">
+          <div className="w-full md:w-auto md:absolute md:right-0 flex justify-end z-0 mt-24 md:mt-0 md:translate-y-20 lg:translate-y-28 pointer-events-none">
             <motion.img 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              src="/main-illust.svg" 
+              src={heroImage} 
               alt="Sunny Illustration" 
               className="w-[310px] md:w-[460px] lg:w-[570px] object-contain drop-shadow-2xl pointer-events-auto origin-right" 
             />
@@ -199,9 +204,12 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
       </section>
 
       {/* [섹션 4] Sunny 함께하기 */}
-      <section className="container-pc !max-w-[1000px]">
-        <h2 className="text-3xl font-bold text-white mb-8">Sunny 함께하기</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="container-pc !max-w-[1000px] relative mt-32 md:mt-48">
+        <div className="absolute right-[40px] top-[-120px] md:top-[-200px] lg:top-[-280px] z-0 pointer-events-none w-[180px] md:w-[300px] lg:w-[400px] flex justify-end">
+          <img src="/together.svg" alt="" className="w-full h-full object-contain object-right drop-shadow-2xl" />
+        </div>
+        <h2 className="text-3xl font-bold text-white mb-8 relative z-10">Sunny 함께하기</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 relative overflow-hidden transform-gpu h-[300px] flex flex-col justify-center group hover:bg-white/10 transition-colors shadow-lg">
             {/* Decorative gradient for glassmorphism */}
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-sunny-yellow rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
