@@ -185,11 +185,11 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                     </span>
                   </div>
                   <div>
-                    <p className="text-sm md:text-base font-semibold text-sunny-yellow mb-3">{p.team}</p>
-                    <h3 className="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight word-break-keep">
+                    <p className="text-sm md:text-base font-semibold text-white mb-3">{p.team}</p>
+                    <h3 className="text-xl md:text-3xl font-bold text-white mb-4 leading-tight word-break-keep">
                       {p.title}
                     </h3>
-                    <p className="text-gray-300 text-sm md:text-lg line-clamp-2 md:w-5/6">
+                    <p className="text-gray-300 text-xs md:text-sm line-clamp-2 md:w-5/6">
                       {p.featuredSubtitle || p.shortDescription}
                     </p>
                   </div>

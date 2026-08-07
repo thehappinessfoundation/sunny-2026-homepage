@@ -5,7 +5,8 @@ export default function OnsitePage() {
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">Sunny On-Site</h1>
         
         <p className="text-base md:text-lg text-gray-300 leading-relaxed md:w-2/3 break-keep">
-          직접 지역에 거주하며 긴 호흡으로 지역 문제를 관찰하고 탐색하는 현장기반 연구 프로그램
+          직접 지역에 거주하며 긴 호흡으로<br />
+          지역 문제를 관찰하고 탐색하는 현장기반 연구 프로그램
         </p>
       </div>
 
