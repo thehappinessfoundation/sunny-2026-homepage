@@ -19,9 +19,12 @@ async function getFeaturedProjects() {
   const query = `*[_type == "project" && isMainFeatured == true] | order(mainOrder asc) [0...5] {
     _id,
     title,
+    category,
     team,
     innovator,
     period,
+    shortDescription,
+    mainSubtitle,
     cardColor,
     "slug": coalesce(slug.current, _id),
     "thumbnailUrl": thumbnail.asset->url,

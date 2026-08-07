@@ -4,6 +4,14 @@ import { motion, useAnimationControls, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
+const categoryMap: Record<string, string> = {
+  all: '전체',
+  disability: '장애',
+  elderly: '노인',
+  multicultural: '다문화',
+  others: '기타',
+};
+
 export default function HomeClient({ featuredNews = [], featuredProjects = [] }: { featuredNews: any[], featuredProjects: any[] }) {
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const [heroImage, setHeroImage] = useState('/main-illust.svg');
@@ -156,8 +164,8 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
                     <div className="relative z-10 w-full h-full flex flex-col md:flex-row p-10">
                       {/* Left: Title & Subtitle */}
                       <div className="w-full md:w-[45%] h-full flex flex-col justify-center pr-8 border-r border-white/20">
-                        <span className="inline-block px-3 py-1 bg-white/20 text-white border border-white/30 rounded-full text-sm font-medium mb-4 w-max">
-                          {project.category || '기타'}
+                        <span className="inline-block px-3 py-1 bg-black/40 text-sunny-yellow border border-sunny-yellow/40 backdrop-blur-md rounded-full text-sm font-bold mb-4 w-max shadow-sm">
+                          {project.category ? categoryMap[project.category] || project.category : '기타'}
                         </span>
                         <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-snug word-break-keep">
                           {project.title}
@@ -166,12 +174,12 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
 
                       {/* Right: Details & Button */}
                       <div className="w-full md:w-[55%] h-full pl-0 md:pl-10 pt-8 md:pt-0 flex flex-col justify-center">
-                        <h4 className="text-sunny-yellow font-bold text-lg mb-3">
+                        <h4 className="text-white font-bold text-lg mb-3">
                           {project.team || '써니 디자인 랩'}
                         </h4>
                         <div className="space-y-4 mb-8">
                           <p className="text-gray-200 text-lg line-clamp-3 leading-relaxed">
-                            {project.shortDescription || project.description || '더 나은 사용자 경험을 위한 써니 브랜드 웹사이트 전면 개편 프로젝트. 글래스모피즘과 세련된 다크 테마를 결합하여 사용자들에게 더욱 몰입감 있는 경험을 제공합니다.'}
+                            {project.mainSubtitle || project.shortDescription || project.description || '더 나은 사용자 경험을 위한 써니 브랜드 웹사이트 전면 개편 프로젝트. 글래스모피즘과 세련된 다크 테마를 결합하여 사용자들에게 더욱 몰입감 있는 경험을 제공합니다.'}
                           </p>
                         </div>
 

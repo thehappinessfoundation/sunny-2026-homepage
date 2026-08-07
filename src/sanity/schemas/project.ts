@@ -27,6 +27,13 @@ export const project = {
       description: '주목할 만한 리포트 카드에 표시될 멘트입니다. 비워두면 Short Description이 사용됩니다.',
       hidden: ({ document }: any) => !document?.isMainFeatured
     },
+    {
+      name: 'mainSubtitle',
+      title: 'Main Subtitle (메인 페이지용 부제)',
+      type: 'string',
+      description: '메인 페이지의 프로젝트 카드에 표시될 멘트입니다. 비워두면 Short Description이 사용됩니다.',
+      hidden: ({ document }: any) => !document?.isMainFeatured
+    },
     { 
       name: 'cardColor', 
       title: 'Card Background Color (Main Page)', 

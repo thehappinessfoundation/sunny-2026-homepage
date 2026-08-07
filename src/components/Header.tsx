@@ -106,7 +106,7 @@ export default function Header() {
           </div>
           </nav>
 
-          <Link href="#" className="flex items-center justify-center bg-sunny-yellow text-sunny-black font-bold px-4 py-1.5 md:py-2 text-[13px] md:text-[14px] rounded hover:bg-yellow-500 transition-colors">
+          <Link href="/apply" className="flex items-center justify-center bg-sunny-yellow text-sunny-black font-bold px-4 py-1.5 md:py-2 text-[13px] md:text-[14px] rounded hover:bg-yellow-500 transition-colors">
             지원하기
           </Link>
 
