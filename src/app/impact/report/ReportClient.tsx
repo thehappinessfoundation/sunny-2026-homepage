@@ -26,6 +26,8 @@ type Project = {
   additionalImages?: string[];
   reportLink?: string;
   reportPdfUrl?: string;
+  mainOrder?: number;
+  featuredSubtitle?: string;
 };
 
 const categoryMap: Record<string, string> = {
@@ -63,7 +65,10 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
   const carouselRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  let featuredProjects = initialProjects.filter(p => p.isMainFeatured);
+  let featuredProjects = initialProjects
+    .filter(p => p.isMainFeatured)
+    .sort((a, b) => (a.mainOrder ?? 999) - (b.mainOrder ?? 999));
+    
   if (featuredProjects.length < 5) {
     const remaining = initialProjects.filter(p => !p.isMainFeatured);
     featuredProjects = [...featuredProjects, ...remaining].slice(0, 5);
@@ -185,7 +190,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                       {p.title}
                     </h3>
                     <p className="text-gray-300 text-sm md:text-lg line-clamp-2 md:w-5/6">
-                      {p.shortDescription}
+                      {p.featuredSubtitle || p.shortDescription}
                     </p>
                   </div>
                 </div>

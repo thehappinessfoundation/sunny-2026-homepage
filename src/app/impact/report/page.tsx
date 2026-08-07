@@ -12,6 +12,8 @@ export default async function ReportPage() {
     team,
     shortDescription,
     isMainFeatured,
+    mainOrder,
+    featuredSubtitle,
     "slug": coalesce(slug.current, _id),
     "thumbnailUrl": thumbnail.asset->url,
     teamMembers,

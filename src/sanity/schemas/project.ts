@@ -20,6 +20,13 @@ export const project = {
       description: 'Lower number means it shows up first (e.g. 1, 2, 3)',
       hidden: ({ document }: any) => !document?.isMainFeatured
     },
+    {
+      name: 'featuredSubtitle',
+      title: 'Featured Subtitle (주목할 만한 리포트용 부제)',
+      type: 'string',
+      description: '주목할 만한 리포트 카드에 표시될 멘트입니다. 비워두면 Short Description이 사용됩니다.',
+      hidden: ({ document }: any) => !document?.isMainFeatured
+    },
     { 
       name: 'cardColor', 
       title: 'Card Background Color (Main Page)', 
