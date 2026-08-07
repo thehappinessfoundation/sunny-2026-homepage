@@ -72,7 +72,7 @@ export default function AboutPage() {
       </div>
       
       {/* Background illustration */}
-      <div className="absolute right-[-10%] md:right-[5%] lg:right-[10%] xl:right-[15%] bottom-[5%] z-0 pointer-events-none">
+      <div className="absolute left-[30%] md:left-[55%] lg:left-[60%] bottom-[5%] z-0 pointer-events-none opacity-60 md:opacity-100">
         <img src="/about.svg" alt="" className="h-[400px] md:h-[600px] lg:h-[800px] object-contain drop-shadow-2xl" />
       </div>
     </div>

@@ -39,7 +39,7 @@ export default function AlumniPage() {
           <h1 className="text-4xl font-bold text-sunny-black mb-4">함께하는 사람들</h1>
           <p className="text-lg text-gray-500">돕는 기술을 만드는 다양한 전문가들</p>
         </div>
-        <div className="absolute right-0 bottom-0 translate-y-[10%] md:translate-y-[20%] pointer-events-none opacity-80 md:opacity-100 mix-blend-lighten">
+        <div className="absolute left-[50%] md:left-[60%] lg:left-[70%] bottom-0 translate-y-[10%] md:translate-y-[20%] pointer-events-none opacity-80 md:opacity-100 mix-blend-lighten">
           <img src="/alumni_internal.svg" alt="" className="h-[240px] md:h-[320px] lg:h-[400px] object-contain drop-shadow-xl opacity-90" />
         </div>
       </div>

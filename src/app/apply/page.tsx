@@ -22,7 +22,7 @@ export default function ApplyPage() {
           <div className="px-5 py-2.5 bg-black/10 rounded-full text-sunny-black font-bold text-sm md:text-base shadow-sm backdrop-blur-sm border border-black/5 relative z-10">
             지원 마감 : 2026.08.20
           </div>
-          <img src="/scholar.svg" alt="" className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-48 md:w-64 h-48 md:h-64 opacity-20 object-contain pointer-events-none" />
+          <img src="/scholar.svg" alt="" className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-48 md:w-64 h-48 md:h-64 opacity-15 brightness-0 object-contain pointer-events-none" />
         </a>
 
         {/* On-Site Button (Disabled) */}
