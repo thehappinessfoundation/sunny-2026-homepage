@@ -13,11 +13,22 @@ export default function ScholarPage() {
       <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
         <div className="w-full md:w-1/2 flex flex-col gap-6 relative z-10">
           <h2 className="text-2xl md:text-3xl font-bold text-white">Sunny Scholar란?</h2>
+          <div className="relative p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl mb-4 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-sunny-yellow/5 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative z-10 flex flex-col gap-3">
+              <p className="text-white text-[1.05rem] md:text-lg leading-relaxed break-keep font-medium">
+                "나에게 1시간이 주어진다면 55분은 문제를 정의하는 데 쓰고, 5분은 해결책을 찾는 데 쓰겠다"
+              </p>
+              <span className="text-sm text-sunny-yellow/80 font-normal">
+                - 아인슈타인
+              </span>
+            </div>
+          </div>
           <p className="text-gray-300 leading-relaxed break-keep">
-            Sunny Scholar는 사회문제를 깊이 있게 탐구하고, 실질적인 해결책을 모색하는 예비 소셜 섹터 전문가들을 위한 집중 연구 프로그램입니다. 현장에서 직접 부딪히며 얻은 인사이트를 바탕으로, 단순한 아이디어를 넘어 지속 가능한 사회적 가치를 창출하는 연구자로 성장할 수 있도록 지원합니다.
+            많은 사회문제 해결 프로그램이 빠르게 솔루션을 만드는 데 집중한다면, Sunny Scholar는 문제를 제대로 정의하는 과정에 중점을 둡니다.
           </p>
           <p className="text-gray-300 leading-relaxed break-keep">
-            다양한 분야의 전문가 멘토링과 체계적인 커리큘럼을 통해 문제 정의부터 해결 방안 도출까지의 전 과정을 경험하며, 더 나은 세상을 만들기 위한 당신의 첫 걸음을 응원합니다.
+            8개월간 현장 인터뷰, 문헌·데이터 조사, 시스템 사고 등을 통해 사회문제의 구조와 원인을 깊이 탐구하고, 대학생이 해결 가능한 크기로 문제를 정의합니다.
           </p>
         </div>
         <div className="w-full md:w-1/2 flex justify-center md:justify-end z-0 pointer-events-none">

@@ -30,7 +30,7 @@ export default function NewsListClient({ articles }: { articles: any[] }) {
 
         {/* 일러스트레이션: 크기 80% (h-[320px]), 선 위로 살짝 여백(bottom-2) */}
         <div className="absolute right-4 md:right-12 lg:right-20 bottom-2 z-0 pointer-events-none">
-          <img src="/newsroom.svg" alt="See the new" className="h-[160px] md:h-[320px] object-contain drop-shadow-xl" />
+          <img src="/newsroom.svg" alt="See the new" className="h-[130px] md:h-[260px] object-contain drop-shadow-xl" />
         </div>
       </div>
 

@@ -21,10 +21,10 @@ export default async function NewsPage() {
   const articles = await getArticles();
 
   return (
-    <div className="min-h-screen pt-40 md:pt-56 pb-32">
-      <div className="container-pc !max-w-[1000px]">
+    <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col">
+      <div className="w-full">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 relative">
-          <div className="relative z-10">
+          <div className="relative z-10 w-full">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">뉴스룸</h1>
             <p className="text-gray-300 text-lg">Sunny의 다양한 활동과 임팩트를 전해드립니다.</p>
           </div>

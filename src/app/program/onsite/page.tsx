@@ -13,11 +13,18 @@ export default function OnsitePage() {
       <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
         <div className="w-full md:w-1/2 flex flex-col gap-6 relative z-10">
           <h2 className="text-2xl md:text-3xl font-bold text-white">Sunny On-Site란?</h2>
+          <div className="relative p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-2xl mb-4 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-br from-sunny-yellow/5 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <p className="text-white text-[1.05rem] md:text-lg leading-relaxed break-keep font-medium relative z-10">
+              <span className="font-bold">온사이트(Onsight)</span>는 처음 마주한 루트를 미리 알지 못한 채, 직접 관찰하고 판단하며 자신의 힘으로 올라가는 방식의 클라이밍 용어입니다.
+            </p>
+          </div>
           <p className="text-gray-300 leading-relaxed break-keep">
-            Sunny On-Site는 청년들이 직접 지역 사회에 거주하며 그들의 삶 속으로 깊이 들어가 실질적인 문제를 발굴하고 해결책을 연구하는 실천형 프로그램입니다. 지역 주민과의 긴밀한 소통을 통해 단편적인 지원을 넘어 지역의 근본적인 변화를 이끌어내는 데 중점을 둡니다.
+            현장에 직접 살아야만 발견할 수 있는 문제들이 있습니다.<br />
+            당사자조차 자신의 문제를 명확히 설명하기 어려운 경우도 있고, 지역마다 다른 환경과 맥락 속에서만 드러나는 문제도 있습니다.
           </p>
           <p className="text-gray-300 leading-relaxed break-keep">
-            단기적인 프로젝트가 아닌 긴 호흡으로 현장 중심의 연구를 진행하며, 참가자 스스로 주도적인 역할을 수행함으로써 현장의 진정한 혁신가로 성장하는 특별한 여정이 될 것입니다.
+            Sunny On-Site는 2~3개월간 지역에 머물며 주민의 이야기를 듣고, 일상을 관찰하고, 지역의 맥락을 경험하며 그곳에서 머물며 발견할 수 있는 문제를 찾아 정의합니다.
           </p>
         </div>
         <div className="w-full md:w-1/2 flex justify-center md:justify-end z-0 pointer-events-none">
