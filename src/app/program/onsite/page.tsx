@@ -1,6 +1,6 @@
 export default function OnsitePage() {
   return (
-    <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col">
+    <div className="w-full max-w-[1000px] mx-auto pt-12 pb-6 md:py-32 px-4 min-h-[70vh] flex flex-col">
       <div className="relative z-10 w-full mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">Sunny On-Site</h1>
         
@@ -37,24 +37,34 @@ export default function OnsitePage() {
       {/* PC Table Layout (Original 5-Column Horizontal Grid) */}
       <div className="hidden md:grid grid-cols-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]">
         {/* Headers */}
-        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-          <span className="text-sunny-yellow/90 text-xs font-bold">01</span>
+        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-2">
+          <span className="w-8 h-8 rounded-lg bg-sunny-yellow/10 border border-sunny-yellow/30 text-sunny-yellow font-bold text-xs flex items-center justify-center">
+            01
+          </span>
           <span className="text-white font-bold text-lg md:text-xl">오리엔테이션</span>
         </div>
-        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-          <span className="text-sunny-yellow/90 text-xs font-bold">02</span>
+        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-2">
+          <span className="w-8 h-8 rounded-lg bg-sunny-yellow/10 border border-sunny-yellow/30 text-sunny-yellow font-bold text-xs flex items-center justify-center">
+            02
+          </span>
           <span className="text-white font-bold text-lg md:text-xl">Pre-field 온보딩</span>
         </div>
-        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-          <span className="text-sunny-yellow/90 text-xs font-bold">03</span>
+        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-2">
+          <span className="w-8 h-8 rounded-lg bg-sunny-yellow/10 border border-sunny-yellow/30 text-sunny-yellow font-bold text-xs flex items-center justify-center">
+            03
+          </span>
           <span className="text-white font-bold text-lg md:text-xl break-keep">현장연구(직접 거주)</span>
         </div>
-        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-          <span className="text-sunny-yellow/90 text-xs font-bold">04</span>
+        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-2">
+          <span className="w-8 h-8 rounded-lg bg-sunny-yellow/10 border border-sunny-yellow/30 text-sunny-yellow font-bold text-xs flex items-center justify-center">
+            04
+          </span>
           <span className="text-white font-bold text-lg md:text-xl">문제정의 검증</span>
         </div>
-        <div className="p-6 border-b border-white/10 bg-white/10 flex flex-col gap-1">
-          <span className="text-sunny-yellow/90 text-xs font-bold">05</span>
+        <div className="p-6 border-b border-white/10 bg-white/10 flex flex-col gap-2">
+          <span className="w-8 h-8 rounded-lg bg-sunny-yellow/10 border border-sunny-yellow/30 text-sunny-yellow font-bold text-xs flex items-center justify-center">
+            05
+          </span>
           <span className="text-white font-bold text-lg md:text-xl">연구 아카이빙</span>
         </div>
         
@@ -125,7 +135,7 @@ export default function OnsitePage() {
       </div>
 
       <h2 className="text-2xl font-bold text-white mt-20 mb-6">프로그램 영상</h2>
-      <div className="w-full aspect-video mb-20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/5 shadow-lg p-1.5 md:p-2">
+      <div className="w-full aspect-video mb-6 md:mb-20 rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/5 shadow-lg p-1.5 md:p-2">
         <div className="w-full h-full rounded-xl overflow-hidden relative isolate transform-gpu">
           <iframe 
             width="100%" 

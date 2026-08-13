@@ -66,7 +66,7 @@ export default function FaqClient({ initialFaqs }: { initialFaqs: Faq[] }) {
     : groupedFaqs.filter(cat => cat.id === activeTab)
 
   return (
-    <div className="w-full max-w-[1000px] mx-auto py-16 px-4">
+    <div className="w-full max-w-[1000px] mx-auto pt-12 pb-6 md:py-32 px-4">
       <h1 className="text-4xl md:text-5xl font-bold text-white mb-10 text-left">자주 묻는 질문</h1>
 
       {/* Search & Tabs */}

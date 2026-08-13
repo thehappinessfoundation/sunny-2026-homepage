@@ -18,9 +18,22 @@ export default function AuroraFooter() {
   });
 
   useEffect(() => {
+    // Only enable mouse follower on devices with fine pointers and hover capability (Desktop/Laptop mouse)
+    const isHoverable = () => {
+      return typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
+      if (!isHoverable()) {
+        if (isVisible) setIsVisible(false);
+        return;
+      }
       targetPos.current = { x: e.clientX, y: e.clientY };
       if (!isVisible) setIsVisible(true);
+    };
+
+    const handleTouchStart = () => {
+      setIsVisible(false);
     };
 
     const handleMouseLeave = () => {
@@ -28,6 +41,7 @@ export default function AuroraFooter() {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('touchstart', handleTouchStart, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
 
     const loop = () => {
@@ -61,6 +75,7 @@ export default function AuroraFooter() {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('touchstart', handleTouchStart);
       document.removeEventListener('mouseleave', handleMouseLeave);
       if (animFrameId.current) {
         cancelAnimationFrame(animFrameId.current);
@@ -133,10 +148,15 @@ export default function AuroraFooter() {
             transform: scale(0.90);
           }
         }
+        @media (hover: none), (pointer: coarse) {
+          .siri-mouse-glow {
+            display: none !important;
+          }
+        }
       `}</style>
 
       {/* Global Siri / Aurora Fluid Wave Mesh Glow */}
-      <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+      <div className="siri-mouse-glow fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         <div
           className="absolute transition-opacity duration-700 ease-out pointer-events-none"
           style={{

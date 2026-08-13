@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="py-12 mt-20 text-black/90">
+    <footer className="py-8 md:py-12 mt-6 md:mt-16 text-black/90">
       <div className="container-pc flex flex-col md:flex-row justify-between items-start md:items-center">
         <div className="mb-8 md:mb-0">
           <img src="/logo/sunny.svg" alt="Sunny" className="h-8 w-auto mb-4 brightness-0" />

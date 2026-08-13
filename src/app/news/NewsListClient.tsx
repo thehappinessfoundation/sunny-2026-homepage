@@ -24,13 +24,13 @@ export default function NewsListClient({ articles }: { articles: any[] }) {
   return (
     <div>
       {/* Category Tabs & Search Bar */}
-      <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16 border-b border-white/10 pb-4">
-        <div className="flex flex-wrap gap-6 items-center z-10">
+      <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-6 mb-10 md:mb-16 border-b border-white/10 pb-4">
+        <div className="flex items-center gap-3 sm:gap-5 md:gap-6 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] z-10">
           {CATEGORIES.map(category => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`text-xl font-bold transition-colors ${
+              className={`text-base sm:text-lg md:text-xl font-bold transition-colors whitespace-nowrap shrink-0 ${
                 activeCategory === category ? 'text-white' : 'text-gray-500 hover:text-gray-300'
               }`}
             >
@@ -51,9 +51,9 @@ export default function NewsListClient({ articles }: { articles: any[] }) {
           <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
         </div>
 
-        {/* 일러스트레이션: 크기 80% (h-[320px]), 선 위로 살짝 여백(bottom-2) */}
-        <div className="absolute right-4 md:right-12 lg:right-20 bottom-2 z-0 pointer-events-none">
-          <img src="/newsroom.svg" alt="See the new" className="h-[130px] md:h-[260px] object-contain drop-shadow-xl" />
+        {/* Desktop Illustration (Hidden on Mobile) */}
+        <div className="hidden md:block absolute right-4 md:right-12 lg:right-20 bottom-2 z-0 pointer-events-none">
+          <img src="/newsroom.svg" alt="See the new" className="h-[260px] object-contain drop-shadow-xl" />
         </div>
       </div>
 

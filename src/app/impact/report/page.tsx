@@ -32,10 +32,10 @@ export default async function ReportPage() {
   const projects = await client.fetch(query);
 
   return (
-    <main className="min-h-screen pt-20">
+    <div className="w-full">
       <Suspense fallback={<div>Loading...</div>}>
         <ReportClient initialProjects={projects} />
       </Suspense>
-    </main>
+    </div>
   );
 }

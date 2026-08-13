@@ -1,7 +1,7 @@
 export default function AboutPage() {
   return (
     <div className="relative overflow-hidden w-full">
-      <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col relative z-10">
+      <div className="w-full max-w-[1000px] mx-auto pt-12 pb-6 md:py-32 px-4 min-h-[70vh] flex flex-col relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-10 text-left">About</h1>
         
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">

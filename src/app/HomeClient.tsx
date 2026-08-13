@@ -68,15 +68,15 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
   };
 
   return (
-    <div className="flex flex-col gap-32 pb-32">
+    <div className="flex flex-col gap-16 md:gap-32 pb-12 md:pb-32">
       {/* [섹션 1] 메인 히어로 배너 */}
-      <section className="relative w-full min-h-[600px] md:h-[700px] flex items-center -mt-16 pt-16">
+      <section className="relative w-full flex items-start md:items-center pt-12 md:pt-32 md:-mt-16 md:min-h-[600px] md:h-[700px]">
         <div className="container-pc !max-w-[1000px] relative z-10 flex flex-col md:flex-row items-center w-full">
           <div className="text-left flex flex-col items-start w-full md:w-auto shrink-0 z-20">
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-lg md:text-xl font-medium text-white mb-4 tracking-wider"
+              className="text-lg md:text-xl font-medium text-white mb-3 md:mb-4 tracking-normal"
             >
               Sunny
             </motion.span>
@@ -88,13 +88,13 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
               Deep dive into<br/>Social problems
             </motion.h1>
           </div>
-          <div className="w-full md:w-auto md:absolute md:right-0 flex justify-end z-0 mt-24 md:mt-0 md:translate-y-20 lg:translate-y-28 pointer-events-none">
+          <div className="w-full md:w-auto md:absolute md:right-0 flex justify-end z-0 mt-8 md:mt-0 md:translate-y-20 lg:translate-y-28 pointer-events-none">
             <motion.img 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               src={heroImage} 
               alt="Sunny Illustration" 
-              className="w-[310px] md:w-[460px] lg:w-[570px] object-contain drop-shadow-2xl pointer-events-auto origin-right" 
+              className="w-[280px] sm:w-[310px] md:w-[460px] lg:w-[570px] object-contain drop-shadow-2xl pointer-events-auto origin-right" 
             />
           </div>
         </div>
@@ -102,43 +102,37 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
 
       {/* [섹션 2] Sunny 프로젝트 (Stacked Carousel) */}
       <section className="mt-10">
-        <div className="container-pc !max-w-[1000px] flex justify-between items-end mb-16">
+        <div className="container-pc !max-w-[1000px] flex flex-col md:flex-row justify-between items-start md:items-end gap-3 md:gap-0 mb-8 md:mb-16">
           <div>
-            <h2 className="text-3xl font-bold text-white mb-2">Sunny 프로젝트</h2>
-            <p className="text-gray-200">진행 중인 핵심 임팩트 프로젝트 랩</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-normal">Sunny 프로젝트</h2>
+            <p className="text-gray-300 text-sm md:text-base">진행 중인 핵심 임팩트 프로젝트 랩</p>
           </div>
-          <Link href="/impact/report" className="flex items-center text-sm font-semibold text-sunny-yellow hover:underline">
+          <Link href="/impact/report" className="flex items-center text-xs md:text-sm font-semibold text-sunny-yellow hover:underline mt-1 md:mt-0">
             더 다양한 프로젝트 보기 <ChevronRight className="w-4 h-4 ml-1" />
           </Link>
         </div>
         
-        <div className="relative h-[510px] md:h-[410px] flex items-end justify-center w-full container-pc !max-w-[1000px] mx-auto">
+        <div className="relative h-[260px] md:h-[410px] flex items-end justify-center w-full container-pc !max-w-[1000px] mx-auto mb-4 md:mb-0">
           {displayProjects.map((project, idx) => {
-            // Calculate distance from active index
-            // We want the active card at front (bottom visually, y: 0),
-            // and subsequent cards stacked behind and ABOVE (negative y).
-            // If we assume a circular or simple stack:
             let offset = idx - activeProjectIndex;
-            // Handle negative offset by putting them at the back
             if (offset < 0) offset += displayProjects.length;
 
             const isActive = offset === 0;
-            const isVisible = offset >= 0 && offset < 4; // Show up to 4 cards
+            const isVisible = offset >= 0 && offset < 4;
             const style = cardStylesByOffset[Math.min(offset, 3)];
 
             return (
               <AnimatePresence key={project._id}>
                 {isVisible && (
                   <motion.div
-                    className={`absolute bottom-0 w-[95%] md:w-full rounded-[32px] overflow-hidden flex flex-col md:flex-row cursor-pointer group backdrop-blur-2xl bg-black/60 ${style.shadow}`}
+                    className={`absolute bottom-0 w-[92%] md:w-full rounded-[24px] md:rounded-[32px] overflow-hidden flex flex-col md:flex-row cursor-pointer group backdrop-blur-2xl bg-black/70 h-[230px] md:h-[360px] ${style.shadow}`}
                     style={{
-                      height: '360px',
                       zIndex: 30 - offset,
                     }}
-                    initial={{ opacity: 0, y: -15 * offset, scale: 1 - offset * 0.06 }}
+                    initial={{ opacity: 0, y: -10 * offset, scale: 1 - offset * 0.06 }}
                     animate={{ 
                       opacity: 1, 
-                      y: -25 * offset, 
+                      y: typeof window !== 'undefined' && window.innerWidth < 768 ? -14 * offset : -25 * offset, 
                       scale: 1 - offset * 0.06 
                     }}
                     exit={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -146,7 +140,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
                     onClick={() => setActiveProjectIndex(idx)}
                   >
                     {/* Gradient Border Mask */}
-                    <div className={`absolute inset-0 rounded-[32px] p-[1.5px] bg-gradient-to-br ${style.borderGradient} gradient-mask-border pointer-events-none z-20`} />
+                    <div className={`absolute inset-0 rounded-[24px] md:rounded-[32px] p-[1.5px] bg-gradient-to-br ${style.borderGradient} gradient-mask-border pointer-events-none z-20`} />
 
                     {/* Background Image & Overlay */}
                     <div className="absolute inset-0 z-0">
@@ -155,38 +149,37 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
                       ) : (
                         <div className="w-full h-full bg-black/40" />
                       )}
-                      {/* Neon glow inner gradient */}
                       <div className={`absolute inset-0 bg-gradient-to-br ${style.glow} to-transparent mix-blend-screen pointer-events-none opacity-80`} />
-                      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
                     </div>
 
                     {/* Content Layer */}
-                    <div className="relative z-10 w-full h-full flex flex-col md:flex-row p-10">
-                      {/* Left: Title & Subtitle */}
-                      <div className="w-full md:w-[45%] h-full flex flex-col justify-center pr-8 border-r border-white/20">
-                        <span className="inline-block px-3 py-1 bg-black/40 text-sunny-yellow border border-sunny-yellow/40 backdrop-blur-md rounded-full text-sm font-bold mb-4 w-max shadow-sm">
+                    <div className="relative z-10 w-full h-full flex flex-col md:flex-row px-5 py-4 md:p-10 justify-between">
+                      {/* Left: Category & Title */}
+                      <div className="w-full md:w-[45%] flex flex-col justify-start md:justify-center pr-0 md:pr-8 md:border-r md:border-white/20 mb-1 md:mb-0">
+                        <span className="inline-block px-2.5 py-0.5 md:px-3 md:py-1 bg-black/50 text-sunny-yellow border border-sunny-yellow/40 backdrop-blur-md rounded-full text-xs md:text-sm font-bold mb-1 md:mb-4 w-max shadow-sm">
                           {project.category ? categoryMap[project.category] || project.category : '기타'}
                         </span>
-                        <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-snug word-break-keep">
+                        <h3 className="text-base sm:text-lg md:text-4xl font-bold text-white mb-1 md:mb-4 leading-snug line-clamp-1 md:line-clamp-2 word-break-keep">
                           {project.title}
                         </h3>
                       </div>
 
-                      {/* Right: Details & Button */}
-                      <div className="w-full md:w-[55%] h-full pl-0 md:pl-10 pt-8 md:pt-0 flex flex-col justify-center">
-                        <h4 className="text-white font-bold text-lg mb-3">
-                          {project.team || '써니 디자인 랩'}
-                        </h4>
-                        <div className="space-y-4 mb-8">
-                          <p className="text-gray-200 text-lg line-clamp-3 leading-relaxed">
-                            {project.mainSubtitle || project.shortDescription || project.description || '더 나은 사용자 경험을 위한 써니 브랜드 웹사이트 전면 개편 프로젝트. 글래스모피즘과 세련된 다크 테마를 결합하여 사용자들에게 더욱 몰입감 있는 경험을 제공합니다.'}
+                      {/* Right: Team, Details & Button */}
+                      <div className="w-full md:w-[55%] flex flex-col justify-between pl-0 md:pl-10 flex-1">
+                        <div>
+                          <h4 className="text-sunny-yellow md:text-white font-bold text-xs sm:text-sm md:text-lg mb-0.5 md:mb-3">
+                            {project.team || '써니 디자인 랩'}
+                          </h4>
+                          <p className="text-gray-300 text-xs sm:text-sm md:text-lg line-clamp-2 md:line-clamp-3 leading-relaxed">
+                            {project.mainSubtitle || project.shortDescription || project.description || '더 나은 사용자 경험을 위한 써니 브랜드 웹사이트 전면 개편 프로젝트.'}
                           </p>
                         </div>
 
-                        <div className="mt-auto">
-                          <Link href={`/impact/report?projectId=${project.slug}`} onClick={(e) => !isActive && e.preventDefault()} className="inline-flex items-center gap-3 px-6 py-3 bg-white text-sunny-black font-bold rounded-full hover:bg-sunny-yellow transition-colors group/btn w-max">
+                        <div className="mt-2 md:mt-auto">
+                          <Link href={`/impact/report?projectId=${project.slug}`} onClick={(e) => !isActive && e.preventDefault()} className="inline-flex items-center gap-2 md:gap-3 px-3 py-1.5 md:px-6 md:py-3 bg-white text-sunny-black text-xs md:text-base font-bold rounded-full hover:bg-sunny-yellow transition-colors group/btn w-max">
                             프로젝트 보기
-                            <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-3.5 h-3.5 md:w-5 md:h-5 group-hover/btn:translate-x-1 transition-transform" />
                           </Link>
                         </div>
                       </div>
@@ -197,13 +190,13 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
             );
           })}
           
-          {/* Pagination Dots */}
-          <div className="absolute -right-4 md:-right-16 bottom-[180px] translate-y-1/2 flex flex-col gap-4 z-40 bg-white/10 p-3 rounded-full backdrop-blur-md">
+          {/* Pagination Dots (Mobile: Bottom Centered, PC: Right Vertical Column) */}
+          <div className="absolute left-1/2 -translate-x-1/2 -bottom-8 md:bottom-auto md:left-auto md:translate-x-0 md:-right-16 md:top-1/2 md:-translate-y-1/2 flex flex-row md:flex-col gap-2.5 md:gap-4 z-40 bg-black/40 md:bg-white/10 p-2 md:p-3 rounded-full backdrop-blur-md border border-white/10">
             {displayProjects.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveProjectIndex(idx)}
-                className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${activeProjectIndex === idx ? 'bg-sunny-yellow scale-125' : 'bg-gray-400 hover:bg-gray-200'}`}
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full cursor-pointer transition-all duration-300 ${activeProjectIndex === idx ? 'bg-sunny-yellow scale-125' : 'bg-gray-400 hover:bg-gray-200'}`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -212,37 +205,41 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
       </section>
 
       {/* [섹션 4] Sunny 함께하기 */}
-      <section className="container-pc !max-w-[1000px] relative mt-32 md:mt-48">
-        <div className="absolute right-[40px] top-[-120px] md:top-[-200px] lg:top-[-280px] z-0 pointer-events-none w-[180px] md:w-[300px] lg:w-[400px] flex justify-end">
-          <img src="/together.svg" alt="" className="w-full h-full object-contain object-right drop-shadow-2xl" />
+      <section className="container-pc !max-w-[1000px] relative mt-8 md:mt-36">
+        {/* Illustration moved above Title */}
+        <div className="w-full flex justify-start mb-2 md:mb-4 pointer-events-none">
+          <img src="/together.svg" alt="" className="w-[130px] sm:w-[180px] md:w-[260px] h-auto object-contain drop-shadow-2xl" />
         </div>
-        <h2 className="text-3xl font-bold text-white mb-8 relative z-10">Sunny 함께하기</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 relative overflow-hidden transform-gpu h-[300px] flex flex-col justify-center group hover:bg-white/10 transition-colors shadow-lg">
+
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:mb-8 relative z-10 tracking-normal">Sunny 함께하기</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 relative z-10">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 relative overflow-hidden transform-gpu flex flex-col justify-between group hover:bg-white/10 transition-colors shadow-lg min-h-[220px] sm:h-[300px]">
             {/* Decorative gradient for glassmorphism */}
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-sunny-yellow rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
             
-            <h3 className="text-2xl font-bold text-white mb-4 relative z-10 group-hover:-translate-y-1 transition-transform duration-300">실제 프로그램 현장 보기</h3>
-            <p className="text-gray-300 max-w-[80%] leading-relaxed relative z-10 group-hover:-translate-y-1 transition-transform duration-300">
-              Sunny와 관련된<br className="hidden md:block" />
-              다양한 실제 활동 모습을 만나보세요.
-            </p>
-            <Link href="/news" className="mt-8 bg-white text-sunny-black group-hover:bg-sunny-yellow font-semibold px-6 py-3 rounded-full w-max flex items-center shadow-sm transition-all duration-300 relative z-10 group-hover:-translate-y-1">
-              활동 모습 보러가기 <ChevronRight className="w-4 h-4 ml-2" />
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-4 relative z-10 group-hover:-translate-y-1 transition-transform duration-300">실제 프로그램 현장 보기</h3>
+              <p className="text-gray-300 text-sm sm:text-base max-w-[90%] leading-relaxed relative z-10 group-hover:-translate-y-1 transition-transform duration-300">
+                Sunny와 관련된 다양한 실제 활동 모습을 만나보세요.
+              </p>
+            </div>
+            <Link href="/news" className="mt-4 sm:mt-8 bg-white text-sunny-black group-hover:bg-sunny-yellow font-bold text-xs sm:text-sm px-4 py-2.5 sm:px-6 sm:py-3 rounded-full w-max flex items-center shadow-sm transition-all duration-300 relative z-10 group-hover:-translate-y-1">
+              활동 모습 보러가기 <ChevronRight className="w-4 h-4 ml-1.5" />
             </Link>
           </div>
           
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 relative overflow-hidden transform-gpu h-[300px] flex flex-col justify-center group hover:bg-white/10 transition-colors shadow-lg">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 relative overflow-hidden transform-gpu flex flex-col justify-between group hover:bg-white/10 transition-colors shadow-lg min-h-[220px] sm:h-[300px]">
             {/* Decorative gradient for glassmorphism */}
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-sunny-yellow rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
             
-            <h3 className="text-2xl font-bold text-white mb-4 relative z-10 group-hover:-translate-y-1 transition-transform duration-300">Sunny 프로그램 알아보기</h3>
-            <p className="text-gray-300 max-w-[90%] leading-relaxed relative z-10 group-hover:-translate-y-1 transition-transform duration-300">
-              Sunny의 대표 프로그램인<br className="hidden md:block" />
-              Sunny Scholar와 Sunny On-site에 대해 알아봅니다.
-            </p>
-            <Link href="/program/scholar" className="mt-8 bg-white text-sunny-black group-hover:bg-sunny-yellow font-semibold px-6 py-3 rounded-full w-max flex items-center shadow-sm transition-all duration-300 relative z-10 group-hover:-translate-y-1">
-              Sunny 프로그램 보기 <ChevronRight className="w-4 h-4 ml-2" />
+            <div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-4 relative z-10 group-hover:-translate-y-1 transition-transform duration-300">Sunny 프로그램 알아보기</h3>
+              <p className="text-gray-300 text-sm sm:text-base max-w-[90%] leading-relaxed relative z-10 group-hover:-translate-y-1 transition-transform duration-300">
+                Sunny의 대표 프로그램인 Sunny Scholar와 Sunny On-site에 대해 알아봅니다.
+              </p>
+            </div>
+            <Link href="/program/scholar" className="mt-4 sm:mt-8 bg-white text-sunny-black group-hover:bg-sunny-yellow font-bold text-xs sm:text-sm px-4 py-2.5 sm:px-6 sm:py-3 rounded-full w-max flex items-center shadow-sm transition-all duration-300 relative z-10 group-hover:-translate-y-1">
+              Sunny 프로그램 보기 <ChevronRight className="w-4 h-4 ml-1.5" />
             </Link>
           </div>
         </div>
@@ -250,7 +247,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
 
       {/* [섹션 5] Sunny 소식 */}
       <section className="container-pc !max-w-[1000px]">
-        <h2 className="text-3xl font-bold text-white mb-8">Sunny 소식</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 tracking-normal">Sunny 소식</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredNews.map((news) => (
             <Link href={`/news/${news.slug}`} key={news._id} className="group">

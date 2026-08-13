@@ -139,13 +139,13 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
   };
 
   return (
-    <div className="py-12">
+    <div className="pt-12 pb-6 md:py-32">
       {/* Featured Section (Apple-style horizontal scroll) */}
       {featuredProjects.length > 0 && (
         <div className="w-full mb-[120px] md:mb-[240px] relative">
           <div className="container-pc !max-w-[1000px] mb-8 relative" ref={titleContainerRef}>
             <div className="relative z-10">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">주목할 만한 리포트</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-normal">주목할 만한 리포트</h1>
             </div>
           </div>
           
@@ -225,16 +225,16 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
           <img src="/report.svg" alt="" className="w-full h-full object-contain drop-shadow-2xl max-w-none scale-x-[-1]" />
         </div>
         
-        <div className="flex flex-col md:flex-row md:items-center mb-12 gap-6 relative z-10">
-          <h2 className="text-3xl font-bold text-white">전체 리포트</h2>
+        <div className="flex flex-col md:flex-row md:items-center mb-5 md:mb-12 gap-3 md:gap-6 relative z-10">
+          <h2 className="text-2xl md:text-3xl font-bold text-white">전체 리포트</h2>
           
           {/* Program Toggle */}
-          <div className="flex bg-white/10 p-1 rounded-full relative w-full md:w-auto border border-white/5 shadow-inner overflow-hidden scale-90 origin-left">
+          <div className="flex bg-white/10 p-1 rounded-full relative w-full md:w-auto border border-white/5 shadow-inner overflow-hidden">
             {programs.map((prog) => (
               <button
                 key={prog}
                 onClick={() => setActiveProgram(prog)}
-                className={`relative px-4 py-1.5 text-xs md:text-sm font-medium rounded-full transition-colors z-10 flex-1 md:flex-none text-center whitespace-nowrap ${
+                className={`relative px-3 md:px-4 py-1.5 text-xs md:text-sm font-medium rounded-full transition-colors z-10 flex-1 md:flex-none text-center whitespace-nowrap ${
                   activeProgram === prog ? 'text-sunny-black' : 'text-gray-300 hover:text-white'
                 }`}
               >
@@ -252,14 +252,14 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-start mb-8 gap-4">
-          <div className="flex flex-col gap-4 w-full md:w-auto">
+          <div className="flex flex-col gap-3 md:gap-4 w-full md:w-auto">
             {/* Categories */}
-            <div className="flex space-x-2 overflow-x-auto pb-2 w-full md:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="flex gap-1.5 md:gap-2 overflow-x-auto pb-1 md:pb-2 w-full md:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {categories.map(cat => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-6 py-2 rounded-full whitespace-nowrap font-medium transition-all ${
+                  className={`px-3 md:px-6 py-1.5 md:py-2 rounded-full whitespace-nowrap text-xs md:text-base font-medium transition-all flex-1 md:flex-none text-center ${
                     activeCategory === cat 
                       ? 'bg-sunny-yellow text-sunny-black shadow-sm' 
                       : 'bg-white/10 text-white hover:bg-white/20'
@@ -274,7 +274,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
             <motion.div 
               initial={{ opacity: 0, y: -5 }}
               animate={{ opacity: 1, y: 0 }}
-              className="flex space-x-6 px-2 overflow-x-auto w-full md:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              className="flex justify-start space-x-4 md:space-x-6 px-1 md:px-2 overflow-x-auto w-full md:w-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
               {cohorts.map(cohort => (
                 <button

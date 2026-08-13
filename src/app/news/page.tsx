@@ -21,14 +21,23 @@ export default async function NewsPage() {
   const articles = await getArticles();
 
   return (
-    <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col">
+    <div className="w-full max-w-[1000px] mx-auto pt-12 pb-6 md:py-32 px-4 min-h-[70vh] flex flex-col">
       <div className="w-full">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 relative">
-          <div className="relative z-10 w-full">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 text-left">뉴스룸</h1>
-            <p className="text-gray-300 text-lg">Sunny의 다양한 활동과 임팩트를 전해드립니다.</p>
+        <div className="relative mb-8 md:mb-12">
+          {/* Title & Subtitle */}
+          <div className="relative z-10 w-full max-w-[240px] sm:max-w-none">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 text-left">뉴스룸</h1>
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              Sunny의 다양한 활동과<br className="block sm:hidden" /> 임팩트를 전해드립니다.
+            </p>
+          </div>
+
+          {/* Illustration: 20% larger (h-[140px]), positioned absolutely right */}
+          <div className="absolute right-0 -bottom-2 md:bottom-2 z-0 pointer-events-none">
+            <img src="/newsroom.svg" alt="" className="h-[140px] sm:h-[180px] md:h-[260px] object-contain drop-shadow-xl" />
           </div>
         </div>
+
         <NewsListClient articles={articles} />
       </div>
     </div>

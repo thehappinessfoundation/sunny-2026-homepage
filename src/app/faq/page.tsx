@@ -18,12 +18,14 @@ export default async function FAQPage() {
   const faqs = await getFaqs()
   
   return (
-    <div className="min-h-screen pt-16 relative overflow-hidden">
-      <div className="absolute left-[40%] md:left-[65%] lg:left-[70%] top-[20%] md:top-[30%] z-0 pointer-events-none opacity-60 md:opacity-100 mix-blend-lighten">
-        <img src="/faq.svg" alt="" className="h-[280px] md:h-[420px] lg:h-[560px] object-contain drop-shadow-2xl" />
-      </div>
+    <div className="min-h-screen relative overflow-hidden flex flex-col justify-between">
       <div className="relative z-10">
         <FaqClient initialFaqs={faqs} />
+      </div>
+
+      {/* Megaphone Illustration: On Mobile, right-shifted off-screen bleed above footer. On Desktop, right side */}
+      <div className="relative md:absolute bottom-0 md:bottom-auto flex justify-end md:block right-0 md:right-auto md:left-[65%] lg:left-[70%] md:top-[30%] z-0 pointer-events-none opacity-85 md:opacity-100 my-4 md:my-0">
+        <img src="/faq.svg" alt="" className="h-[200px] sm:h-[240px] md:h-[420px] lg:h-[560px] object-contain drop-shadow-2xl translate-x-10 md:translate-x-0" />
       </div>
     </div>
   )

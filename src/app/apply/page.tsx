@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 export default function ApplyPage() {
   return (
-    <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col items-center justify-center relative">
+    <div className="w-full max-w-[1000px] mx-auto pt-12 pb-6 md:py-32 px-4 min-h-[70vh] flex flex-col items-center justify-center relative">
       <div className="w-full text-left mb-12 relative z-10">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">지원하기</h1>
+        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-normal">지원하기</h1>
         <p className="text-gray-400 text-base md:text-lg">
           행복나눔재단 Sunny와 함께할 혁신가를 기다립니다.
         </p>
