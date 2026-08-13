@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function ApplyPage() {
   return (
     <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col items-center justify-center relative">
-      <div className="text-center mb-16 relative z-10">
+      <div className="w-full text-left mb-12 relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">지원하기</h1>
         <p className="text-gray-400 text-base md:text-lg">
           행복나눔재단 Sunny와 함께할 혁신가를 기다립니다.
@@ -14,28 +14,29 @@ export default function ApplyPage() {
         {/* Scholar Button (Active) */}
         <a 
           href="#" // TODO: Add actual form link
-          className="flex flex-col items-center justify-center p-12 md:p-16 rounded-[2.5rem] bg-sunny-yellow hover:bg-yellow-400 transition-all duration-300 shadow-xl group relative overflow-hidden"
+          className="flex flex-col items-center justify-center p-12 md:p-16 rounded-[2.5rem] bg-sunny-yellow/5 border border-sunny-yellow/30 hover:border-sunny-yellow hover:bg-sunny-yellow/10 transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_0_40px_rgba(255,198,39,0.15)] backdrop-blur-xl group relative overflow-hidden"
         >
-          <div className="text-sunny-black font-extrabold text-2xl md:text-3xl mb-6 text-center word-break-keep leading-relaxed relative z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-sunny-yellow/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="text-white font-extrabold text-2xl md:text-3xl mb-6 text-center word-break-keep leading-relaxed relative z-10 group-hover:text-sunny-yellow transition-colors duration-300">
             Sunny Scholar 지원하기
           </div>
-          <div className="px-5 py-2.5 bg-black/10 rounded-full text-sunny-black font-bold text-sm md:text-base shadow-sm backdrop-blur-sm border border-black/5 relative z-10">
+          <div className="px-5 py-2.5 bg-sunny-yellow/20 rounded-full text-sunny-yellow font-bold text-sm md:text-base border border-sunny-yellow/30 relative z-10 backdrop-blur-md">
             지원 마감 : 2026.08.20
           </div>
-          <img src="/scholar.svg" alt="" className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-48 md:w-64 h-48 md:h-64 opacity-15 brightness-0 object-contain pointer-events-none" />
+          <img src="/scholar.svg" alt="" className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-48 md:w-64 h-48 md:h-64 opacity-20 object-contain pointer-events-none transition-transform duration-500 group-hover:scale-110" />
         </a>
 
         {/* On-Site Button (Disabled) */}
         <div 
-          className="flex flex-col items-center justify-center p-12 md:p-16 rounded-[2.5rem] bg-[#1a1a1c] border-2 border-white/5 transition-all opacity-80 cursor-not-allowed shadow-inner relative overflow-hidden"
+          className="flex flex-col items-center justify-center p-12 md:p-16 rounded-[2.5rem] bg-white/5 border border-white/5 transition-all opacity-60 cursor-not-allowed shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl relative overflow-hidden"
         >
-          <div className="text-gray-500 font-extrabold text-2xl md:text-3xl mb-6 text-center word-break-keep leading-relaxed relative z-10">
+          <div className="text-gray-400 font-extrabold text-2xl md:text-3xl mb-6 text-center word-break-keep leading-relaxed relative z-10">
             Sunny On-Site 지원하기
           </div>
-          <div className="px-5 py-2.5 bg-white/5 rounded-full text-gray-400 font-bold text-sm md:text-base border border-white/10 relative z-10">
+          <div className="px-5 py-2.5 bg-black/30 rounded-full text-gray-500 font-bold text-sm md:text-base border border-white/5 relative z-10 backdrop-blur-md">
             2027년 8월 접수 예정
           </div>
-          <img src="/on-site.svg" alt="" className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-48 md:w-64 h-48 md:h-64 opacity-[0.15] object-contain pointer-events-none grayscale" />
+          <img src="/on-site.svg" alt="" className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-48 md:w-64 h-48 md:h-64 opacity-10 object-contain pointer-events-none grayscale" />
         </div>
       </div>
 

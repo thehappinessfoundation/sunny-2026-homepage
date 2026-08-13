@@ -297,7 +297,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
             <div className="relative w-full md:w-64">
               <input 
                 type="text" 
-                placeholder="리포트 검색..." 
+                placeholder="검색" 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 border border-white/20 bg-white/5 text-white rounded-full focus:outline-none focus:border-sunny-yellow placeholder-gray-400 backdrop-blur-sm transition-colors"

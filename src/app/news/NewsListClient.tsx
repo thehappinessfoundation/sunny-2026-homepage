@@ -2,31 +2,54 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Search } from 'lucide-react';
 
 const CATEGORIES = ['전체', '공지사항', '언론보도', '모집소식', '프로젝트'];
 
 export default function NewsListClient({ articles }: { articles: any[] }) {
   const [activeCategory, setActiveCategory] = useState('전체');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredArticles = activeCategory === '전체' 
-    ? articles 
-    : articles.filter(article => article.category === activeCategory);
+  const filteredArticles = articles.filter(article => {
+    const matchesCategory = activeCategory === '전체' || article.category === activeCategory;
+    const query = searchQuery.trim().toLowerCase();
+    const matchesSearch = !query || 
+      (article.title && article.title.toLowerCase().includes(query)) ||
+      (article.summary && article.summary.toLowerCase().includes(query)) ||
+      (article.category && article.category.toLowerCase().includes(query)) ||
+      (article.tags && Array.isArray(article.tags) && article.tags.some((tag: string) => tag.toLowerCase().includes(query)));
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div>
-      {/* Category Tabs */}
-      <div className="relative flex flex-wrap gap-6 mb-16 border-b border-white/10 pb-4">
-        {CATEGORIES.map(category => (
-          <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={`text-xl font-bold transition-colors ${
-              activeCategory === category ? 'text-white' : 'text-gray-500 hover:text-gray-300'
-            }`}
-          >
-            {category}
-          </button>
-        ))}
+      {/* Category Tabs & Search Bar */}
+      <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-6 mb-16 border-b border-white/10 pb-4">
+        <div className="flex flex-wrap gap-6 items-center z-10">
+          {CATEGORIES.map(category => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`text-xl font-bold transition-colors ${
+                activeCategory === category ? 'text-white' : 'text-gray-500 hover:text-gray-300'
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Search Bar */}
+        <div className="relative w-full md:w-64 z-10 shrink-0">
+          <input 
+            type="text" 
+            placeholder="검색" 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-10 pr-4 py-2 border border-white/20 bg-white/5 text-white rounded-full focus:outline-none focus:border-sunny-yellow placeholder-gray-400 backdrop-blur-sm transition-colors text-sm"
+          />
+          <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
+        </div>
 
         {/* 일러스트레이션: 크기 80% (h-[320px]), 선 위로 살짝 여백(bottom-2) */}
         <div className="absolute right-4 md:right-12 lg:right-20 bottom-2 z-0 pointer-events-none">
