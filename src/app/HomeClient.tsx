@@ -76,7 +76,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-lg md:text-xl font-medium text-white mb-4 tracking-wider uppercase"
+              className="text-lg md:text-xl font-medium text-white mb-4 tracking-wider"
             >
               Sunny
             </motion.span>

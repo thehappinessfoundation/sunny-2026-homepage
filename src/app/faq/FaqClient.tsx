@@ -71,14 +71,14 @@ export default function FaqClient({ initialFaqs }: { initialFaqs: Faq[] }) {
 
       {/* Search & Tabs */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-5 mb-10">
-        <div className="flex flex-wrap gap-2 order-2 md:order-1">
+        <div className="w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-none snap-x flex gap-2 whitespace-nowrap order-2 md:order-1">
           {CATEGORIES.map(cat => (
             <button
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
-              className={`px-4 py-1.5 rounded-full text-sm font-semibold transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors shrink-0 snap-start ${
                 activeTab === cat.id 
-                  ? 'bg-white text-sunny-purple' 
+                  ? 'bg-white text-sunny-purple shadow-sm' 
                   : 'bg-white/10 text-white hover:bg-white/20'
               }`}
             >

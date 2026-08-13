@@ -34,47 +34,94 @@ export default function OnsitePage() {
 
       <h2 className="text-2xl font-bold text-white mb-6">커리큘럼</h2>
       
-      <div className="w-full overflow-x-auto pb-4">
-        <div className="min-w-[800px] grid grid-cols-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]">
-          {/* Headers */}
-          <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold">01</span>
-            <span className="text-white font-bold text-lg md:text-xl">오리엔테이션</span>
-          </div>
-          <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold">02</span>
-            <span className="text-white font-bold text-lg md:text-xl">Pre-field 온보딩</span>
-          </div>
-          <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold">03</span>
-            <span className="text-white font-bold text-lg md:text-xl break-keep">현장연구(직접 거주)</span>
-          </div>
-          <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold">04</span>
-            <span className="text-white font-bold text-lg md:text-xl">문제정의 검증</span>
-          </div>
-          <div className="p-6 border-b border-white/10 bg-white/10 flex flex-col gap-1">
-            <span className="text-sunny-yellow/90 text-xs font-bold">05</span>
-            <span className="text-white font-bold text-lg md:text-xl">연구 아카이빙</span>
-          </div>
-          
-          {/* Content */}
-          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
-            팀빌딩 및 현장 예열
-          </div>
-          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
-            지역 이해 및 문제 정의 훈련
-          </div>
-          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
-            현장관찰·인터뷰·지역탐색
-          </div>
-          <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
-            데이터 분석 및 문제 검증
-          </div>
-          <div className="p-6 text-gray-200 text-base leading-relaxed break-keep">
-            연구결과 정리 및 공유
-          </div>
+      {/* PC Table Layout (Original 5-Column Horizontal Grid) */}
+      <div className="hidden md:grid grid-cols-5 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:bg-white/10 hover:border-white/30 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+        {/* Headers */}
+        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
+          <span className="text-sunny-yellow/90 text-xs font-bold">01</span>
+          <span className="text-white font-bold text-lg md:text-xl">오리엔테이션</span>
         </div>
+        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
+          <span className="text-sunny-yellow/90 text-xs font-bold">02</span>
+          <span className="text-white font-bold text-lg md:text-xl">Pre-field 온보딩</span>
+        </div>
+        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
+          <span className="text-sunny-yellow/90 text-xs font-bold">03</span>
+          <span className="text-white font-bold text-lg md:text-xl break-keep">현장연구(직접 거주)</span>
+        </div>
+        <div className="p-6 border-r border-b border-white/10 bg-white/10 flex flex-col gap-1">
+          <span className="text-sunny-yellow/90 text-xs font-bold">04</span>
+          <span className="text-white font-bold text-lg md:text-xl">문제정의 검증</span>
+        </div>
+        <div className="p-6 border-b border-white/10 bg-white/10 flex flex-col gap-1">
+          <span className="text-sunny-yellow/90 text-xs font-bold">05</span>
+          <span className="text-white font-bold text-lg md:text-xl">연구 아카이빙</span>
+        </div>
+        
+        {/* Content */}
+        <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
+          팀빌딩 및 현장 예열
+        </div>
+        <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
+          지역 이해 및 문제 정의 훈련
+        </div>
+        <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
+          현장관찰·인터뷰·지역탐색
+        </div>
+        <div className="p-6 border-r border-white/10 text-gray-200 text-base leading-relaxed break-keep">
+          데이터 분석 및 문제 검증
+        </div>
+        <div className="p-6 text-gray-200 text-base leading-relaxed break-keep">
+          연구결과 정리 및 공유
+        </div>
+      </div>
+
+      {/* Mobile Vertical Step Cards Layout */}
+      <div className="flex md:hidden flex-col gap-4">
+        {[
+          {
+            num: '01',
+            title: '오리엔테이션',
+            desc: '팀빌딩 및 현장 연구 예열 과정을 거칩니다.',
+          },
+          {
+            num: '02',
+            title: 'Pre-field 온보딩',
+            desc: '지역에 대한 사전 이해 교육 및 실전 문제 정의 훈련을 진행합니다.',
+          },
+          {
+            num: '03',
+            title: '현장연구 (직접 거주)',
+            desc: '지역에 머물며 직접 현장 관찰, 심층 인터뷰, 지역 맥락 탐색을 수행합니다.',
+          },
+          {
+            num: '04',
+            title: '문제정의 검증',
+            desc: '수집된 현장 데이터 분석 및 다각도 문제 정의 검증을 수행합니다.',
+          },
+          {
+            num: '05',
+            title: '연구 아카이빙',
+            desc: '최종 연구 결과를 아카이빙 보고서로 정리하여 사회 섹터 및 지역 기관과 공유합니다.',
+          },
+        ].map((item) => (
+          <div
+            key={item.num}
+            className="flex flex-col gap-3 p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-xl shadow-lg"
+          >
+            <div className="flex items-center gap-3">
+              <span className="w-8 h-8 rounded-lg bg-sunny-yellow/10 border border-sunny-yellow/30 text-sunny-yellow font-bold text-xs flex items-center justify-center">
+                {item.num}
+              </span>
+              <h3 className="text-white font-bold text-lg">
+                {item.title}
+              </h3>
+            </div>
+            <p className="text-gray-300 text-sm leading-relaxed break-keep">
+              {item.desc}
+            </p>
+          </div>
+        ))}
       </div>
 
       <h2 className="text-2xl font-bold text-white mt-20 mb-6">프로그램 영상</h2>

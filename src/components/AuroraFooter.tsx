@@ -180,21 +180,18 @@ export default function AuroraFooter() {
         </div>
       </div>
 
-      {/* Base Footer Aurora Waves (Restored static bottom background) */}
+      {/* Base Footer Aurora Waves (Mobile-only Slightly Lowered Shift, Original PC Desktop Positioning Intact) */}
       <div className="absolute bottom-0 left-0 w-full h-[100vh] pointer-events-none -z-10 overflow-hidden">
-        <div 
-          className="absolute left-1/2 bottom-0 -translate-x-1/2"
-          style={{ width: '200vw', height: '20vh' }}
-        >
-          <div className="absolute -bottom-[26vh] left-1/2 -translate-x-1/2 w-[240vw] h-[60vh] bg-[#5515af] opacity-80 blur-[100px] rounded-[50%]" style={{ animation: 'wave-purple-1 28s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
-          <div className="absolute -bottom-[30vh] left-1/2 -translate-x-1/2 w-[240vw] h-[62vh] bg-[#4a10e5] opacity-90 blur-[100px] rounded-[50%]" style={{ animation: 'wave-purple-2 34s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
+        <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[200vw] h-[26vh] md:h-[20vh]">
+          <div className="absolute -bottom-[18vh] md:-bottom-[26vh] left-1/2 -translate-x-1/2 w-[240vw] h-[68vh] md:h-[60vh] bg-[#5515af] opacity-80 blur-[100px] rounded-[50%]" style={{ animation: 'wave-purple-1 28s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
+          <div className="absolute -bottom-[20vh] md:-bottom-[30vh] left-1/2 -translate-x-1/2 w-[240vw] h-[70vh] md:h-[62vh] bg-[#4a10e5] opacity-90 blur-[100px] rounded-[50%]" style={{ animation: 'wave-purple-2 34s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
 
-          <div className="absolute -bottom-[48vh] left-1/2 w-[220vw] h-[67vh] -translate-x-1/2 bg-[#FFD73C] opacity-95 blur-[70px] rounded-[50%]" style={{ animation: 'wave-orb-1 32s cubic-bezier(0.4, 0, 0.2, 1) infinite reverse' }} />
-          <div className="absolute bottom-[-38vh] left-[10%] w-[120vw] h-[57vh] bg-[#FFD73C] opacity-90 blur-[70px] rounded-[50%]" style={{ animation: 'wave-orb-1 24s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
-          <div className="absolute bottom-[-38vh] left-1/2 w-[140vw] h-[57vh] -translate-x-1/2 bg-[#FFD73C] opacity-[0.85] blur-[70px] rounded-[50%]" style={{ animation: 'wave-orb-2 28s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
-          <div className="absolute bottom-[-38vh] right-[10%] w-[120vw] h-[57vh] bg-[#FFD73C] opacity-90 blur-[70px] rounded-[50%]" style={{ animation: 'wave-orb-3 30s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
+          <div className="absolute -bottom-[35vh] md:-bottom-[48vh] left-1/2 w-[220vw] h-[74vh] md:h-[67vh] -translate-x-1/2 bg-[#FFD73C] opacity-95 blur-[75px] md:blur-[70px] rounded-[50%]" style={{ animation: 'wave-orb-1 32s cubic-bezier(0.4, 0, 0.2, 1) infinite reverse' }} />
+          <div className="absolute -bottom-[27vh] md:-bottom-[38vh] left-[10%] w-[120vw] h-[64vh] md:h-[57vh] bg-[#FFD73C] opacity-90 blur-[75px] md:blur-[70px] rounded-[50%]" style={{ animation: 'wave-orb-1 24s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
+          <div className="absolute -bottom-[27vh] md:-bottom-[38vh] left-1/2 w-[140vw] h-[64vh] md:h-[57vh] -translate-x-1/2 bg-[#FFD73C] opacity-[0.85] blur-[75px] md:blur-[70px] rounded-[50%]" style={{ animation: 'wave-orb-2 28s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
+          <div className="absolute -bottom-[27vh] md:-bottom-[38vh] right-[10%] w-[120vw] h-[64vh] md:h-[57vh] bg-[#FFD73C] opacity-90 blur-[75px] md:blur-[70px] rounded-[50%]" style={{ animation: 'wave-orb-3 30s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
 
-          <div className="absolute -bottom-[44vh] left-1/2 w-[250vw] h-[68vh] -translate-x-1/2 bg-[#FF9800] opacity-95 blur-[80px] rounded-[50%]" style={{ animation: 'wave-orb-1 35s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
+          <div className="absolute -bottom-[32vh] md:-bottom-[44vh] left-1/2 w-[250vw] h-[75vh] md:h-[68vh] -translate-x-1/2 bg-[#FF9800] opacity-95 blur-[85px] md:blur-[80px] rounded-[50%]" style={{ animation: 'wave-orb-1 35s cubic-bezier(0.4, 0, 0.2, 1) infinite' }} />
         </div>
       </div>
     </>

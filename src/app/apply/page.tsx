@@ -14,7 +14,7 @@ export default function ApplyPage() {
         {/* Scholar Button (Active & Vibrant Glassmorphism) */}
         <a 
           href="#" // TODO: Add actual form link
-          className="flex flex-col items-center justify-center p-12 md:p-16 rounded-[2.5rem] bg-sunny-yellow/[0.06] hover:bg-sunny-yellow/[0.12] border border-sunny-yellow/40 hover:border-sunny-yellow transition-all duration-500 shadow-[0_8px_32px_rgba(255,198,39,0.08)] hover:shadow-[0_0_50px_rgba(255,198,39,0.25)] backdrop-blur-2xl group relative overflow-hidden transform hover:-translate-y-1.5"
+          className="flex flex-col items-center justify-center p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[2.5rem] bg-sunny-yellow/[0.06] hover:bg-sunny-yellow/[0.12] border border-sunny-yellow/40 hover:border-sunny-yellow transition-all duration-500 shadow-[0_8px_32px_rgba(255,198,39,0.08)] hover:shadow-[0_0_50px_rgba(255,198,39,0.25)] backdrop-blur-2xl group relative overflow-hidden transform hover:-translate-y-1.5"
         >
           {/* Animated Background Aura & Shimmer Gradient */}
           <div className="absolute inset-0 bg-gradient-to-br from-sunny-yellow/20 via-sunny-yellow/5 to-transparent opacity-40 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none"></div>
@@ -30,17 +30,17 @@ export default function ApplyPage() {
             지원 마감 : 2026.08.20
           </div>
 
-          {/* Graphic Illustration (Soft translucent opacity with vibrant hover float) */}
+          {/* Graphic Illustration */}
           <img 
             src="/scholar.svg" 
             alt="" 
-            className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-48 md:w-64 h-48 md:h-64 opacity-35 group-hover:opacity-60 object-contain pointer-events-none transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2" 
+            className="absolute -bottom-3 -right-3 md:-bottom-10 md:-right-10 w-36 sm:w-48 md:w-64 h-36 sm:h-48 md:h-64 opacity-25 sm:opacity-35 group-hover:opacity-60 object-contain pointer-events-none transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2" 
           />
         </a>
 
         {/* On-Site Button (Disabled) */}
         <div 
-          className="flex flex-col items-center justify-center p-12 md:p-16 rounded-[2.5rem] bg-white/5 border border-white/5 transition-all opacity-60 cursor-not-allowed shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl relative overflow-hidden"
+          className="flex flex-col items-center justify-center p-8 sm:p-12 md:p-16 rounded-[2rem] sm:rounded-[2.5rem] bg-white/5 border border-white/5 transition-all opacity-60 cursor-not-allowed shadow-[0_8px_32px_rgba(0,0,0,0.12)] backdrop-blur-xl relative overflow-hidden"
         >
           <div className="text-gray-400 font-extrabold text-2xl md:text-3xl mb-6 text-center word-break-keep leading-relaxed relative z-10">
             Sunny On-Site 지원하기
@@ -48,7 +48,7 @@ export default function ApplyPage() {
           <div className="px-5 py-2.5 bg-black/30 rounded-full text-gray-500 font-bold text-sm md:text-base border border-white/5 relative z-10 backdrop-blur-md">
             2027년 8월 접수 예정
           </div>
-          <img src="/on-site.svg" alt="" className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-48 md:w-64 h-48 md:h-64 opacity-10 object-contain pointer-events-none grayscale" />
+          <img src="/on-site.svg" alt="" className="absolute -bottom-3 -right-3 md:-bottom-10 md:-right-10 w-36 sm:w-48 md:w-64 h-36 sm:h-48 md:h-64 opacity-10 object-contain pointer-events-none grayscale" />
         </div>
       </div>
 
