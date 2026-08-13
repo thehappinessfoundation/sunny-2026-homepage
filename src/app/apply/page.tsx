@@ -11,19 +11,31 @@ export default function ApplyPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl relative z-10 mb-20">
-        {/* Scholar Button (Active) */}
+        {/* Scholar Button (Active & Vibrant Glassmorphism) */}
         <a 
           href="#" // TODO: Add actual form link
-          className="flex flex-col items-center justify-center p-12 md:p-16 rounded-[2.5rem] bg-sunny-yellow/5 border border-sunny-yellow/30 hover:border-sunny-yellow hover:bg-sunny-yellow/10 transition-all duration-500 shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:shadow-[0_0_40px_rgba(255,198,39,0.15)] backdrop-blur-xl group relative overflow-hidden"
+          className="flex flex-col items-center justify-center p-12 md:p-16 rounded-[2.5rem] bg-sunny-yellow/[0.06] hover:bg-sunny-yellow/[0.12] border border-sunny-yellow/40 hover:border-sunny-yellow transition-all duration-500 shadow-[0_8px_32px_rgba(255,198,39,0.08)] hover:shadow-[0_0_50px_rgba(255,198,39,0.25)] backdrop-blur-2xl group relative overflow-hidden transform hover:-translate-y-1.5"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-sunny-yellow/10 via-transparent to-transparent opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div className="text-white font-extrabold text-2xl md:text-3xl mb-6 text-center word-break-keep leading-relaxed relative z-10 group-hover:text-sunny-yellow transition-colors duration-300">
+          {/* Animated Background Aura & Shimmer Gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-sunny-yellow/20 via-sunny-yellow/5 to-transparent opacity-40 group-hover:opacity-90 transition-opacity duration-500 pointer-events-none"></div>
+          
+          {/* Ambient Glow Orb */}
+          <div className="absolute -top-12 -left-12 w-40 h-40 bg-sunny-yellow/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
+
+          <div className="text-white font-extrabold text-2xl md:text-3xl mb-6 text-center word-break-keep leading-relaxed relative z-10 group-hover:text-sunny-yellow transition-colors duration-300 drop-shadow-md">
             Sunny Scholar 지원하기
           </div>
-          <div className="px-5 py-2.5 bg-sunny-yellow/20 rounded-full text-sunny-yellow font-bold text-sm md:text-base border border-sunny-yellow/30 relative z-10 backdrop-blur-md">
+
+          <div className="px-5 py-2.5 bg-sunny-yellow/20 group-hover:bg-sunny-yellow/30 rounded-full text-sunny-yellow font-bold text-sm md:text-base border border-sunny-yellow/40 relative z-10 backdrop-blur-md shadow-sm transition-all duration-300">
             지원 마감 : 2026.08.20
           </div>
-          <img src="/scholar.svg" alt="" className="absolute -bottom-6 -right-6 md:-bottom-12 md:-right-12 w-48 md:w-64 h-48 md:h-64 opacity-20 object-contain pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+
+          {/* Graphic Illustration (Soft translucent opacity with vibrant hover float) */}
+          <img 
+            src="/scholar.svg" 
+            alt="" 
+            className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-48 md:w-64 h-48 md:h-64 opacity-35 group-hover:opacity-60 object-contain pointer-events-none transition-all duration-700 group-hover:scale-110 group-hover:-translate-y-2" 
+          />
         </a>
 
         {/* On-Site Button (Disabled) */}

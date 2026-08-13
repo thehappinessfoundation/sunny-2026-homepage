@@ -4,6 +4,10 @@ export default function AboutPage() {
       <div className="w-full max-w-[1000px] mx-auto py-32 px-4 min-h-[70vh] flex flex-col relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-10 text-left">About</h1>
         
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+          Sunny를 소개합니다.
+        </h2>
+
         <div className="flex flex-col gap-6 mb-16">
           <p className="text-base md:text-lg text-gray-300 leading-relaxed break-keep">
             2003년 시작된 SK 대학생 자원봉사단 Sunny는 급변하는 시대에 맞춰 대학생이 사회문제를 탐구하며<br />
