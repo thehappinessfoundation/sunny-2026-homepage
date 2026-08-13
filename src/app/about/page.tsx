@@ -61,7 +61,7 @@ export default function AboutPage() {
                 <span className="text-sunny-yellow/90 text-xl font-bold leading-tight">{item.num}</span>
                 <h3 className="text-xl font-bold text-white break-keep leading-tight">{item.title}</h3>
               </div>
-              <div className="md:w-2/3 flex items-start md:pr-32 lg:pr-64 xl:pr-80">
+              <div className="md:w-2/3 flex items-start md:pr-12 lg:pr-20">
                 <p className="text-gray-300 text-base md:text-lg leading-relaxed break-keep -mt-1 md:-mt-1.5">
                   {item.desc}
                 </p>
@@ -70,8 +70,8 @@ export default function AboutPage() {
           ))}
         </div>
         {/* Background illustration */}
-        <div className="absolute left-[60%] md:left-[75%] lg:left-[80%] bottom-[5%] z-0 pointer-events-none opacity-40 md:opacity-100">
-          <img src="/about.svg" alt="" className="h-[280px] md:h-[420px] lg:h-[560px] max-w-none object-contain drop-shadow-2xl" />
+        <div className="absolute left-[90%] md:left-[100%] lg:left-[105%] bottom-[2%] z-0 pointer-events-none opacity-30 md:opacity-90 transition-all duration-300">
+          <img src="/about.svg" alt="" className="h-[240px] md:h-[380px] lg:h-[500px] max-w-none object-contain drop-shadow-2xl" />
         </div>
       </div>
     </div>
