@@ -23,7 +23,7 @@ export default async function NewsPage() {
   return (
     <div className="w-full max-w-[1000px] mx-auto pt-12 pb-6 md:py-32 px-4 min-h-[70vh] flex flex-col">
       <div className="w-full">
-        <div className="relative mb-8 md:mb-12">
+        <div className="relative mb-8 md:mb-16">
           {/* Title & Subtitle */}
           <div className="relative z-10 w-full max-w-[240px] sm:max-w-none">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 text-left">뉴스룸</h1>
@@ -32,9 +32,9 @@ export default async function NewsPage() {
             </p>
           </div>
 
-          {/* Illustration: 20% larger (h-[140px]), positioned absolutely right */}
-          <div className="absolute right-0 -bottom-2 md:bottom-2 z-0 pointer-events-none">
-            <img src="/newsroom.svg" alt="" className="h-[140px] sm:h-[180px] md:h-[260px] object-contain drop-shadow-xl" />
+          {/* Illustration: 40% larger, positioned on the right on PC without affecting title top alignment */}
+          <div className="mt-4 md:mt-0 md:absolute md:right-0 md:-top-4 z-0 pointer-events-none flex justify-start md:justify-end">
+            <img src="/newsroom.svg" alt="" className="h-[140px] sm:h-[180px] md:h-[290px] lg:h-[320px] object-contain drop-shadow-xl" />
           </div>
         </div>
 

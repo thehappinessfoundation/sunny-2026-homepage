@@ -50,11 +50,6 @@ export default function NewsListClient({ articles }: { articles: any[] }) {
           />
           <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
         </div>
-
-        {/* Desktop Illustration (Hidden on Mobile) */}
-        <div className="hidden md:block absolute right-4 md:right-12 lg:right-20 bottom-2 z-0 pointer-events-none">
-          <img src="/newsroom.svg" alt="See the new" className="h-[260px] object-contain drop-shadow-xl" />
-        </div>
       </div>
 
       {/* Article List */}

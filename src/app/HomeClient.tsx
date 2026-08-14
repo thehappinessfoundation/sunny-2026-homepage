@@ -206,16 +206,19 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
 
       {/* [섹션 4] Sunny 함께하기 */}
       <section className="container-pc !max-w-[1000px] relative mt-8 md:mt-36">
-        {/* Illustration moved above Title */}
-        <div className="w-full flex justify-start mb-2 md:mb-4 pointer-events-none">
-          <img src="/together.svg" alt="" className="w-[130px] sm:w-[180px] md:w-[260px] h-auto object-contain drop-shadow-2xl" />
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-4 md:mb-6">
+          <div className="order-2 md:order-1 mt-2 md:mt-0">
+            <h2 className="text-3xl md:text-4xl font-bold text-white relative z-10 tracking-normal mb-0">Sunny 함께하기</h2>
+          </div>
+          <div className="order-1 md:order-2 w-full md:w-auto flex justify-start md:justify-end pointer-events-none mb-2 md:mb-0">
+            <img src="/together.svg" alt="" className="w-[130px] sm:w-[180px] md:w-[320px] lg:w-[350px] h-auto object-contain drop-shadow-2xl" />
+          </div>
         </div>
 
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:mb-8 relative z-10 tracking-normal">Sunny 함께하기</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 relative z-10">
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 relative overflow-hidden transform-gpu flex flex-col justify-between group hover:bg-white/10 transition-colors shadow-lg min-h-[220px] sm:h-[300px]">
             {/* Decorative gradient for glassmorphism */}
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-sunny-yellow rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,214,0,0.18),transparent_65%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-4 relative z-10 group-hover:-translate-y-1 transition-transform duration-300">실제 프로그램 현장 보기</h3>
@@ -230,7 +233,7 @@ export default function HomeClient({ featuredNews = [], featuredProjects = [] }:
           
           <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-10 relative overflow-hidden transform-gpu flex flex-col justify-between group hover:bg-white/10 transition-colors shadow-lg min-h-[220px] sm:h-[300px]">
             {/* Decorative gradient for glassmorphism */}
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-sunny-yellow rounded-full blur-[80px] opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,214,0,0.18),transparent_65%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             
             <div>
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-4 relative z-10 group-hover:-translate-y-1 transition-transform duration-300">Sunny 프로그램 알아보기</h3>
