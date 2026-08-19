@@ -19,7 +19,7 @@ type Project = {
   problemDetail?: string;
   researchTarget?: string;
   researchTopic?: string;
-  problemCauses?: string[];
+  problemCauses?: string | string[];
   solution?: string;
   vision?: string;
   visionSlideshow?: string[];
@@ -426,20 +426,14 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                       <div className="text-gray-200">{selectedProject.researchTopic || "현장에 적용되지 않는 기존 교육 및 솔루션의 한계 극복"}</div>
                     </div>
                     {/* Row 3 */}
-                    <div className="flex flex-col md:flex-row gap-2 md:gap-8 border-b border-white/5 pb-6">
-                      <div className="text-gray-500 font-semibold min-w-[120px] pt-1">문제 원인</div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-200">
-                        {selectedProject.problemCauses && selectedProject.problemCauses.length > 0 ? (
-                          selectedProject.problemCauses.map((cause, idx) => (
-                            <div key={idx}>{cause}</div>
-                          ))
-                        ) : (
-                          <>
-                            <div>대상자의 특성을 반영하지 않은 획일적인 접근</div>
-                            <div>이론 중심이라 실제 현장으로 전이되지 않는 내용</div>
-                            <div>환경 변화 시 재적응을 돕는 변수 대응 훈련의 부재</div>
-                          </>
-                        )}
+                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-b border-white/5 pb-6">
+                      <div className="text-gray-500 font-semibold min-w-[120px]">문제 원인</div>
+                      <div className="text-gray-200">
+                        {typeof selectedProject.problemCauses === 'string' && selectedProject.problemCauses
+                          ? selectedProject.problemCauses
+                          : Array.isArray(selectedProject.problemCauses) && selectedProject.problemCauses.length > 0
+                          ? selectedProject.problemCauses.join(' ')
+                          : "대상자의 특성을 반영하지 않은 획일적인 접근 및 현장 전이성 부재"}
                       </div>
                     </div>
                     {/* Row 4 */}
@@ -519,14 +513,14 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto px-8 py-4 bg-sunny-yellow text-sunny-black rounded-full font-bold text-center hover:bg-yellow-400 transition-colors shadow-lg"
                     >
-                      프로젝트 리포트 보러가기
+                      인터뷰 영상 보기
                     </a>
                   ) : (
                     <Link 
                       href={`/impact/report/${selectedProject.slug}`} 
                       className="w-full sm:w-auto px-8 py-4 bg-sunny-yellow text-sunny-black rounded-full font-bold text-center hover:bg-yellow-400 transition-colors shadow-lg"
                     >
-                      프로젝트 리포트 보러가기
+                      인터뷰 영상 보기
                     </Link>
                   )}
                   
@@ -537,7 +531,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                       rel="noopener noreferrer"
                       className="w-full sm:w-auto px-8 py-4 bg-white/10 border border-white/20 text-white rounded-full font-bold text-center hover:bg-white/20 transition-colors shadow-sm flex items-center justify-center gap-2"
                     >
-                      PDF 다운로드
+                      리포트 다운로드
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     </a>
                   )}
