@@ -219,7 +219,7 @@ export default function ReportArticleClient({ project, recentProjects }: { proje
             )}
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight word-break-keep">
               {project.team === '포레' || project.team?.toLowerCase() === 'fou:re' || project.slug === 'fou-re' || project.title?.includes('고정비 연체') 
-                ? '자립준비청년의 통장에는 왜 매달 돈이 부족할까?' 
+                ? (tab === 'project' ? '시선이 머물렀던 곳' : '자립준비청년의 통장에는 왜 매달 돈이 부족할까?') 
                 : project.title}
             </h1>
             <p className="text-gray-400 text-lg">
