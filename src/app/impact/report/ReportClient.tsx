@@ -376,7 +376,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 20, opacity: 0, scale: 0.96 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-black/60 backdrop-blur-xl text-white w-full max-w-2xl lg:max-w-3xl rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col max-h-[92vh] border border-white/10 tracking-normal"
+              className="bg-[#0e0a18]/60 backdrop-blur-xl text-white w-full max-w-2xl lg:max-w-3xl rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col max-h-[92vh] border border-white/10 tracking-normal"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button Top Right */}
@@ -404,7 +404,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                       <span className="text-gray-400 font-medium text-lg tracking-normal">{selectedProject.team}</span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-95" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e0a18]/60 via-transparent to-transparent opacity-95" />
                 </div>
 
                 {/* 2. Cohort Badge & Team Header */}
@@ -424,7 +424,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                 </div>
 
                 {/* 3. Info List (Contact & Notion Page Link) */}
-                <div className="bg-[#332554]/[0.65] border border-white/10 rounded-2xl p-4 sm:p-5 mb-8 space-y-3 md:space-y-3.5 tracking-normal shadow-sm">
+                <div className="bg-[#322847]/[0.65] border border-white/10 rounded-2xl p-4 sm:p-5 mb-8 space-y-3 md:space-y-3.5 tracking-normal shadow-sm">
                   <div className="flex items-start gap-2.5 text-sm md:text-base text-gray-200">
                     <span className="text-white font-bold">•</span>
                     <span className="font-semibold text-gray-300 mr-2">연락처</span>
@@ -457,7 +457,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                         window.location.href = `/impact/report/${selectedProject.slug}?tab=report`;
                       }
                     }}
-                    className="bg-[#332554]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#3d2c65]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
+                    className="bg-[#322847]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#3b3054]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
@@ -487,7 +487,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                         window.location.href = `/impact/report/${selectedProject.slug}?tab=project`;
                       }
                     }}
-                    className="bg-[#332554]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#3d2c65]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
+                    className="bg-[#322847]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#3b3054]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
