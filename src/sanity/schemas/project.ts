@@ -66,7 +66,12 @@ export const project = {
       type: 'slug', 
       options: { source: 'title', maxLength: 96 }
     },
-    { name: 'teamMembers', title: 'Team Members (팀원)', type: 'string', description: 'e.g., 홍길동, 김철수, 이영희' },
+    { name: 'teamMembers', title: 'Team Members (팀원)', type: 'string', description: 'e.g., 오재란, 박성인, 김은결, 하수진' },
+    { name: 'teamPhoto', title: 'Team Photo (팀 대표 사진)', type: 'image', options: { hotspot: true } },
+    { name: 'cohort', title: 'Cohort / Program Tag (기수/프로그램)', type: 'string', description: 'e.g., Sunny Scholar 5기' },
+    { name: 'contactEmail', title: 'Contact Email (대표 이메일)', type: 'string', description: 'e.g., fore_team@sunny.or.kr (팀원 이메일)' },
+    { name: 'landingPageUrl', title: 'Landing Page URL (노션 랜딩페이지 링크)', type: 'url', description: 'e.g., https://notion.so/...' },
+    { name: 'projectLink', title: 'Project Article Link (프로젝트 아티클 링크)', type: 'url' },
     { name: 'problemDetail', title: 'Problem Detail (왜 이 문제가 중요하며...)', type: 'text' },
     { name: 'researchTarget', title: 'Research Target (연구 대상)', type: 'string' },
     { name: 'researchTopic', title: 'Research Topic (연구 주제)', type: 'string' },
@@ -75,7 +80,7 @@ export const project = {
     { name: 'vision', title: 'Vision (비전)', type: 'text' },
     { name: 'visionSlideshow', title: 'Vision Slideshow Images (비전 항목 아래 이미지들)', type: 'array', of: [{ type: 'image', options: { hotspot: true } }] },
     { name: 'additionalImages', title: 'Additional Photos (추가 사진 및 이미지 영역)', type: 'array', of: [{ type: 'image', options: { hotspot: true } }] },
-    { name: 'reportLink', title: 'Interview Video Link (인터뷰 영상 외부 링크)', type: 'url' },
+    { name: 'reportLink', title: 'Report Link (리포트 아티클/영상 링크)', type: 'url' },
     { name: 'reportPdf', title: 'Report PDF Upload (리포트 다운로드용 파일)', type: 'file', options: { accept: 'application/pdf' } },
     {
       name: 'publishedAt',

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Search, Play, Pause, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { Search, Play, Pause, ChevronLeft, ChevronRight, X, FileText, GitBranch, ExternalLink, Mail, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -14,8 +14,13 @@ type Project = {
   shortDescription: string;
   slug?: string;
   thumbnailUrl?: string;
+  teamPhotoUrl?: string;
   isMainFeatured?: boolean;
   teamMembers?: string;
+  cohort?: string;
+  contactEmail?: string;
+  landingPageUrl?: string;
+  projectLink?: string;
   problemDetail?: string;
   researchTarget?: string;
   researchTopic?: string;
@@ -359,185 +364,158 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-12 bg-black/60 backdrop-blur-xl"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/75 backdrop-blur-2xl"
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              initial={{ y: 50, opacity: 0, scale: 0.95 }}
+              initial={{ y: 40, opacity: 0, scale: 0.96 }}
               animate={{ y: 0, opacity: 1, scale: 1 }}
-              exit={{ y: 20, opacity: 0, scale: 0.95 }}
+              exit={{ y: 20, opacity: 0, scale: 0.96 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-[#111111] text-white w-full max-w-2xl lg:max-w-3xl rounded-[2rem] md:rounded-[3rem] overflow-hidden relative shadow-2xl flex flex-col max-h-[90vh] border border-white/10"
+              className="bg-[#141416] text-white w-full max-w-2xl lg:max-w-3xl rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative shadow-2xl flex flex-col max-h-[92vh] border border-white/15"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button Top Right (Apple style) */}
-              <div className="absolute top-6 right-6 md:top-8 md:right-8 z-20">
+              {/* Close Button Top Right */}
+              <div className="absolute top-5 right-5 md:top-6 md:right-6 z-30">
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="w-10 h-10 bg-white/10 hover:bg-white/20 text-white rounded-full flex items-center justify-center transition-colors shadow-sm backdrop-blur-md"
+                  className="w-10 h-10 bg-black/50 hover:bg-black/80 border border-white/20 text-white rounded-full flex items-center justify-center transition-colors shadow-md backdrop-blur-md"
                 >
                   <X className="w-5 h-5" strokeWidth={2.5} />
                 </button>
               </div>
 
-              <div className="overflow-y-auto w-full h-full p-8 md:p-12 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                {/* 1. Title & Team Info */}
-                <div className="mb-4">
-                  <span className="inline-block px-3 py-1 bg-black/40 text-sunny-yellow border border-sunny-yellow/40 backdrop-blur-md rounded-full text-xs md:text-sm font-bold shadow-sm">
-                    {categoryMap[selectedProject.category] || selectedProject.category}
-                  </span>
-                </div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-5 tracking-tight leading-snug">
-                  {selectedProject.title}
-                </h2>
+              <div className="overflow-y-auto w-full h-full p-6 sm:p-8 md:p-10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 
-                <div className="mb-10">
-                  <p className="text-xl md:text-2xl font-bold text-gray-200 mb-1">
-                    {selectedProject.team} 팀
+                {/* 1. Team Photo */}
+                <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl md:rounded-3xl overflow-hidden relative mb-6 border border-white/10 shadow-lg bg-white/5">
+                  {selectedProject.teamPhotoUrl || selectedProject.thumbnailUrl ? (
+                    <img 
+                      src={selectedProject.teamPhotoUrl || selectedProject.thumbnailUrl} 
+                      alt={selectedProject.team} 
+                      className="w-full h-full object-cover" 
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-sunny-purple/40 via-black to-sunny-yellow/10 flex items-center justify-center">
+                      <span className="text-gray-400 font-medium text-lg">{selectedProject.team}</span>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#141416] via-transparent to-transparent opacity-80" />
+                </div>
+
+                {/* 2. Cohort Badge & Team Header */}
+                <div className="mb-6">
+                  <div className="text-[#b388ff] font-bold text-lg md:text-xl tracking-tight mb-1 flex items-center gap-2">
+                    {selectedProject.cohort || "Sunny Scholar 5기"}
+                  </div>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
+                    {selectedProject.team || selectedProject.title}
+                  </h2>
+                  <p className="text-gray-300 text-sm md:text-base font-normal mb-4">
+                    {selectedProject.teamMembers || "오재란, 박성인, 김은결, 하수진"}
                   </p>
-                  <p className="text-sm md:text-base text-gray-500">
-                    팀원 | {selectedProject.teamMembers || "홍길동, 김철수, 이영희 (데이터 연동 필요)"}
+                  <p className="text-gray-300 text-sm md:text-base leading-relaxed font-light">
+                    {selectedProject.shortDescription}
                   </p>
                 </div>
 
-                {/* 2. Main Content Card */}
-                <div className="bg-[#1c1c1e] border border-white/5 rounded-3xl p-6 md:p-10 shadow-sm mb-10">
-                  {/* Heading */}
-                  <h3 className="text-xl md:text-2xl font-bold mb-6 leading-tight text-white">
-                    왜 이 문제가 중요하며, 어떻게 해결할 수 있을까요?
-                  </h3>
-                  
-                  {/* Text */}
-                  <div className="text-gray-400 text-base md:text-lg leading-relaxed space-y-4 mb-10 whitespace-pre-wrap">
-                    <p>{selectedProject.shortDescription}</p>
-                    <p>{selectedProject.problemDetail || "본 프로젝트는 해당 문제의 핵심 원인을 분석하고, 실제 현장과 유사한 조건에서 반복적으로 적용할 수 있는 실질적인 솔루션을 개발하는 데 집중했습니다."}</p>
+                {/* 3. Info List (Contact & Notion Landing Page) */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 mb-6 space-y-3">
+                  <div className="flex items-start gap-2 text-sm md:text-base text-gray-200">
+                    <span className="text-sunny-yellow font-bold">•</span>
+                    <span className="font-semibold text-gray-300 min-w-[70px]">연락처</span>
+                    <span className="text-gray-300 break-all">
+                      {selectedProject.contactEmail || "fore_team@sunny.or.kr (대표이메일)"}
+                    </span>
                   </div>
 
-                  {/* Grid / Table Section */}
-                  <div className="flex flex-col gap-6 text-sm md:text-base border-t border-white/10 pt-6">
-                    {/* Row 1 */}
-                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-b border-white/5 pb-6">
-                      <div className="text-gray-500 font-semibold min-w-[120px]">연구 대상</div>
-                      <div className="text-gray-200">{selectedProject.researchTarget || "해당 사회 문제의 직접적인 이해관계자 및 당사자"}</div>
-                    </div>
-                    {/* Row 2 */}
-                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-b border-white/5 pb-6">
-                      <div className="text-gray-500 font-semibold min-w-[120px]">연구 주제</div>
-                      <div className="text-gray-200">{selectedProject.researchTopic || "현장에 적용되지 않는 기존 교육 및 솔루션의 한계 극복"}</div>
-                    </div>
-                    {/* Row 3 */}
-                    <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8 border-b border-white/5 pb-6">
-                      <div className="text-gray-500 font-semibold min-w-[120px]">문제 원인</div>
-                      <div className="text-gray-200">
-                        {typeof selectedProject.problemCauses === 'string' && selectedProject.problemCauses
-                          ? selectedProject.problemCauses
-                          : Array.isArray(selectedProject.problemCauses) && selectedProject.problemCauses.length > 0
-                          ? selectedProject.problemCauses.join(' ')
-                          : "대상자의 특성을 반영하지 않은 획일적인 접근 및 현장 전이성 부재"}
-                      </div>
-                    </div>
-                    {/* Row 4 */}
-                    <div className="flex flex-col md:flex-row gap-2 md:gap-8 border-b border-white/5 pb-6">
-                      <div className="text-gray-500 font-semibold min-w-[120px] pt-1 mt-3">해결책</div>
-                      <div className="bg-sunny-yellow/10 border border-sunny-yellow/20 text-sunny-yellow p-4 rounded-xl flex-1 font-medium leading-relaxed whitespace-pre-wrap">
-                        {selectedProject.solution || "흐름 이해 → 직접 실습 → 피드백 → 변수 상황 대응으로 이어지는 단계별 맞춤형 프로그램"}
-                      </div>
-                    </div>
-                    {/* Row 5 */}
-                    <div className="flex flex-col md:flex-row gap-2 md:gap-8">
-                      <div className="text-gray-500 font-semibold min-w-[120px] pt-1 mt-3">비전</div>
-                      <div className="bg-sunny-yellow text-sunny-black p-4 rounded-xl flex-1 font-bold leading-relaxed whitespace-pre-wrap">
-                        {selectedProject.vision || "대상자가 반복 훈련을 통해 실제 현장에 안정적으로 적응하고, 지속가능한 자립을 유지할 수 있도록 한다."}
-                      </div>
-                    </div>
+                  <div className="flex items-center gap-2 text-sm md:text-base text-gray-200">
+                    <span className="text-sunny-yellow font-bold">•</span>
+                    <span className="font-semibold text-gray-300 min-w-[70px]">랜딩페이지</span>
+                    <a 
+                      href={selectedProject.landingPageUrl || "https://sunny-lab.notion.site"} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sunny-yellow hover:underline font-semibold transition-colors"
+                    >
+                      노션 페이지 바로가기 <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
-                
-                {/* 3. Photos & Slideshows */}
-                <div className="mb-12 flex flex-col gap-8">
-                  {/* Vision Slideshow (if exists) */}
-                  {selectedProject.visionSlideshow && selectedProject.visionSlideshow.length > 0 && (
-                    <div className="w-full">
-                      {selectedProject.visionSlideshow.length === 1 ? (
-                        <div className="w-full rounded-3xl overflow-hidden relative shadow-sm border border-white/10">
-                          <img src={selectedProject.visionSlideshow[0]} alt="Vision" className="w-full h-auto object-cover" />
-                        </div>
-                      ) : (
-                        <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                          {selectedProject.visionSlideshow.map((imgUrl, idx) => (
-                            <div key={idx} className="shrink-0 w-[85vw] md:w-[600px] snap-start rounded-3xl overflow-hidden border border-white/10">
-                              <img src={imgUrl} alt={`Vision ${idx + 1}`} className="w-full h-auto object-cover" />
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  )}
 
-                  {/* Additional Images (if exists) */}
-                  {selectedProject.additionalImages && selectedProject.additionalImages.length > 0 ? (
-                    <div className="w-full">
-                      {selectedProject.additionalImages.length === 1 ? (
-                        <div className="w-full rounded-3xl overflow-hidden relative shadow-sm border border-white/10">
-                          <img src={selectedProject.additionalImages[0]} alt="Additional" className="w-full h-auto object-cover" />
+                {/* 4. Subtitle Guidance */}
+                <div className="mb-6">
+                  <p className="text-gray-400 text-xs md:text-sm font-medium">
+                    (아래 2개 카드를 클릭하면 각각에 해당하는 아티클로 연결)
+                  </p>
+                </div>
+
+                {/* 5. REPORT & PROJECT Action Cards */}
+                <div className="flex flex-col gap-4 mb-6">
+                  {/* Card 1: REPORT */}
+                  <div 
+                    onClick={() => {
+                      if (selectedProject.reportLink) {
+                        window.open(selectedProject.reportLink, '_blank');
+                      } else if (selectedProject.slug) {
+                        window.location.href = `/impact/report/${selectedProject.slug}`;
+                      }
+                    }}
+                    className="bg-white text-[#18181b] rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 cursor-pointer border border-gray-200/80 group relative overflow-hidden"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2.5 bg-gray-100 rounded-xl group-hover:bg-gray-200 transition-colors">
+                          <FileText className="w-7 h-7 text-[#18181b]" strokeWidth={2.2} />
                         </div>
-                      ) : (
-                        <div className="flex overflow-x-auto gap-4 snap-x snap-mandatory pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                          {selectedProject.additionalImages.map((imgUrl, idx) => (
-                            <div key={idx} className="shrink-0 w-[85vw] md:w-[600px] snap-start rounded-3xl overflow-hidden border border-white/10">
-                              <img src={imgUrl} alt={`Additional ${idx + 1}`} className="w-full h-auto object-cover" />
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    !selectedProject.visionSlideshow && selectedProject.thumbnailUrl && (
-                      <div className="w-full aspect-video rounded-3xl overflow-hidden relative shadow-sm border border-white/10">
-                        <img 
-                          src={selectedProject.thumbnailUrl} 
-                          alt={selectedProject.title}
-                          className="w-full h-full object-cover"
-                        />
+                        <span className="text-xl md:text-2xl font-black tracking-wider text-[#18181b]">
+                          REPORT
+                        </span>
                       </div>
-                    )
-                  )}
+                      <ArrowUpRight className="w-6 h-6 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+
+                    <h3 className="text-lg md:text-xl font-bold text-[#18181b] mb-2 leading-snug">
+                      최종 성과를 확인하고 활용하고 싶다면
+                    </h3>
+                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed font-normal">
+                      {selectedProject.team || "포레"}팀이 8개월간의 여정 끝에 정리한 결과물을 만나보세요.
+                    </p>
+                  </div>
+
+                  {/* Card 2: PROJECT */}
+                  <div 
+                    onClick={() => {
+                      if (selectedProject.projectLink) {
+                        window.open(selectedProject.projectLink, '_blank');
+                      } else if (selectedProject.slug) {
+                        window.location.href = `/impact/report/${selectedProject.slug}`;
+                      }
+                    }}
+                    className="bg-white text-[#18181b] rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 cursor-pointer border border-gray-200/80 group relative overflow-hidden"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="p-2.5 bg-gray-100 rounded-xl group-hover:bg-gray-200 transition-colors">
+                          <GitBranch className="w-7 h-7 text-[#18181b]" strokeWidth={2.2} />
+                        </div>
+                        <span className="text-xl md:text-2xl font-black tracking-wider text-[#18181b]">
+                          PROJECT
+                        </span>
+                      </div>
+                      <ArrowUpRight className="w-6 h-6 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+
+                    <h3 className="text-lg md:text-xl font-bold text-[#18181b] mb-2 leading-snug">
+                      문제 해결의 과정과 방법론이 궁금하다면
+                    </h3>
+                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed font-normal">
+                      {selectedProject.team || "포레"}팀이 어떻게 문제를 정의하고 현장에서 무엇을 발견했는지 따라가보세요.
+                    </p>
+                  </div>
                 </div>
 
-                {/* 4. Buttons */}
-                <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mt-12 mb-8">
-                  {selectedProject.reportLink ? (
-                    <a 
-                      href={selectedProject.reportLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-auto px-8 py-4 bg-sunny-yellow text-sunny-black rounded-full font-bold text-center hover:bg-yellow-400 transition-colors shadow-lg"
-                    >
-                      인터뷰 영상 보기
-                    </a>
-                  ) : (
-                    <Link 
-                      href={`/impact/report/${selectedProject.slug}`} 
-                      className="w-full sm:w-auto px-8 py-4 bg-sunny-yellow text-sunny-black rounded-full font-bold text-center hover:bg-yellow-400 transition-colors shadow-lg"
-                    >
-                      인터뷰 영상 보기
-                    </Link>
-                  )}
-                  
-                  {selectedProject.reportPdfUrl && (
-                    <a 
-                      href={selectedProject.reportPdfUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-auto px-8 py-4 bg-white/10 border border-white/20 text-white rounded-full font-bold text-center hover:bg-white/20 transition-colors shadow-sm flex items-center justify-center gap-2"
-                    >
-                      리포트 다운로드
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    </a>
-                  )}
-                </div>
-
-                <div className="h-24"></div> {/* Padding at bottom for scroll */}
+                <div className="h-6"></div>
               </div>
             </motion.div>
           </motion.div>
