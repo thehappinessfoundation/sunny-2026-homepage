@@ -85,7 +85,7 @@ export const project = {
     { name: 'vision', title: 'Vision (비전)', type: 'text' },
     { name: 'visionSlideshow', title: 'Vision Slideshow Images (비전 항목 아래 이미지들)', type: 'array', of: [{ type: 'image', options: { hotspot: true } }] },
     { name: 'additionalImages', title: 'Additional Photos (추가 사진 및 이미지 영역)', type: 'array', of: [{ type: 'image', options: { hotspot: true } }] },
-    { name: 'reportLink', title: 'Report Link (리포트 아티클/영상 링크)', type: 'url' },
+
     { name: 'reportPdf', title: 'Report PDF Upload (리포트 다운로드용 파일)', type: 'file', options: { accept: 'application/pdf' } },
     {
       name: 'publishedAt',
