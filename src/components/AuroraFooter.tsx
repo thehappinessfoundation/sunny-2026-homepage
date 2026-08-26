@@ -48,16 +48,15 @@ export default function AuroraFooter() {
       const dx = targetPos.current.x - currentPos.current.x;
       const dy = targetPos.current.y - currentPos.current.y;
 
-      velocity.current.vx += (dx * 0.08 - velocity.current.vx) * 0.15;
-      velocity.current.vy += (dy * 0.08 - velocity.current.vy) * 0.15;
+      // Smooth direct lerp follow with ZERO rubber-band bounce/overshoot
+      const ease = 0.2;
+      currentPos.current.x += dx * ease;
+      currentPos.current.y += dy * ease;
 
-      currentPos.current.x += velocity.current.vx;
-      currentPos.current.y += velocity.current.vy;
-
-      const speed = Math.hypot(velocity.current.vx, velocity.current.vy);
-      const angle = Math.atan2(velocity.current.vy, velocity.current.vx) * (180 / Math.PI);
-      const stretchX = 1 + Math.min(speed * 0.035, 0.45);
-      const stretchY = Math.max(0.75, 1 / Math.sqrt(stretchX));
+      const speed = Math.hypot(dx * ease, dy * ease);
+      const angle = Math.atan2(dy, dx) * (180 / Math.PI);
+      const stretchX = 1 + Math.min(speed * 0.015, 0.25);
+      const stretchY = Math.max(0.85, 1 / Math.sqrt(stretchX));
 
       setSiriState({
         x: currentPos.current.x,

@@ -20,6 +20,10 @@ type Project = {
   cohort?: string;
   contactEmail?: string;
   landingPageUrl?: string;
+  reportCardTitle?: string;
+  reportCardDesc?: string;
+  projectCardTitle?: string;
+  projectCardDesc?: string;
   projectLink?: string;
   problemDetail?: string;
   researchTarget?: string;
@@ -364,7 +368,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/75 backdrop-blur-2xl"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-black/15 backdrop-blur-sm"
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
@@ -372,14 +376,14 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 20, opacity: 0, scale: 0.96 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="bg-[#141416] text-white w-full max-w-2xl lg:max-w-3xl rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative shadow-2xl flex flex-col max-h-[92vh] border border-white/15"
+              className="bg-black/60 backdrop-blur-xl text-white w-full max-w-2xl lg:max-w-3xl rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative shadow-[0_25px_80px_rgba(0,0,0,0.95)] flex flex-col max-h-[92vh] border border-white/10 tracking-normal"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button Top Right */}
               <div className="absolute top-5 right-5 md:top-6 md:right-6 z-30">
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="w-10 h-10 bg-black/50 hover:bg-black/80 border border-white/20 text-white rounded-full flex items-center justify-center transition-colors shadow-md backdrop-blur-md"
+                  className="w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-colors shadow-md backdrop-blur-md"
                 >
                   <X className="w-5 h-5" strokeWidth={2.5} />
                 </button>
@@ -388,7 +392,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
               <div className="overflow-y-auto w-full h-full p-6 sm:p-8 md:p-10 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 
                 {/* 1. Team Photo */}
-                <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl md:rounded-3xl overflow-hidden relative mb-6 border border-white/10 shadow-lg bg-white/5">
+                <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-2xl md:rounded-3xl overflow-hidden relative mb-6 border border-white/10 shadow-lg bg-black/40">
                   {selectedProject.teamPhotoUrl || selectedProject.thumbnailUrl ? (
                     <img 
                       src={selectedProject.teamPhotoUrl || selectedProject.thumbnailUrl} 
@@ -397,120 +401,110 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-sunny-purple/40 via-black to-sunny-yellow/10 flex items-center justify-center">
-                      <span className="text-gray-400 font-medium text-lg">{selectedProject.team}</span>
+                      <span className="text-gray-400 font-medium text-lg tracking-normal">{selectedProject.team}</span>
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#141416] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-95" />
                 </div>
 
                 {/* 2. Cohort Badge & Team Header */}
-                <div className="mb-6">
-                  <div className="text-[#b388ff] font-bold text-lg md:text-xl tracking-tight mb-1 flex items-center gap-2">
+                <div className="mb-8">
+                  <div className="text-white font-bold text-sm md:text-base tracking-normal mb-1 flex items-center gap-2">
                     {selectedProject.cohort || "Sunny Scholar 5기"}
                   </div>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3 tracking-tight leading-tight">
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-3 tracking-normal leading-tight">
                     {selectedProject.team || selectedProject.title}
                   </h2>
-                  <p className="text-gray-300 text-sm md:text-base font-normal mb-4">
+                  <p className="text-gray-300 text-sm md:text-base font-normal mb-4 tracking-normal">
                     {selectedProject.teamMembers || "오재란, 박성인, 김은결, 하수진"}
                   </p>
-                  <p className="text-gray-300 text-sm md:text-base leading-relaxed font-light">
+                  <p className="text-sunny-yellow text-lg md:text-xl leading-relaxed font-semibold tracking-normal">
                     {selectedProject.shortDescription}
                   </p>
                 </div>
 
-                {/* 3. Info List (Contact & Notion Landing Page) */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 mb-6 space-y-3">
-                  <div className="flex items-start gap-2 text-sm md:text-base text-gray-200">
-                    <span className="text-sunny-yellow font-bold">•</span>
-                    <span className="font-semibold text-gray-300 min-w-[70px]">연락처</span>
+                {/* 3. Info List (Contact & Notion Page Link) */}
+                <div className="bg-[#332554]/[0.65] border border-white/10 rounded-2xl p-4 sm:p-5 mb-8 space-y-3 md:space-y-3.5 tracking-normal shadow-sm">
+                  <div className="flex items-start gap-2.5 text-sm md:text-base text-gray-200">
+                    <span className="text-white font-bold">•</span>
+                    <span className="font-semibold text-gray-300 mr-2">연락처</span>
                     <span className="text-gray-300 break-all">
-                      {selectedProject.contactEmail || "fore_team@sunny.or.kr (대표이메일)"}
+                      {selectedProject.contactEmail ? selectedProject.contactEmail.replace(/\s*\(대표이메일\)/g, '') : "fore_team@sunny.or.kr"}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2 text-sm md:text-base text-gray-200">
-                    <span className="text-sunny-yellow font-bold">•</span>
-                    <span className="font-semibold text-gray-300 min-w-[70px]">랜딩페이지</span>
+                  <div className="flex items-center gap-2.5 text-sm md:text-base text-gray-200">
+                    <span className="text-white font-bold">•</span>
                     <a 
                       href={selectedProject.landingPageUrl || "https://sunny-lab.notion.site"} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sunny-yellow hover:underline font-semibold transition-colors"
+                      className="inline-flex items-center gap-1.5 text-white hover:underline font-semibold transition-colors"
                     >
                       노션 페이지 바로가기 <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
 
-                {/* 4. Subtitle Guidance */}
-                <div className="mb-6">
-                  <p className="text-gray-400 text-xs md:text-sm font-medium">
-                    (아래 2개 카드를 클릭하면 각각에 해당하는 아티클로 연결)
-                  </p>
-                </div>
-
-                {/* 5. REPORT & PROJECT Action Cards */}
+                {/* 4. Report & Project Action Cards */}
                 <div className="flex flex-col gap-4 mb-6">
-                  {/* Card 1: REPORT */}
+                  {/* Card 1: Report */}
                   <div 
                     onClick={() => {
                       if (selectedProject.reportLink) {
                         window.open(selectedProject.reportLink, '_blank');
                       } else if (selectedProject.slug) {
-                        window.location.href = `/impact/report/${selectedProject.slug}`;
+                        window.location.href = `/impact/report/${selectedProject.slug}?tab=report`;
                       }
                     }}
-                    className="bg-white text-[#18181b] rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 cursor-pointer border border-gray-200/80 group relative overflow-hidden"
+                    className="bg-[#332554]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#3d2c65]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2.5 bg-gray-100 rounded-xl group-hover:bg-gray-200 transition-colors">
-                          <FileText className="w-7 h-7 text-[#18181b]" strokeWidth={2.2} />
+                        <div className="p-2.5 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors">
+                          <FileText className="w-6 h-6 text-white" strokeWidth={2} />
                         </div>
-                        <span className="text-xl md:text-2xl font-black tracking-wider text-[#18181b]">
-                          REPORT
+                        <span className="text-xl md:text-2xl font-semibold tracking-normal text-white">
+                          Report
                         </span>
                       </div>
-                      <ArrowUpRight className="w-6 h-6 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </div>
 
-                    <h3 className="text-lg md:text-xl font-bold text-[#18181b] mb-2 leading-snug">
-                      최종 성과를 확인하고 활용하고 싶다면
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-snug tracking-normal">
+                      {selectedProject.reportCardTitle || "최종 성과를 확인하고 활용하고 싶다면"}
                     </h3>
-                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed font-normal">
-                      {selectedProject.team || "포레"}팀이 8개월간의 여정 끝에 정리한 결과물을 만나보세요.
+                    <p className="text-gray-300 text-xs md:text-sm leading-relaxed font-light tracking-normal">
+                      {selectedProject.reportCardDesc || `${selectedProject.team || '포레'}팀이 8개월간의 여정 끝에 정리한 결과물을 만나보세요.`}
                     </p>
                   </div>
 
-                  {/* Card 2: PROJECT */}
+                  {/* Card 2: Project */}
                   <div 
                     onClick={() => {
                       if (selectedProject.projectLink) {
                         window.open(selectedProject.projectLink, '_blank');
                       } else if (selectedProject.slug) {
-                        window.location.href = `/impact/report/${selectedProject.slug}`;
+                        window.location.href = `/impact/report/${selectedProject.slug}?tab=project`;
                       }
                     }}
-                    className="bg-white text-[#18181b] rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 cursor-pointer border border-gray-200/80 group relative overflow-hidden"
+                    className="bg-[#332554]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#3d2c65]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
-                        <div className="p-2.5 bg-gray-100 rounded-xl group-hover:bg-gray-200 transition-colors">
-                          <GitBranch className="w-7 h-7 text-[#18181b]" strokeWidth={2.2} />
+                        <div className="p-2.5 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors">
+                          <GitBranch className="w-6 h-6 text-white" strokeWidth={2} />
                         </div>
-                        <span className="text-xl md:text-2xl font-black tracking-wider text-[#18181b]">
-                          PROJECT
+                        <span className="text-xl md:text-2xl font-semibold tracking-normal text-white">
+                          Project
                         </span>
                       </div>
-                      <ArrowUpRight className="w-6 h-6 text-gray-400 group-hover:text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                     </div>
 
-                    <h3 className="text-lg md:text-xl font-bold text-[#18181b] mb-2 leading-snug">
-                      문제 해결의 과정과 방법론이 궁금하다면
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-snug tracking-normal">
+                      {selectedProject.projectCardTitle || "문제 해결의 과정과 방법론이 궁금하다면"}
                     </h3>
-                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed font-normal">
-                      {selectedProject.team || "포레"}팀이 어떻게 문제를 정의하고 현장에서 무엇을 발견했는지 따라가보세요.
+                    <p className="text-gray-300 text-xs md:text-sm leading-relaxed font-light tracking-normal">
+                      {selectedProject.projectCardDesc || `${selectedProject.team || '포레'}팀이 어떻게 문제를 정의하고 현장에서 무엇을 발견했는지 따라가보세요.`}
                     </p>
                   </div>
                 </div>

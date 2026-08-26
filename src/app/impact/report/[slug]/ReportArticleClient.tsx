@@ -4,6 +4,9 @@ import { PortableText } from '@portabletext/react';
 import { Share2, Link as LinkIcon, Download } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useSearchParams } from 'next/navigation';
+import FoureReportContent from './FoureReportContent';
+import FoureProjectContent from './FoureProjectContent';
 
 const portableTextComponents = {
   types: {
@@ -118,6 +121,8 @@ const portableTextComponents = {
 
 
 export default function ReportArticleClient({ project, recentProjects }: { project: any, recentProjects: any[] }) {
+  const searchParams = useSearchParams();
+  const tab = searchParams.get('tab');
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeId, setActiveId] = useState<string>('');
 
@@ -244,7 +249,9 @@ export default function ReportArticleClient({ project, recentProjects }: { proje
         <div className="w-full relative z-10">
           {/* Article Body */}
           <div className="prose prose-invert max-w-none w-full">
-            {project.body ? (
+            {project.team === '포레' || project.team?.toLowerCase() === 'fou:re' || project.slug === 'fou-re' || project.title?.includes('고정비 연체') ? (
+              tab === 'project' ? <FoureProjectContent /> : <FoureReportContent />
+            ) : project.body ? (
               <PortableText value={project.body} components={portableTextComponents} />
             ) : (
               <p className="text-gray-400">내용이 없습니다.</p>
