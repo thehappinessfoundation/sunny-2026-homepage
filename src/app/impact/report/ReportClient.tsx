@@ -424,7 +424,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                 </div>
 
                 {/* 3. Info List (Contact & Notion Page Link) */}
-                <div className="bg-[#322847]/[0.65] border border-white/10 rounded-2xl p-4 sm:p-5 mb-8 space-y-3 md:space-y-3.5 tracking-normal shadow-sm">
+                <div className="bg-[#302a40]/[0.65] border border-white/10 rounded-2xl p-4 sm:p-5 mb-8 space-y-3 md:space-y-3.5 tracking-normal shadow-sm">
                   <div className="flex items-start gap-2.5 text-sm md:text-base text-gray-200">
                     <span className="text-white font-bold">•</span>
                     <span className="font-semibold text-gray-300 mr-2">연락처</span>
@@ -457,7 +457,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                         window.location.href = `/impact/report/${selectedProject.slug}?tab=report`;
                       }
                     }}
-                    className="bg-[#322847]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#3b3054]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
+                    className="bg-[#302a40]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#383248]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
@@ -487,7 +487,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                         window.location.href = `/impact/report/${selectedProject.slug}?tab=project`;
                       }
                     }}
-                    className="bg-[#322847]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#3b3054]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
+                    className="bg-[#302a40]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#383248]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center gap-3">
