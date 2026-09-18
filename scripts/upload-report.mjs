@@ -289,7 +289,7 @@ async function convertMarkdownToBlocks(lines, dirPath, uploadedAssetsMap) {
 async function main() {
   console.log('🚀 [Sanity Report Uploader 시작]');
   console.log(`📁 작업 폴더: ${targetDir}`);
-  console.log(`📄 PDF 파일: ${targetPdf}`);
+  if (officialPdf) console.log(`📄 공식 PDF: ${officialPdf}`);
 
   const dirResolved = path.resolve(process.cwd(), targetDir);
   if (!fs.existsSync(dirResolved)) {
@@ -336,14 +336,29 @@ async function main() {
   console.log(`\n📌 [아티클 1 (Report)] 제목: "${reportTitle}"`);
   console.log(`📌 [아티클 2 (Project)] 제목: "${projectTitle}"`);
 
+  // Filter out template headers ('## 아티클 1...', '## 아티클 2...') and duplicate titles from body lines
+  const cleanArt1Lines = art1Lines.filter(l => {
+    const trimmed = l.trim();
+    if (trimmed.startsWith('## 아티클 1')) return false;
+    if (t1Match && trimmed === t1Match.trim()) return false;
+    return true;
+  });
+
+  const cleanArt2Lines = art2Lines.filter(l => {
+    const trimmed = l.trim();
+    if (trimmed.startsWith('## 아티클 2')) return false;
+    if (t2Match && trimmed === t2Match.trim()) return false;
+    return true;
+  });
+
   const uploadedAssetsMap = {};
 
   console.log('\n🔄 [1/3] 아티클 1 본문 변환 및 이미지 업로드 시작...');
-  const reportBody = await convertMarkdownToBlocks(art1Lines, dirResolved, uploadedAssetsMap);
+  const reportBody = await convertMarkdownToBlocks(cleanArt1Lines, dirResolved, uploadedAssetsMap);
   console.log(`✅ 아티클 1 변환 완료 (블록 수: ${reportBody.length})`);
 
   console.log('\n🔄 [2/3] 아티클 2 본문 변환 및 이미지 업로드 시작...');
-  const projectBody = await convertMarkdownToBlocks(art2Lines, dirResolved, uploadedAssetsMap);
+  const projectBody = await convertMarkdownToBlocks(cleanArt2Lines, dirResolved, uploadedAssetsMap);
   console.log(`✅ 아티클 2 변환 완료 (블록 수: ${projectBody.length})`);
 
   // Upload PDF if present

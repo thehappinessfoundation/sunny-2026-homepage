@@ -155,7 +155,7 @@ export default function AuroraFooter() {
       `}</style>
 
       {/* Global Siri / Aurora Fluid Wave Mesh Glow */}
-      <div className="siri-mouse-glow fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+      <div className="siri-mouse-glow fixed inset-0 pointer-events-none z-30 overflow-hidden">
         <div
           className="absolute transition-opacity duration-700 ease-out pointer-events-none"
           style={{
