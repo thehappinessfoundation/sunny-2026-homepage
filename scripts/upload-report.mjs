@@ -57,7 +57,9 @@ function getArg(flag, defaultValue) {
 }
 
 const targetDir = getArg('--dir', 'report_data/두드림');
-const targetPdf = getArg('--pdf', 'report_data/두드림.pdf');
+// Note: Reference PDFs exported from Notion are for layout/image order verification.
+// Only upload a downloadable PDF if explicitly specified via --upload-pdf.
+const officialPdf = getArg('--upload-pdf', null);
 const teamName = getArg('--team', '팀 두드림');
 const slugCurrent = getArg('--slug', 'doodream');
 
@@ -345,19 +347,24 @@ async function main() {
   console.log(`✅ 아티클 2 변환 완료 (블록 수: ${projectBody.length})`);
 
   // Upload PDF if present
+  // Upload official downloadable PDF only if explicitly requested
   let pdfAssetRef = null;
-  const pdfResolved = path.resolve(process.cwd(), targetPdf);
-  if (fs.existsSync(pdfResolved)) {
-    console.log(`\n📄 [3/3] PDF 파일 업로드 중: ${path.basename(pdfResolved)}`);
-    const pdfStream = fs.createReadStream(pdfResolved);
-    const pdfAsset = await client.assets.upload('file', pdfStream, {
-      filename: path.basename(pdfResolved),
-      contentType: 'application/pdf',
-    });
-    pdfAssetRef = pdfAsset._id;
-    console.log(`✅ PDF 업로드 완료 (Asset ID: ${pdfAssetRef})`);
+  if (officialPdf) {
+    const pdfResolved = path.resolve(process.cwd(), officialPdf);
+    if (fs.existsSync(pdfResolved)) {
+      console.log(`\n📄 [3/3] 공식 다운로드용 PDF 파일 업로드 중: ${path.basename(pdfResolved)}`);
+      const pdfStream = fs.createReadStream(pdfResolved);
+      const pdfAsset = await client.assets.upload('file', pdfStream, {
+        filename: path.basename(pdfResolved),
+        contentType: 'application/pdf',
+      });
+      pdfAssetRef = pdfAsset._id;
+      console.log(`✅ PDF 업로드 완료 (Asset ID: ${pdfAssetRef})`);
+    } else {
+      console.warn(`⚠️ 지정된 PDF 파일을 찾을 수 없습니다: ${officialPdf}`);
+    }
   } else {
-    console.log('ℹ️ PDF 파일이 없어 건너뜁니다.');
+    console.log('\nℹ️ 다운로드용 PDF가 지정되지 않았습니다. (폴더 내 PDF는 이미지 순서 확인용으로만 활용)');
   }
 
   // Find existing project in Sanity
