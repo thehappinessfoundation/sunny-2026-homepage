@@ -172,7 +172,7 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
               <div 
                 key={p._id} 
                 onClick={() => setSelectedProject(p)}
-                className="shrink-0 w-[85vw] md:w-[460px] lg:w-[480px] h-[350px] md:h-[360px] snap-start relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg"
+                className="shrink-0 w-[85vw] sm:w-[420px] md:w-[468px] h-[350px] md:h-[360px] snap-start relative rounded-3xl overflow-hidden group cursor-pointer shadow-lg"
               >
                 {/* Gradient Border Mask (Glassmorphism tone) */}
                 <div className="absolute inset-0 rounded-3xl p-[1.5px] bg-gradient-to-br from-white/20 via-white/5 to-transparent gradient-mask-border pointer-events-none z-20" />
