@@ -226,7 +226,7 @@ export default function ReportArticleClient({ project, recentProjects }: { proje
                 {categoryMap[project.category] || project.category}
               </span>
             )}
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight word-break-keep">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-bold text-white mb-6 leading-snug word-break-keep">
               {activeTitle}
             </h1>
             <p className="text-gray-400 text-lg">
