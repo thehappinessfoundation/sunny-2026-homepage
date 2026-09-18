@@ -453,8 +453,8 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                     onClick={() => {
                       if (selectedProject.reportLink) {
                         window.open(selectedProject.reportLink, '_blank');
-                      } else if (selectedProject.slug) {
-                        window.location.href = `/impact/report/${selectedProject.slug}?tab=report`;
+                      } else if (selectedProject.slug || selectedProject._id) {
+                        window.location.href = `/impact/report/${selectedProject.slug || selectedProject._id}?tab=report`;
                       }
                     }}
                     className="bg-[#302a40]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#383248]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"
@@ -483,8 +483,8 @@ export default function ReportClient({ initialProjects }: { initialProjects: Pro
                     onClick={() => {
                       if (selectedProject.projectLink) {
                         window.open(selectedProject.projectLink, '_blank');
-                      } else if (selectedProject.slug) {
-                        window.location.href = `/impact/report/${selectedProject.slug}?tab=project`;
+                      } else if (selectedProject.slug || selectedProject._id) {
+                        window.location.href = `/impact/report/${selectedProject.slug || selectedProject._id}?tab=project`;
                       }
                     }}
                     className="bg-[#302a40]/[0.65] text-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-xl hover:shadow-2xl hover:bg-[#383248]/80 active:scale-[0.99] transition-all duration-300 cursor-pointer border border-white/10 group relative overflow-hidden tracking-normal"

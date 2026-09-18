@@ -10,10 +10,39 @@ async function getProjectAndRecent(slug: string) {
     _id,
     title,
     team,
+    category,
     shortDescription,
     "slug": coalesce(slug.current, _id),
     publishedAt,
     "thumbnailUrl": thumbnail.asset->url,
+    reportTitle,
+    reportBody[]{
+      ...,
+      _type == "image" => {
+        "url": asset->url,
+        "alt": alt
+      },
+      _type == "slideshow" => {
+        "images": images[]{
+          "url": asset->url,
+          "alt": alt
+        }
+      }
+    },
+    projectTitle,
+    projectBody[]{
+      ...,
+      _type == "image" => {
+        "url": asset->url,
+        "alt": alt
+      },
+      _type == "slideshow" => {
+        "images": images[]{
+          "url": asset->url,
+          "alt": alt
+        }
+      }
+    },
     body[]{
       ...,
       _type == "image" => {
@@ -28,7 +57,8 @@ async function getProjectAndRecent(slug: string) {
       }
     },
     tags,
-    "attachmentUrl": attachment.asset->url
+    "attachmentUrl": attachment.asset->url,
+    "reportPdfUrl": reportPdf.asset->url
   }`;
   
   const project = await client.fetch(projectQuery, { slug });

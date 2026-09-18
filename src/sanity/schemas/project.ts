@@ -88,6 +88,102 @@ export const project = {
 
     { name: 'reportPdf', title: 'Report PDF Upload (리포트 다운로드용 파일)', type: 'file', options: { accept: 'application/pdf' } },
     {
+      name: 'reportTitle',
+      title: '아티클 1 (Report) 제목',
+      type: 'string',
+      description: '모달의 Report 버튼 클릭 시 표시될 아티클의 메인 제목 (문제정의 & 솔루션 소개)'
+    },
+    {
+      name: 'reportBody',
+      title: '아티클 1 (Report) 본문',
+      type: 'array',
+      description: '리포트 아티클 본문 (텍스트, 이미지, 소제목, 인용구 등)',
+      of: [
+        { type: 'block' },
+        { type: 'image', options: { hotspot: true } },
+        {
+          type: 'object',
+          name: 'youtube',
+          title: 'YouTube Embed',
+          fields: [
+            { name: 'url', type: 'url', title: 'YouTube Video URL' }
+          ]
+        },
+        {
+          type: 'object',
+          name: 'slideshow',
+          title: 'Slideshow',
+          fields: [
+            {
+              name: 'images',
+              title: 'Images',
+              type: 'array',
+              of: [{ type: 'image', options: { hotspot: true } }]
+            }
+          ]
+        },
+        {
+          type: 'object',
+          name: 'callout',
+          title: 'Gray Callout Box',
+          fields: [
+            { name: 'title', type: 'string', title: 'Box Title' },
+            { name: 'content', type: 'text', title: 'Box Content' },
+            { name: 'attachmentUrl', type: 'url', title: 'Attachment Link (Optional)' },
+            { name: 'buttonText', type: 'string', title: 'Button Text (Optional)' }
+          ]
+        }
+      ]
+    },
+    {
+      name: 'projectTitle',
+      title: '아티클 2 (Project) 제목',
+      type: 'string',
+      description: '모달의 Project 버튼 클릭 시 표시될 아티클의 메인 제목 (과정 회고)'
+    },
+    {
+      name: 'projectBody',
+      title: '아티클 2 (Project) 본문',
+      type: 'array',
+      description: '프로젝트 아티클 본문 (텍스트, 이미지, 소제목, 인용구 등)',
+      of: [
+        { type: 'block' },
+        { type: 'image', options: { hotspot: true } },
+        {
+          type: 'object',
+          name: 'youtube',
+          title: 'YouTube Embed',
+          fields: [
+            { name: 'url', type: 'url', title: 'YouTube Video URL' }
+          ]
+        },
+        {
+          type: 'object',
+          name: 'slideshow',
+          title: 'Slideshow',
+          fields: [
+            {
+              name: 'images',
+              title: 'Images',
+              type: 'array',
+              of: [{ type: 'image', options: { hotspot: true } }]
+            }
+          ]
+        },
+        {
+          type: 'object',
+          name: 'callout',
+          title: 'Gray Callout Box',
+          fields: [
+            { name: 'title', type: 'string', title: 'Box Title' },
+            { name: 'content', type: 'text', title: 'Box Content' },
+            { name: 'attachmentUrl', type: 'url', title: 'Attachment Link (Optional)' },
+            { name: 'buttonText', type: 'string', title: 'Button Text (Optional)' }
+          ]
+        }
+      ]
+    },
+    {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime'

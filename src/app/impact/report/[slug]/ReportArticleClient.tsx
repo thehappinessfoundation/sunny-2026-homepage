@@ -126,9 +126,18 @@ export default function ReportArticleClient({ project, recentProjects }: { proje
   const [scrollProgress, setScrollProgress] = useState(0);
   const [activeId, setActiveId] = useState<string>('');
 
+  const isProjectTab = tab === 'project';
+  const activeBody = isProjectTab 
+    ? (project.projectBody || project.body) 
+    : (project.reportBody || project.body);
+
+  const activeTitle = isProjectTab
+    ? (project.projectTitle || (project.team === '포레' || project.team?.toLowerCase() === 'fou:re' || project.slug === 'fou-re' || project.title?.includes('고정비 연체') ? '시선이 머물렀던 곳' : project.title))
+    : (project.reportTitle || (project.team === '포레' || project.team?.toLowerCase() === 'fou:re' || project.slug === 'fou-re' || project.title?.includes('고정비 연체') ? '자립준비청년의 통장에는 왜 매달 돈이 부족할까?' : project.title));
+
   const toc = useMemo(() => {
-    if (!project.body) return [];
-    return project.body
+    if (!activeBody) return [];
+    return activeBody
       .filter((block: any) => block._type === 'block' && ['h1', 'h2', 'h3'].includes(block.style))
       .map((block: any) => {
         const text = block.children?.map((child: any) => child.text).join('') || '';
@@ -138,7 +147,7 @@ export default function ReportArticleClient({ project, recentProjects }: { proje
           level: block.style // 'h1', 'h2', 'h3'
         };
       });
-  }, [project.body]);
+  }, [activeBody]);
 
   useEffect(() => {
     if (toc.length === 0) return;
@@ -218,9 +227,7 @@ export default function ReportArticleClient({ project, recentProjects }: { proje
               </span>
             )}
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight word-break-keep">
-              {project.team === '포레' || project.team?.toLowerCase() === 'fou:re' || project.slug === 'fou-re' || project.title?.includes('고정비 연체') 
-                ? (tab === 'project' ? '시선이 머물렀던 곳' : '자립준비청년의 통장에는 왜 매달 돈이 부족할까?') 
-                : project.title}
+              {activeTitle}
             </h1>
             <p className="text-gray-400 text-lg">
               {project.publishedAt ? new Date(project.publishedAt).toISOString().split('T')[0] : ''}
@@ -251,10 +258,10 @@ export default function ReportArticleClient({ project, recentProjects }: { proje
         <div className="w-full relative z-10">
           {/* Article Body */}
           <div className="prose prose-invert max-w-none w-full">
-            {project.team === '포레' || project.team?.toLowerCase() === 'fou:re' || project.slug === 'fou-re' || project.title?.includes('고정비 연체') ? (
+            {(project.team === '포레' || project.team?.toLowerCase() === 'fou:re' || project.slug === 'fou-re' || project.title?.includes('고정비 연체')) && !activeBody ? (
               tab === 'project' ? <FoureProjectContent /> : <FoureReportContent />
-            ) : project.body ? (
-              <PortableText value={project.body} components={portableTextComponents} />
+            ) : activeBody ? (
+              <PortableText value={activeBody} components={portableTextComponents} />
             ) : (
               <p className="text-gray-400">내용이 없습니다.</p>
             )}
@@ -274,17 +281,31 @@ export default function ReportArticleClient({ project, recentProjects }: { proje
               </div>
             )}
             
-            {project.attachmentUrl && (
-              <a 
-                href={project.attachmentUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-sunny-yellow text-sunny-black font-semibold rounded-xl hover:bg-yellow-400 transition-colors"
-              >
-                <Download className="w-5 h-5" />
-                첨부파일 다운로드
-              </a>
-            )}
+            <div className="flex flex-wrap gap-4">
+              {project.reportPdfUrl && (
+                <a 
+                  href={project.reportPdfUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-sunny-yellow text-sunny-black font-semibold rounded-xl hover:bg-yellow-400 transition-colors"
+                >
+                  <Download className="w-5 h-5" />
+                  리포트 PDF 다운로드
+                </a>
+              )}
+
+              {project.attachmentUrl && (
+                <a 
+                  href={project.attachmentUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors"
+                >
+                  <Download className="w-5 h-5" />
+                  첨부파일 다운로드
+                </a>
+              )}
+            </div>
           </div>
 
           {/* Read More Section (Apple Style) */}
