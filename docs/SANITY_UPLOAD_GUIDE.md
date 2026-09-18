@@ -1,61 +1,73 @@
 # Sunny 2026 Impact Report Sanity Upload Guide
 
-본 문서는 다른 컴퓨터에서 안티그래비티(AI) 또는 작업자가 새로운 팀의 리포트를 새니티(Sanity)에 등록할 때 참고하는 가이드입니다.
+본 문서는 다른 컴퓨터에서 작업자 또는 안티그래비티(AI)가 팀 리포트를 새니티(Sanity)에 등록할 때 사용하는 공식 가이드입니다.
 
 ---
 
-## 1. 새니티 접속 정보 및 환경 변수
-다른 컴퓨터의 `.env.local` 또는 환경 변수에 다음 값을 설정합니다:
-```env
-NEXT_PUBLIC_SANITY_PROJECT_ID="u1oyirho"
-NEXT_PUBLIC_SANITY_DATASET="production"
-SANITY_API_WRITE_TOKEN="skDimmdnzIPzxOLBbq59hdXt8gnLNVUdz38CzmDfnk7xAYzCiOEDlpvo5BA3sYxqSdyGwVPbUjNcheCdULEXYYqq4y0lHZ5bpIJpzIPnzXeQdsl9i4UwD0lKFS3LgaK7odWDVNzgogOwcV08DdlZGYmK1yTQB8FkJ6Nn0eidvxByhUJhs2PI"
+## 1. 새니티 접속 정보
+* **Project ID**: `u1oyirho`
+* **Dataset**: `production`
+* **API Write Token**: 작업자 본인의 계정으로 발급받은 `Editor` 권한 토큰 사용
+
+---
+
+## 2. 데이터 등록 핵심 규칙
+
+### ① 영문 slug 생성 규칙
+* 단순 팀명이 아닌, **리포트의 핵심 사회문제/주제를 나타내는 영문 슬러그(kebab-case)**를 자동 생성합니다.
+* 예시:
+  * 경계선 지능 청년 일자리 (두드림) → `borderline-youth-work`
+  * 취약계층 아동 치과 치료 (헤아림) → `child-dental-care`
+  * 가정 밖 청소년 주거 문제 (그린) → `runaway-youth-housing`
+
+### ② 카테고리 및 태그 자동 분류 규칙
+* 문서 내용을 분석하여 메인 대상에 따라 4개 카테고리 중 하나를 지정:
+  * `disability` (장애 관련 - 예: 경계선 지능, 발달장애 등)
+  * `elderly` (노인/고령화 관련)
+  * `multicultural` (다문화/이주민 관련)
+  * `others` (기타 사회문제 - 예: 청소년 주거, 자립준비 등)
+* 본문의 핵심 키워드 3~5개를 한국어 `tags` 배열로 함께 등록 (예: `['경계선지능', '청년일자리', '디딤돌']`).
+
+### ③ 아티클 분류 기준 (역할 중심)
+파일 이름이 '아티클 1, 2'가 아니어도 내용의 **역할**에 따라 유연하게 분류합니다:
+* **[리포트 (Report) 버튼 연동]** (`reportTitle`, `reportBody`):
+  * **문제 정의, 해결 솔루션, 최종 성과와 결과물**을 다룬 콘텐츠
+* **[프로젝트 (Project) 버튼 연동]** (`projectTitle`, `projectBody`):
+  * **현장 조사 과정, 가설 검증, 시행착오, 인터뷰, 팀 회고**를 다룬 콘텐츠
+* *(참고: 두 내용이 파일 하나에 합쳐져 있을 수도 있고, 별도 파일로 나뉘어 있을 수도 있습니다)*
+
+### ④ PDF 취급 규칙
+* **노션 내보내기 PDF**: 노션 원본의 사진 배치와 글 순서를 대조하기 위한 **시각적 참고용**입니다. (다운로드 파일로 자동 등록 금지)
+* **공식 리포트 PDF**: 사용자가 다운로드할 완성본 PDF 파일이 명시적으로 주어졌을 때만 `reportPdf`로 업로드합니다.
+
+---
+
+## 3. 안티그래비티에게 보낼 최종 프롬프트 (복사해서 사용)
+
+새로운 팀 리포트 폴더를 열고, 안티그래비티 채팅창에 아래 문구를 그대로 복사해서 보내시면 됩니다:
+
+```markdown
+이 폴더에 있는 자료들을 읽고 분석해서 Sunny 2026 새니티(Project LAB 스키마)에 등록해줘.
+
+1. 새니티 접속 정보:
+   - Project ID: u1oyirho
+   - Dataset: production
+   - API Write Token: [본인의 Sanity Write Token 입력]
+
+2. 메타데이터 자동 판별:
+   - 팀명: 문서에 명시된 팀명 적용
+   - 카테고리: 본문 주제를 분석해 disability(장애), elderly(노인), multicultural(다문화), others(기타) 중 선택
+   - 태그: 본문 핵심 키워드 3~5개를 tags 배열로 등록
+   - 영문 slug: 팀명이 아니라 리포트의 핵심 주제를 나타내는 영문 슬러그 생성 (예: borderline-youth-work)
+
+3. 아티클 내용 분류:
+   - '문제 정의, 해결책(솔루션), 최종 성과'를 다룬 내용은:
+     👉 [리포트] 탭의 reportTitle과 reportBody로 등록
+   - '현장 조사 과정, 가설 검증, 시행착오, 팀 회고'를 다룬 내용은:
+     👉 [프로젝트] 탭의 projectTitle과 projectBody로 등록
+   - 본문 내 사진들은 함께 제공된 참고용 PDF의 레이아웃을 확인하여 글의 올바른 문맥 위치에 이미지 블록으로 넣어줘.
+
+4. PDF 처리:
+   - 노션 내보내기 PDF는 사진 배치 확인용이므로 다운로드 파일로 올리지 마.
+   - 공식 성과 리포트 PDF가 명시된 경우에만 reportPdf로 업로드해줘.
 ```
-
----
-
-## 2. 새니티 `project` 스키마 필드 구조
-
-리포트 페이지 모달에는 2개의 액션 카드가 있으며 각각 아래 필드와 연동됩니다:
-
-| 모달 버튼 | 새니티 필드명 | 설명 및 예시 |
-| :--- | :--- | :--- |
-| **Card 1: Report** | `reportTitle` | 문제 정의 & 솔루션 아티클 메인 제목 |
-| | `reportBody` | 문제 정의 및 성과 내용 본문 (PortableText: 텍스트, 이미지, 소제목, 인용구 등) |
-| **Card 2: Project** | `projectTitle` | 프로젝트 과정 회고 아티클 메인 제목 |
-| | `projectBody` | 프로젝트 수행 과정 및 회고 본문 (PortableText: 텍스트, 이미지, 소제목, 인용구 등) |
-| **공통 다운로드** | `reportPdf` | 리포트 원본 PDF 파일 에셋 (`.pdf`) |
-| **기본 메타데이터** | `title` | 프로젝트 기본 제목 (목록 카드에 노출) |
-| | `team` | 팀명 (예: `팀 두드림`, `포레`, `등대`) |
-| | `slug` | 고유 영문 슬러그 (예: `doodream`, `fou-re`) |
-| | `category` | `disability`(장애), `elderly`(노인), `multicultural`(다문화), `others`(기타) |
-| | `teamMembers` | 팀원 이름 목록 (예: `홍길동, 김철수, 이영희`) |
-| | `shortDescription` | 한 줄 요약 |
-
----
-
-## 3. 다른 컴퓨터의 안티그래비티에게 지시하는 프롬프트
-
-양식이 제각각인 문서(마크다운, PDF, 사진들)를 전달할 때 안티그래비티에게 다음과 같이 지시하면 알아서 내용을 분석해 등록합니다:
-
-> *"첨부한 팀 리포트 문서와 사진들을 분석해서 Sunny 2026 새니티(`project` 스키마)에 등록해줘.*
-> *1. **문제 정의, 해결책, 최종 성과**에 해당하는 내용은 `reportTitle`과 `reportBody`에,*
-> *2. **현장 조사 과정, 가설 검증, 시행착오, 팀 회고**에 해당하는 내용은 `projectTitle`과 `projectBody`에 적절히 분류해줘.*
-> *3. 이미지가 본문 어디에 들어가야 할지 매칭해서 이미지 블록으로 결합하고, PDF 파일은 `reportPdf`로 업로드해줘.*
-> *4. 팀명과 카테고리, 영문 slug도 설정해줘."*
-
-### 만약 양식이 다를 경우의 처리 규칙:
-* **내용이 1개로 합쳐져 있는 경우**: `reportTitle`과 `reportBody`에 전체 내용을 넣고, `projectTitle`에는 "프로젝트 과정 회고", `projectBody`에는 핵심 요약 또는 노션 아카이빙 링크를 넣어줍니다.
-* **마크다운 없이 PDF만 있는 경우**: 안티그래비티가 PDF 텍스트를 추출하여 제목과 개요를 생성하고, 공식 보고서 PDF인 경우 `reportPdf`에 연결합니다.
-
----
-
-## 4. ⚠️ PDF 파일 취급 주의사항 (중요)
-
-* **참고용 PDF (노션 내보내기 PDF)**:
-  * 노션 폴더에 함께 들어있는 PDF 파일은 **"노션 원본 페이지에서 사진이 어떤 순서와 위치로 배치되었는지를 눈으로 대조/확인하기 위한 용도"**입니다.
-  * 이 참고용 PDF를 웹사이트의 다운로드용 `reportPdf`에 자동으로 등록하지 **않습니다**.
-* **다운로드용 공식 리포트 PDF**:
-  * 실제로 사용자가 다운로드받을 완성형 리포트 PDF는 팀/담당자가 명시적으로 지정하거나, 새니티 관리자 화면(`https://besunny.com/studio`)에서 해당 프로젝트의 **[Report PDF Upload]** 항목에 직접 드래그 앤 드롭으로 업로드합니다.
-  * `reportPdf` 필드가 비어 있으면 홈페이지 본문 하단에 '리포트 PDF 다운로드' 버튼이 자동으로 숨겨집니다.
-
